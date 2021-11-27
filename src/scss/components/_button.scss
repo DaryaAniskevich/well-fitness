@@ -1,0 +1,31 @@
+.button {
+  outline: none;
+  border: none;
+  background: $button-gray;
+  border-radius: 6px;
+  padding: 10px;
+  color: $text-gray;
+  line-height: 17px;
+  &_red {
+    color: $red;
+    background-color: transparent;
+    line-height: 140%;
+    padding: 0;
+  }
+  &_unbordered {
+    color: $white;
+    background-color: transparent;
+    line-height: 140%;
+    padding: 0;
+  }
+  &_catalog {
+    background-color: red;
+    background-image: url("../../images/catalog.svg");
+    background-repeat: no-repeat;
+    background-position: 24px;
+    background-size: 16px;
+    padding: 16px 16px 16px 50px;
+    color: $white;
+    border-radius: 4px;
+  }
+}

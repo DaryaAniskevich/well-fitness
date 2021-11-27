@@ -1,0 +1,165 @@
+.header {
+  background-color: $main-dark-gray;
+  color: $light-gray;
+
+  &-border {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(133, 143, 164, 0.15);
+  }
+  &-main {
+    display: flex;
+    align-items: center;
+    padding: 24px 0 28px;
+  }
+  &-logo {
+    display: flex;
+    margin-right: 50px;
+    &__img {
+      width: 280px;
+      height: 29px;
+    }
+  }
+  &-city-select {
+    margin-right: 229px;
+    cursor: pointer;
+  }
+  &__link {
+    color: $light-gray;
+    margin-right: 30px;
+    white-space: nowrap;
+  }
+  &__button {
+    margin-right: 61px;
+    white-space: nowrap;
+  }
+  &-phone {
+    display: flex;
+    align-items: center;
+    margin-right: 61px;
+    &-select {
+      margin-right: 26px;
+      cursor: pointer;
+    }
+    &__button {
+      white-space: nowrap;
+    }
+  }
+  &-sign {
+    display: flex;
+    align-items: center;
+    &__button {
+      margin-right: 14px;
+    }
+    &__img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &-navigation {
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+    &__button {
+      margin-right: 51px;
+    }
+    &-form {
+      margin-right: 48px;
+      &__input {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        border-right: 1px solid rgba(133, 143, 164, 0.15);
+        background-image: url("../../images/search.svg");
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position-y: 10px;
+        padding: 5px;
+        width: 52px;
+        height: 40px;
+        cursor: pointer;
+      }
+    }
+    &-nav {
+      margin-right: 214px;
+    }
+    &-buttons {
+      display: flex;
+      &-item {
+        position: relative;
+        font-size: 10px;
+        line-height: 12px;
+        &:not(:last-child) {
+          margin-right: 47px;
+        }
+        &__img {
+          &_comparison {
+            width: 17px;
+            height: 17px;
+          }
+          &_favorite {
+            width: 24px;
+            height: 20px;
+          }
+          &_cart {
+            width: 21px;
+            height: 24px;
+          }
+        }
+        &__span {
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          padding: 2px;
+          color: $white;
+          background-color: $red;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: nowrap;
+          position: absolute;
+          top: -3px;
+          right: -10px;
+          font-size: 10px;
+          line-height: 12px;
+          border: 2px solid $main-dark-gray;
+        }
+      }
+    }
+  }
+  &-menu {
+    background-color: $minor-gray;
+    &-container {
+      padding: 14px 0;
+      display: flex;
+    }
+    &-item {
+      color: $white;
+      padding-right: 35px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      &:not(:first-child) {
+        padding-left: 19px;
+      }
+      &:not(:last-child) {
+        &::after {
+          content: "";
+          display: block;
+          width: 1px;
+          height: 30px;
+          background-color: rgba(255, 255, 255, 0.15);
+          border-radius: 1px;
+          position: absolute;
+          right: 0;
+        }
+      }
+      &__img {
+        width: 6px;
+        height: 4px;
+        margin-left: 10px;
+      }
+    }
+  }
+}

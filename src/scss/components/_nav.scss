@@ -1,0 +1,10 @@
+.nav {
+  display: flex;
+  flex-wrap: nowrap;
+  &__item {
+    color: $white;
+    &:not(:last-child) {
+      margin-right: 36px;
+    }
+  }
+}
