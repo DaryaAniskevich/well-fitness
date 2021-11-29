@@ -1,0 +1,33 @@
+.partner {
+  &-container {
+    background-color: $main-dark-gray;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 115px 0 98px;
+    border-radius: 6px;
+  }
+  &__background {
+    background-image: url("../../images/partner-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 484px;
+    height: 390px;
+    align-self: flex-end;
+  }
+  &-content {
+    width: 572px;
+    align-self: center;
+    margin-left: 141px;
+    &__title {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 43px;
+      color: $white;
+      margin-bottom: 30px;
+      &_red {
+        color: $red;
+      }
+    }
+  }
+}

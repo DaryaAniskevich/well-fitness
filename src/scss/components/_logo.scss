@@ -1,0 +1,11 @@
+.logo {
+  display: flex;
+  &__img {
+    width: 280px;
+    height: 29px;
+    &_small {
+      width: 275px;
+      height: 34px;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.banner {
+  background-color: $light-gray;
+  background-image: url("../../images/banner-run.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  &-container {
+    padding: 83px 203px 30px 195px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &-content {
+    align-self: flex-start;
+    width: 512px;
+    &__heading {
+      font-weight: 900;
+      font-size: 50px;
+      line-height: 55px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      &_light {
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      &_red {
+        font-size: 24px;
+        line-height: 26px;
+        color: $red;
+      }
+    }
+    &__button {
+      margin-bottom: 50px;
+    }
+  }
+  &-buttons {
+    align-self: flex-end;
+
+    &__item {
+      font-weight: 700;
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+}

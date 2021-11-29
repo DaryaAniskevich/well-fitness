@@ -1,0 +1,30 @@
+.discount {
+  &-container {
+    padding: 124px 0 103px;
+  }
+  &-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+    &__heading {
+      margin-right: 30px;
+    }
+    &-buttons {
+      padding-top: 5px;
+      &__item {
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 24px;
+        color: #828282;
+        &:not(:last-child) {
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+  &-cards {
+    display: flex;
+    grid-gap: 30px;
+    margin-bottom: 30px;
+  }
+}

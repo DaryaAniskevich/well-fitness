@@ -1,0 +1,25 @@
+.news-card {
+  width: 315px;
+  background-color: $bg-color;
+  &__img {
+    width: 315px;
+    height: 260px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+  }
+  &__heading {
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 10px;
+  }
+  &__paragraf {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    width: 250px;
+    &_light {
+      opacity: 0.5;
+    }
+  }
+}

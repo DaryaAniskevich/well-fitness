@@ -1,0 +1,22 @@
+.ideas {
+  background-color: $main-dark-gray;
+  &-container {
+    padding: 119px 0 102px;
+  }
+  &__heading {
+    margin-bottom: 30px;
+  }
+  &-block {
+    display: flex;
+    justify-content: space-between;
+    grid-gap: 30px;
+    margin-bottom: 30px;
+    &-item {
+      border-radius: 6px;
+      cursor: pointer;
+      &__img {
+        border-radius: 6px;
+      }
+    }
+  }
+}

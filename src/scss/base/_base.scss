@@ -26,6 +26,9 @@ body {
   width: 100%;
   max-width: 1410px;
   margin: 0 auto;
+  &_wide {
+    max-width: 1500px;
+  }
 }
 
 input[type="text"],

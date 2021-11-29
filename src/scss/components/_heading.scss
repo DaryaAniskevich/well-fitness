@@ -1,0 +1,8 @@
+.heading {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 33px;
+  &_white {
+    color: $white;
+  }
+}

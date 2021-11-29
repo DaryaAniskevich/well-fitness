@@ -1,0 +1,25 @@
+.news {
+  &-container {
+    padding: 120px 0 60px;
+  }
+  &-heading {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    &__heading {
+      margin-right: 30px;
+    }
+    &__button {
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 24px;
+      color: #828282;
+      padding-top: 5px;
+    }
+  }
+  &-cards {
+    display: flex;
+    grid-gap: 30px;
+    margin-bottom: 30px;
+  }
+}

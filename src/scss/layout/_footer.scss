@@ -1,2 +1,128 @@
 .footer {
+  background-color: $main-dark-gray;
+  &-container {
+    padding: 88px 0 28px;
+    border-bottom: 1px solid rgba(133, 143, 164, 0.15);
+    display: flex;
+    color: $light-gray;
+    &_bottom {
+      padding: 51px 0;
+      color: $light-gray;
+    }
+  }
+  &-links {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 243px;
+    width: 930px;
+    &-item {
+      display: flex;
+      flex-direction: column;
+
+      &__title {
+        color: $white;
+        margin-bottom: 40px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 21px;
+      }
+      &-list {
+        display: flex;
+        flex-direction: column;
+        &__item {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 21px;
+          color: $light-gray;
+          &:hover {
+            color: $white;
+          }
+          &:not(:last-child) {
+            margin-bottom: 12px;
+          }
+        }
+      }
+    }
+  }
+  &-contacts {
+    &-block {
+      &__item {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: $light-gray;
+        margin-bottom: 8px;
+      }
+      &__button {
+        margin-bottom: 23px;
+      }
+    }
+    &-links {
+      margin-top: 17px;
+      font-size: 14px;
+      line-height: 20px;
+      color: $blue;
+      display: flex;
+      flex-direction: column;
+      &__item {
+        &:not(:last-child) {
+          margin-bottom: 7px;
+        }
+      }
+    }
+  }
+  &-input {
+    margin-bottom: 50px;
+    &__item {
+      border: none;
+      outline: none;
+      background-color: rgba(133, 143, 164, 0.15);
+      border-radius: 5px;
+      width: 255px;
+      padding: 14px 34px 14px 14px;
+      background-image: url("../../images/subscribe.svg");
+      background-repeat: no-repeat;
+      background-position-x: 220px;
+      background-position-y: 50%;
+      background-size: auto;
+      color: $light-gray;
+    }
+  }
+  &-bottom {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  &-logo {
+    margin-right: 206px;
+  }
+  &-socials {
+    margin-right: 148px;
+    &__item {
+      width: 24px;
+      height: 24px;
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+  &__button {
+    margin-right: 40px;
+    &_unbordered {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+      color: $light-gray;
+      margin-right: 90px;
+    }
+  }
+  &-payment {
+    display: flex;
+    align-items: center;
+    &__item {
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
+  }
 }
