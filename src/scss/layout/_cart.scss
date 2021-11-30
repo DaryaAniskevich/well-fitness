@@ -1,0 +1,61 @@
+.modal-cart {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  width: 500px;
+  background-color: $white;
+  box-shadow: 0px 10px 30px rgba(133, 143, 164, 0.1);
+  border-radius: 5px;
+  padding: 17px 18px 22px;
+  &-goods {
+    margin-bottom: 18px;
+    &-item {
+      display: flex;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(133, 143, 164, 0.15);
+      &__img {
+        width: 68px;
+        height: 68px;
+        margin-right: 12px;
+      }
+      &__name {
+        font-size: 16px;
+        line-height: 150%;
+        margin-right: 12px;
+      }
+      &__price {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: $button-gray;
+        margin-right: 34px;
+        white-space: nowrap;
+      }
+      &-button {
+        width: 16px;
+        height: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+          .modal-cart-goods-item-button__svg {
+            fill: $minor-gray;
+          }
+        }
+      }
+    }
+  }
+  &-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    &-price {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+      color: $main-dark-gray;
+    }
+  }
+}

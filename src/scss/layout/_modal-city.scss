@@ -1,0 +1,40 @@
+.modal-city {
+  &-content {
+    margin-top: 250px;
+    width: 750px;
+    background: $white;
+    box-shadow: 0px 10px 30px rgba(133, 143, 164, 0.1);
+    border-radius: 6px;
+    padding: 20px 20px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    &__title {
+      margin-bottom: 28px;
+    }
+    &-form {
+      margin-bottom: 14px;
+      position: relative;
+      &__input {
+        background: $text-gray;
+        border: 1px solid rgba(133, 143, 164, 0.15);
+        border-radius: 5px;
+        width: 100%;
+        padding: 15px 20px;
+      }
+      &-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 13px;
+        width: 22px;
+        height: 22px;
+      }
+    }
+    &__text {
+      color: #858fa4;
+      &_red {
+        color: $red;
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 .header {
   background-color: $main-dark-gray;
   color: $light-gray;
-
+  position: relative;
   &-border {
     width: 100%;
     height: 1px;
@@ -15,9 +15,19 @@
   &-logo {
     margin-right: 50px;
   }
-  &-city-select {
+  &-city {
+    display: flex;
+    align-items: center;
     margin-right: 229px;
     cursor: pointer;
+    &__item {
+      margin-right: 10px;
+      white-space: nowrap;
+    }
+    &__img {
+      width: 6px;
+      height: 6px;
+    }
   }
   &__link {
     color: $light-gray;
@@ -29,15 +39,51 @@
     white-space: nowrap;
   }
   &-phone {
+    position: relative;
     display: flex;
     align-items: center;
     margin-right: 61px;
-    &-select {
+    &-choosen {
       margin-right: 26px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      &__item {
+        margin-right: 4px;
+      }
+    }
+    &__img {
+      width: 6px;
+      height: 6px;
     }
     &__button {
       white-space: nowrap;
+    }
+    &-open {
+      width: 210px;
+      position: absolute;
+      padding: 5px 39px 7px 12px;
+      background-color: $text-gray;
+      box-shadow: 0px 10px 30px rgba(133, 143, 164, 0.1);
+      border-radius: 5px;
+      top: -25px;
+      left: -25px;
+      &__item {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 150%;
+        color: $button-gray;
+        padding: 10px 5px 5px;
+
+        &_light {
+          font-size: 12px;
+          color: #909cb5;
+        }
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba(133, 143, 164, 0.15);
+        }
+      }
     }
   }
   &-sign {
@@ -55,31 +101,40 @@
     padding: 16px 0;
     display: flex;
     align-items: center;
-    &__button {
-      margin-right: 51px;
-    }
-    &-form {
+    &-buttons {
       margin-right: 48px;
-      &__input {
-        background-color: transparent;
-        outline: none;
-        border: none;
+      &:after {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 40px;
+        background-color: rgba(133, 143, 164, 0.15);
+        border-radius: 1px;
+        margin-left: 30px;
+        align-self: center;
+      }
+      &__catalog {
+        margin-right: 51px;
+      }
+
+      &-search {
         border-right: 1px solid rgba(133, 143, 164, 0.15);
-        background-image: url("../../images/search.svg");
-        background-repeat: no-repeat;
-        background-size: 20px;
-        background-position-y: 10px;
         padding: 5px;
         width: 52px;
         height: 40px;
-        cursor: pointer;
+        &__img {
+          width: 52px;
+          height: 40px;
+        }
       }
     }
+
     &-nav {
       margin-right: 214px;
     }
     &-buttons {
       display: flex;
+      position: relative;
       &-item {
         position: relative;
         font-size: 10px;

@@ -1,0 +1,52 @@
+.modal-call {
+  &-content {
+    margin-top: 150px;
+    max-width: 600px;
+    width: 100%;
+    background-color: $white;
+    box-shadow: 0px 10px 30px rgba(133, 143, 164, 0.1);
+    border-radius: 6px;
+    padding: 18px 45px 47px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__title {
+      margin-bottom: 20px;
+    }
+    &-form {
+      display: flex;
+      flex-direction: column;
+      &__label {
+        font-size: 16px;
+        line-height: 24px;
+        color: $button-gray;
+        margin-bottom: 4px;
+        &_red {
+          color: $red;
+        }
+      }
+      &__input {
+        padding: 8px 10px;
+        border-radius: 6px;
+        border: 1px solid rgba(144, 156, 181, 0.5);
+        background-color: $text-gray;
+        width: 100%;
+        &:not(:last-child) {
+          margin-bottom: 12px;
+        }
+      }
+      &-text {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: $light-gray;
+        text-align: center;
+        &__link {
+          color: $red;
+        }
+      }
+    }
+  }
+}

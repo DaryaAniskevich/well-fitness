@@ -1,0 +1,98 @@
+.catalog {
+  position: absolute;
+  background-color: $white;
+  width: 100%;
+  top: 170px;
+  &:before {
+    content: "";
+    display: block;
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    background-color: $white;
+    position: absolute;
+    top: -4px;
+    left: 105px;
+  }
+  &-container {
+    padding: 16px 0 22px;
+  }
+  &-type {
+    display: flex;
+    position: relative;
+    &:after {
+      display: block;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: rgba(133, 143, 164, 0.2);
+      position: absolute;
+      bottom: 2px;
+      z-index: 1;
+    }
+    &__item {
+      color: $main-dark-gray;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 130%;
+      margin-right: 36px;
+      padding: 0 0 12px;
+      z-index: 3;
+      cursor: pointer;
+      &_active {
+        font-weight: 700px;
+        border-bottom: 4px solid $red;
+      }
+    }
+  }
+  &-category {
+    display: flex;
+    &-name {
+      width: 327px;
+      padding: 31px 0 0;
+      border-right: 1px solid rgba(133, 143, 164, 0.2);
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      color: $main-dark-gray;
+      &__item {
+        padding: 12px;
+        cursor: pointer;
+        &:hover {
+          background-color: $text-gray;
+        }
+        &_active {
+          background-color: $text-gray;
+        }
+        &_arrow {
+          font-weight: 400;
+          color: #909cb5;
+          margin-left: 8px;
+        }
+      }
+    }
+    &-subcategory {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 90px;
+      grid-gap: 22px;
+      &-item {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        width: 330px;
+        &__img {
+          width: 90px;
+          height: 90px;
+        }
+        &__title {
+          width: 150px;
+          font-size: 16px;
+          line-height: 150%;
+          color: $main-dark-gray;
+        }
+      }
+    }
+  }
+}

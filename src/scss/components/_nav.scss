@@ -3,6 +3,7 @@
   flex-wrap: nowrap;
   &__item {
     color: $white;
+    white-space: nowrap;
     &:not(:last-child) {
       margin-right: 36px;
     }

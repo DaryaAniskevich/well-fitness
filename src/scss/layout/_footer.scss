@@ -73,6 +73,9 @@
   }
   &-input {
     margin-bottom: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     &__item {
       border: none;
       outline: none;
@@ -80,12 +83,19 @@
       border-radius: 5px;
       width: 255px;
       padding: 14px 34px 14px 14px;
-      background-image: url("../../images/subscribe.svg");
-      background-repeat: no-repeat;
-      background-position-x: 220px;
-      background-position-y: 50%;
-      background-size: auto;
       color: $light-gray;
+    }
+    &__button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 17px;
+    }
+    &__success {
+      display: none;
+      position: absolute;
+      bottom: -30px;
+      color: $green;
     }
   }
   &-bottom {
@@ -98,6 +108,8 @@
   }
   &-socials {
     margin-right: 148px;
+    display: flex;
+    flex-wrap: nowrap;
     &__item {
       width: 24px;
       height: 24px;
@@ -108,6 +120,7 @@
   }
   &__button {
     margin-right: 40px;
+    white-space: nowrap;
     &_unbordered {
       font-weight: 700;
       font-size: 14px;
