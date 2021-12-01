@@ -16,7 +16,7 @@
       <div class="header-phone-choosen">
         <div class="header-phone-choosen__item select-choosen__item_small">
           <span class="header-phone-choosen__item_white"
-            >+7 (800) 000-00-00</span
+            >+7 (800) 999-00-00</span
           >
           МСК
         </div>
@@ -24,12 +24,12 @@
       </div>
       <div class="header-phone-open hide">
           <div class="header-phone-open__item">
-           +7 (800) 000-00-00
-           <span class="header-phone-open__item_light"> для Москвы</span>
+            <span data-phone="+7 (800) 999-00-00">+7 (800) 999-00-00</span>
+           <span class="header-phone-open__item_light" data-city="МСК"> для Москвы</span>
           </div>
           <div class="header-phone-open__item" value="Санкт-Петербург">
-            +7 (800) 000-00-00
-            <span class="header-phone-open__item_light">для регионов РФ</span>
+            <span data-phone="+7 (800) 000-00-00">+7 (800) 000-00-00</span>
+            <span class="header-phone-open__item_light" data-city="регионы">для регионов РФ</span>
           </li>
         </div>
       </div>
@@ -46,11 +46,11 @@
   </div>
   <div class="header-border"></div>
   <div class="header-navigation container">
-    <div class="header-navigation-buttons">
-      <button class="header-navigation-buttons__catalog button button_catalog">
+    <div class="header-navigation-catalog">
+      <button class="header-navigation-catalog__button button button_catalog">
         Каталог
       </button>
-      <button class="header-navigation-buttons__search button button_unbordered" ><img src="./images/search.svg" alt="search" class="header-navigation-form-button__img"></button>
+      <button class="header-navigation-catalog-search button button_unbordered" ><img src="./images/search.svg" alt="search" class="header-navigation-catalog-search__img"></button>
     </div>
     <nav class="header-navigation-nav nav">
       <a href="#" class="header-navigation-nav__item nav__item">Бренды</a>
@@ -83,7 +83,7 @@
           alt="favorite"
         /><span class="header-navigation-buttons-item__span">15</span>
       </button>
-      <button class="header-navigation-buttons-item button button_unbordered">
+      <button class="header-navigation-buttons-item header-navigation-buttons-item_cart button button_unbordered">
         <img
           class="
             header-navigation-buttons-item__img
@@ -108,6 +108,4 @@
       </div>
     </div>
   </div>
-  @@include("./_catalog.html")
-  @@include("./_search.html")
 </header>

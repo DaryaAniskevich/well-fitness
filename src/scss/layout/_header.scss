@@ -51,6 +51,9 @@
       white-space: nowrap;
       &__item {
         margin-right: 4px;
+        &_white {
+          color: $white;
+        }
       }
     }
     &__img {
@@ -75,6 +78,7 @@
         line-height: 150%;
         color: $button-gray;
         padding: 10px 5px 5px;
+        cursor: pointer;
 
         &_light {
           font-size: 12px;
@@ -101,7 +105,9 @@
     padding: 16px 0;
     display: flex;
     align-items: center;
-    &-buttons {
+    &-catalog {
+      display: flex;
+      align-items: center;
       margin-right: 48px;
       &:after {
         content: "";
@@ -113,18 +119,19 @@
         margin-left: 30px;
         align-self: center;
       }
-      &__catalog {
+      &__button {
         margin-right: 51px;
       }
 
       &-search {
-        border-right: 1px solid rgba(133, 143, 164, 0.15);
         padding: 5px;
         width: 52px;
-        height: 40px;
+        height: 30px;
+
         &__img {
-          width: 52px;
-          height: 40px;
+          width: 20px;
+          height: 20px;
+          vertical-align: middle;
         }
       }
     }

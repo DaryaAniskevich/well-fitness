@@ -42,6 +42,11 @@
       align-items: center;
       justify-content: center;
       position: absolute;
+      &:hover {
+        .good-card-icons-item__img {
+          fill: $red;
+        }
+      }
       &_comparison {
         background-color: transparent;
         right: 30px;
@@ -62,14 +67,6 @@
         &_new {
           width: 27px;
           height: 11px;
-        }
-        &_comparison {
-          width: 17px;
-          height: 17px;
-        }
-        &_favorite {
-          width: 20px;
-          height: 17px;
         }
       }
       &_red {

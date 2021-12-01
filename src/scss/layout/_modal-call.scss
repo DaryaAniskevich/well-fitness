@@ -37,7 +37,6 @@
       }
       &-text {
         margin-top: 20px;
-        margin-bottom: 20px;
         font-weight: 500;
         font-size: 14px;
         line-height: 20px;
@@ -46,6 +45,20 @@
         &__link {
           color: $red;
         }
+        &_success {
+          color: $green;
+        }
+        &_error {
+          color: $red;
+        }
+      }
+      &__error {
+        color: $red;
+        font-size: 12px;
+        line-height: 14px;
+      }
+      &__button {
+        margin-top: 20px;
       }
     }
   }

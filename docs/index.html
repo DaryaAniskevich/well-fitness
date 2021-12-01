@@ -26,7 +26,7 @@
       <div class="header-phone-choosen">
         <div class="header-phone-choosen__item select-choosen__item_small">
           <span class="header-phone-choosen__item_white"
-            >+7 (800) 000-00-00</span
+            >+7 (800) 999-00-00</span
           >
           МСК
         </div>
@@ -34,12 +34,12 @@
       </div>
       <div class="header-phone-open hide">
           <div class="header-phone-open__item">
-           +7 (800) 000-00-00
-           <span class="header-phone-open__item_light"> для Москвы</span>
+            <span data-phone="+7 (800) 999-00-00">+7 (800) 999-00-00</span>
+           <span class="header-phone-open__item_light" data-city="МСК"> для Москвы</span>
           </div>
           <div class="header-phone-open__item" value="Санкт-Петербург">
-            +7 (800) 000-00-00
-            <span class="header-phone-open__item_light">для регионов РФ</span>
+            <span data-phone="+7 (800) 000-00-00">+7 (800) 000-00-00</span>
+            <span class="header-phone-open__item_light" data-city="регионы">для регионов РФ</span>
           </li>
         </div>
       </div>
@@ -56,11 +56,11 @@
   </div>
   <div class="header-border"></div>
   <div class="header-navigation container">
-    <div class="header-navigation-buttons">
-      <button class="header-navigation-buttons__catalog button button_catalog">
+    <div class="header-navigation-catalog">
+      <button class="header-navigation-catalog__button button button_catalog">
         Каталог
       </button>
-      <button class="header-navigation-buttons__search button button_unbordered" ><img src="./images/search.svg" alt="search" class="header-navigation-form-button__img"></button>
+      <button class="header-navigation-catalog-search button button_unbordered" ><img src="./images/search.svg" alt="search" class="header-navigation-catalog-search__img"></button>
     </div>
     <nav class="header-navigation-nav nav">
       <a href="#" class="header-navigation-nav__item nav__item">Бренды</a>
@@ -93,7 +93,7 @@
           alt="favorite"
         /><span class="header-navigation-buttons-item__span">15</span>
       </button>
-      <button class="header-navigation-buttons-item button button_unbordered">
+      <button class="header-navigation-buttons-item header-navigation-buttons-item_cart button button_unbordered">
         <img
           class="
             header-navigation-buttons-item__img
@@ -103,7 +103,7 @@
           alt="cart"
         /><span class="header-navigation-buttons-item__span">1</span>
       </button>
-      <div class="modal-cart">
+      <div class="modal-cart hide">
   <div class="modal-cart-goods">
     <div class="modal-cart-goods-item">
       <img
@@ -182,164 +182,6 @@
       </div>
     </div>
   </div>
-  <div class="catalog hide">
-  <div class="container catalog-container">
-    <div class="catalog-type">
-      <div class="catalog-type__item catalog-type__item_active">Для дома</div>
-      <div class="catalog-type__item">Для фитнес клубов</div>
-    </div>
-    <div class="catalog-category">
-      <div class="catalog-category-name">
-        <div
-          class="catalog-category-name__item catalog-category-name__item_active"
-        >
-          Кардиотренажеры
-          <span class="catalog-category-name__item_arrow"> &#8594;</span>
-        </div>
-        <div class="catalog-category-name__item">
-          Силовые тренажеры
-          <span class="catalog-category-name__item_arrow"> &#8594;</span>
-        </div>
-        <div class="catalog-category-name__item">
-          Уличные виды спорта
-          <span class="catalog-category-name__item_arrow"> &#8594;</span>
-        </div>
-        <div class="catalog-category-name__item">
-          Свободные веса
-          <span class="catalog-category-name__item_arrow"> &#8594;</span>
-        </div>
-        <div class="catalog-category-name__item">
-          Игровые столы
-          <span class="catalog-category-name__item_arrow"> &#8594;</span>
-        </div>
-        <div class="catalog-category-name__item">
-          Массажное оборудование
-          <span class="catalog-category-name__item_arrow"> &#8594;</span>
-        </div>
-        <div class="catalog-category-name__item">
-          Фитнес аксессуары
-          <span class="catalog-category-name__item_arrow"> &#8594;</span>
-        </div>
-        <div class="catalog-category-name__item">
-          Функциональный тренинг
-          <span class="catalog-category-name__item_arrow"> &#8594;</span>
-        </div>
-      </div>
-      <div class="catalog-category-subcategory">
-        <div class="catalog-category-subcategory-item">
-          <img
-            src="./images/good.png"
-            alt="тренажер"
-            class="catalog-category-subcategory-item__img"
-          />
-          <div class="catalog-category-subcategory-item__title">
-            Беговые дорожки
-          </div>
-        </div>
-        <div class="catalog-category-subcategory-item">
-          <img
-            src="./images/good.png"
-            alt="тренажер"
-            class="catalog-category-subcategory-item__img"
-          />
-          <div class="catalog-category-subcategory-item__title">
-            Эллиптические тренажеры
-          </div>
-        </div>
-        <div class="catalog-category-subcategory-item">
-          <img
-            src="./images/good.png"
-            alt="тренажер"
-            class="catalog-category-subcategory-item__img"
-          />
-          <div class="catalog-category-subcategory-item__title">
-            Велотренажеры
-          </div>
-        </div>
-        <div class="catalog-category-subcategory-item">
-          <img
-            src="./images/good.png"
-            alt="тренажер"
-            class="catalog-category-subcategory-item__img"
-          />
-          <div class="catalog-category-subcategory-item__title">Cтепперы</div>
-        </div>
-        <div class="catalog-category-subcategory-item">
-          <img
-            src="./images/good.png"
-            alt="тренажер"
-            class="catalog-category-subcategory-item__img"
-          />
-          <div class="catalog-category-subcategory-item__title">
-            Гребные тренажеры
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <div class="search hide">
-  <div class="container search-container">
-    <form class="search-form">
-      <input class="search-form__input" />
-      <button class="search-form-button button button_unbordered">
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M15.4592 3.15144L10.6113 7.99986L15.4592 12.8481C16.1803 13.5694 16.1803 14.738 15.4592 15.4593C15.0989 15.8196 14.6265 15.9999 14.1544 15.9999C13.6814 15.9999 13.209 15.8199 12.849 15.4593L8.00004 10.6106L3.15143 15.4593C2.79118 15.8196 2.31876 15.9999 1.8462 15.9999C1.37378 15.9999 0.901677 15.8199 0.541103 15.4593C-0.18 14.7382 -0.18 13.5697 0.541103 12.848L5.38888 7.99981L0.540827 3.15144C-0.180276 2.43033 -0.180276 1.26152 0.540827 0.540414C1.26179 -0.180138 2.42992 -0.180138 3.15116 0.540414L7.99999 5.38884L12.8485 0.540414C13.5698 -0.180138 14.7381 -0.180138 15.4589 0.540414C16.1803 1.26152 16.1803 2.43033 15.4592 3.15144Z"
-            fill="#858FA4"
-            class="search-form-button__svg"
-          />
-        </svg>
-      </button>
-    </form>
-    <div class="search-result">
-      <div class="search-result-header">
-        <div class="search-result-header__text">
-          Найдено <span class="search-result-header__number">53 товара</span>
-        </div>
-        <button class="search-result-header__button button button_light">
-          Для дома
-        </button>
-        <button class="search-result-header__button button button_light">
-          Для фитнес клубов
-        </button>
-      </div>
-    </div>
-    <div class="search-result-main">
-      <div class="search-result-main-item good-card good-card_seacrh">
-        <img
-          src="./images/good.png"
-          alt="good"
-          class="good-card__image good-card__image_search"
-        />
-        <div class="good-card-description">
-          <h4 class="good-card__heading good-card__heading_seacrh">
-            Беговая дорожка CardioPower S35
-          </h4>
-          <div class="good-card-rating good-card-rating_search">Рейтинг</div>
-          <div class="good-card-bottom">
-            <div class="good-card-price">
-              <div class="good-card-price__item good-card-price__item_search">
-                1 114 900 ₽
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="search-result__button button button_full-red">
-      Показать все результаты
-    </button>
-  </div>
-</div>
-
 </header>
 
     <main class="main">
@@ -523,24 +365,79 @@
                 button
               "
             >
-              <img
-                class="
-                  good-card-icons-item__img good-card-icons-item__img_comparison
-                "
-                src="./images/comparison_gr.svg"
-                alt="comparison"
-              />
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  y="7"
+                  width="2"
+                  height="10"
+                  rx="1"
+                  fill="#858FA4"
+                  class="
+                    good-card-icons-item__img
+                    good-card-icons-item__img_comparison
+                  "
+                />
+                <rect
+                  x="5"
+                  width="2"
+                  height="17"
+                  rx="1"
+                  fill="#858FA4"
+                  class="
+                    good-card-icons-item__img
+                    good-card-icons-item__img_comparison
+                  "
+                />
+                <rect
+                  x="10"
+                  y="7"
+                  width="2"
+                  height="10"
+                  rx="1"
+                  fill="#858FA4"
+                  class="
+                    good-card-icons-item__img
+                    good-card-icons-item__img_comparison
+                  "
+                />
+                <rect
+                  x="15"
+                  y="4"
+                  width="2"
+                  height="13"
+                  rx="1"
+                  fill="#858FA4"
+                  class="
+                    good-card-icons-item__img
+                    good-card-icons-item__img_comparison
+                  "
+                />
+              </svg>
             </button>
             <button
               class="good-card-icons-item good-card-icons-item_favorite button"
             >
-              <img
-                class="
-                  good-card-icons-item__img good-card-icons-item__img_favorite
-                "
-                src="./images/favorite_gr.svg"
-                alt="favorite"
-              />
+              <svg
+                width="21"
+                height="17"
+                viewBox="0 0 21 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.757 1.66341C16.5388 -0.55417 12.9303 -0.55417 10.7127 1.66341L10.1976 2.17818L9.68282 1.66341C7.46524 -0.55447 3.85642 -0.55447 1.63884 1.66341C-0.533711 3.83597 -0.547819 7.2797 1.60613 9.67407C3.57067 11.8571 9.36465 16.5735 9.61049 16.7731C9.77737 16.9088 9.97818 16.9749 10.1778 16.9749C10.1844 16.9749 10.191 16.9749 10.1973 16.9746C10.4038 16.9842 10.6118 16.9133 10.7841 16.7731C11.0299 16.5735 16.8245 11.8571 18.7897 9.67377C20.9433 7.2797 20.9292 3.83597 18.757 1.66341ZM17.451 8.46923C15.9192 10.1708 11.7089 13.6803 10.1973 14.9257C8.68569 13.6806 4.47625 10.1714 2.94484 8.46953C1.44224 6.79944 1.42813 4.42098 2.91212 2.93699C3.67002 2.17938 4.66535 1.80028 5.66068 1.80028C6.65601 1.80028 7.65134 2.17908 8.40925 2.93699L9.54145 4.06919C9.67622 4.20396 9.84611 4.2844 10.0244 4.31262C10.3138 4.37475 10.6277 4.29401 10.8528 4.06949L11.9856 2.93699C13.5018 1.42148 15.9679 1.42178 17.4831 2.93699C18.9671 4.42098 18.953 6.79944 17.451 8.46923Z"
+                  fill="#858FA4"
+                  class="
+                    good-card-icons-item__img good-card-icons-item__img_favorite
+                  "
+                />
+              </svg>
             </button>
           </div>
         </div>
@@ -1049,11 +946,14 @@
           <span class="modal-call-content-form__label_red">*</span></label
         ><input
           id="phone"
-          type="phone"
+          type="tel"
           name="phone"
           class="modal-call-content-form__input"
-          placeholder="+7(___)-___-__-__"
+          placeholder="+7(___)___-__-__"
         />
+        <span class="modal-call-content-form__error hide"
+          >Введите телефон в формате +7(___)___-__-__</span
+        >
         <div class="modal-call-content-form-text">
           Нажимая на кнопку, вы даете согласие на обработку персональных данных
           и соглашаетесь c
@@ -1065,12 +965,28 @@
           Заказать звонок
         </button>
       </form>
+      <div
+        class="
+          modal-call-content-form-text modal-call-content-form-text_success
+          hide
+        "
+      >
+        Спасибо! Мы скоро с вами свяжемся!
+      </div>
+      <div
+        class="
+          modal-call-content-form-text modal-call-content-form-text_error
+          hide
+        "
+      >
+        Что-то пошло не так... Попробуйте снова!
+      </div>
     </div>
   </div>
 </div>
 
     <div class="modal modal-city">
-  <div>
+  <div class="modal-wrapper">
     <div class="modal-city-content">
       <div class="modal-button modal-city-content-button">
         <svg
@@ -1149,5 +1065,166 @@
   </div>
 </div>
 
+    <div class="search hide">
+  <div class="container search-container">
+    <div class="search-form">
+      <form>
+        <input class="search-form__input" />
+      </form>
+      <button class="search-form-button button button_unbordered">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15.4592 3.15144L10.6113 7.99986L15.4592 12.8481C16.1803 13.5694 16.1803 14.738 15.4592 15.4593C15.0989 15.8196 14.6265 15.9999 14.1544 15.9999C13.6814 15.9999 13.209 15.8199 12.849 15.4593L8.00004 10.6106L3.15143 15.4593C2.79118 15.8196 2.31876 15.9999 1.8462 15.9999C1.37378 15.9999 0.901677 15.8199 0.541103 15.4593C-0.18 14.7382 -0.18 13.5697 0.541103 12.848L5.38888 7.99981L0.540827 3.15144C-0.180276 2.43033 -0.180276 1.26152 0.540827 0.540414C1.26179 -0.180138 2.42992 -0.180138 3.15116 0.540414L7.99999 5.38884L12.8485 0.540414C13.5698 -0.180138 14.7381 -0.180138 15.4589 0.540414C16.1803 1.26152 16.1803 2.43033 15.4592 3.15144Z"
+            fill="#858FA4"
+            class="search-form-button__svg"
+          />
+        </svg>
+      </button>
+    </div>
+    <div class="search-result">
+      <div class="search-result-header">
+        <div class="search-result-header__text">
+          Найдено <span class="search-result-header__number">53 товара</span>
+        </div>
+        <button class="search-result-header__button button button_light">
+          Для дома
+        </button>
+        <button class="search-result-header__button button button_light">
+          Для фитнес клубов
+        </button>
+      </div>
+    </div>
+    <div class="search-result-main">
+      <div class="search-result-main-item good-card good-card_seacrh">
+        <img
+          src="./images/good.png"
+          alt="good"
+          class="good-card__image good-card__image_search"
+        />
+        <div class="good-card-description">
+          <h4 class="good-card__heading good-card__heading_seacrh">
+            Беговая дорожка CardioPower S35
+          </h4>
+          <div class="good-card-rating good-card-rating_search">Рейтинг</div>
+          <div class="good-card-bottom">
+            <div class="good-card-price">
+              <div class="good-card-price__item good-card-price__item_search">
+                1 114 900 ₽
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="search-result__button button button_full-red">
+      Показать все результаты
+    </button>
+  </div>
+</div>
+
+    <div class="catalog hide">
+  <div class="container catalog-container">
+    <div class="catalog-type">
+      <div class="catalog-type__item catalog-type__item_active">Для дома</div>
+      <div class="catalog-type__item">Для фитнес клубов</div>
+    </div>
+    <div class="catalog-category">
+      <div class="catalog-category-name">
+        <div
+          class="catalog-category-name__item catalog-category-name__item_active"
+        >
+          Кардиотренажеры
+          <span class="catalog-category-name__item_arrow"> &#8594;</span>
+        </div>
+        <div class="catalog-category-name__item">
+          Силовые тренажеры
+          <span class="catalog-category-name__item_arrow"> &#8594;</span>
+        </div>
+        <div class="catalog-category-name__item">
+          Уличные виды спорта
+          <span class="catalog-category-name__item_arrow"> &#8594;</span>
+        </div>
+        <div class="catalog-category-name__item">
+          Свободные веса
+          <span class="catalog-category-name__item_arrow"> &#8594;</span>
+        </div>
+        <div class="catalog-category-name__item">
+          Игровые столы
+          <span class="catalog-category-name__item_arrow"> &#8594;</span>
+        </div>
+        <div class="catalog-category-name__item">
+          Массажное оборудование
+          <span class="catalog-category-name__item_arrow"> &#8594;</span>
+        </div>
+        <div class="catalog-category-name__item">
+          Фитнес аксессуары
+          <span class="catalog-category-name__item_arrow"> &#8594;</span>
+        </div>
+        <div class="catalog-category-name__item">
+          Функциональный тренинг
+          <span class="catalog-category-name__item_arrow"> &#8594;</span>
+        </div>
+      </div>
+      <div class="catalog-category-subcategory">
+        <div class="catalog-category-subcategory-item">
+          <img
+            src="./images/good.png"
+            alt="тренажер"
+            class="catalog-category-subcategory-item__img"
+          />
+          <div class="catalog-category-subcategory-item__title">
+            Беговые дорожки
+          </div>
+        </div>
+        <div class="catalog-category-subcategory-item">
+          <img
+            src="./images/good.png"
+            alt="тренажер"
+            class="catalog-category-subcategory-item__img"
+          />
+          <div class="catalog-category-subcategory-item__title">
+            Эллиптические тренажеры
+          </div>
+        </div>
+        <div class="catalog-category-subcategory-item">
+          <img
+            src="./images/good.png"
+            alt="тренажер"
+            class="catalog-category-subcategory-item__img"
+          />
+          <div class="catalog-category-subcategory-item__title">
+            Велотренажеры
+          </div>
+        </div>
+        <div class="catalog-category-subcategory-item">
+          <img
+            src="./images/good.png"
+            alt="тренажер"
+            class="catalog-category-subcategory-item__img"
+          />
+          <div class="catalog-category-subcategory-item__title">Cтепперы</div>
+        </div>
+        <div class="catalog-category-subcategory-item">
+          <img
+            src="./images/good.png"
+            alt="тренажер"
+            class="catalog-category-subcategory-item__img"
+          />
+          <div class="catalog-category-subcategory-item__title">
+            Гребные тренажеры
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script src="./js/script.js"></script>
   </body>
 </html>
