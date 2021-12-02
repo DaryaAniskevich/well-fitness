@@ -1,11 +1,18 @@
 .news-card {
   width: 315px;
   background-color: $bg-color;
+  @include screen-max($medium) {
+    width: 290px;
+  }
   &__img {
     width: 315px;
     height: 260px;
     margin-bottom: 20px;
     border-radius: 6px;
+    @include screen-max($medium) {
+      width: 290px;
+      height: 239px;
+    }
   }
   &__heading {
     font-weight: 800;

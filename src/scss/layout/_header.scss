@@ -2,24 +2,56 @@
   background-color: $main-dark-gray;
   color: $light-gray;
   position: relative;
+  &-top {
+    display: flex;
+    flex-direction: column;
+    @include screen-max($medium) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    &-menu {
+      display: none;
+
+      @include screen-max($medium) {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
   &-border {
     width: 100%;
     height: 1px;
     background-color: rgba(133, 143, 164, 0.15);
+    @include screen-max($medium) {
+      height: 0;
+    }
   }
   &-main {
     display: flex;
     align-items: center;
     padding: 24px 0 28px;
+    @include screen-max($medium) {
+      padding: 27px 0;
+    }
   }
   &-logo {
     margin-right: 50px;
+    @include screen-max($medium) {
+      margin-right: 31px;
+    }
   }
   &-city {
     display: flex;
     align-items: center;
     margin-right: 229px;
     cursor: pointer;
+    @include screen-max($medium) {
+      margin-right: 0;
+    }
+    &:hover {
+      color: $white;
+    }
     &__item {
       margin-right: 10px;
       white-space: nowrap;
@@ -33,16 +65,25 @@
     color: $light-gray;
     margin-right: 30px;
     white-space: nowrap;
+    @include screen-max($medium) {
+      display: none;
+    }
   }
   &__button {
     margin-right: 61px;
     white-space: nowrap;
+    @include screen-max($medium) {
+      display: none;
+    }
   }
   &-phone {
     position: relative;
     display: flex;
     align-items: center;
     margin-right: 61px;
+    @include screen-max($medium) {
+      display: none;
+    }
     &-choosen {
       margin-right: 26px;
       cursor: pointer;
@@ -93,6 +134,9 @@
   &-sign {
     display: flex;
     align-items: center;
+    @include screen-max($medium) {
+      display: none;
+    }
     &__button {
       margin-right: 14px;
     }
@@ -109,6 +153,9 @@
       display: flex;
       align-items: center;
       margin-right: 48px;
+      @include screen-max($medium) {
+        margin-right: 32px;
+      }
       &:after {
         content: "";
         display: block;
@@ -121,6 +168,9 @@
       }
       &__button {
         margin-right: 51px;
+        @include screen-max($medium) {
+          display: none;
+        }
       }
 
       &-search {
@@ -138,16 +188,25 @@
 
     &-nav {
       margin-right: 214px;
+      @include screen-max($medium) {
+        display: none;
+      }
     }
     &-buttons {
       display: flex;
       position: relative;
+      @include screen-max($medium) {
+        margin-right: 37px;
+      }
       &-item {
         position: relative;
         font-size: 10px;
         line-height: 12px;
         &:not(:last-child) {
           margin-right: 47px;
+          @include screen-max($medium) {
+            margin-right: 40px;
+          }
         }
         &__img {
           opacity: 0.7;

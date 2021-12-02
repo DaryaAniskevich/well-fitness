@@ -2,6 +2,9 @@
   background-color: $main-dark-gray;
   &-container {
     padding: 119px 0 102px;
+    @include screen-max($medium) {
+      padding: 100px 0 62px;
+    }
   }
   &__heading {
     margin-bottom: 30px;
@@ -14,8 +17,35 @@
     &-item {
       border-radius: 6px;
       cursor: pointer;
+      width: 330px;
+      &:last-child {
+        @include screen-max($medium) {
+          display: none;
+        }
+      }
+      @include screen-max($medium) {
+        width: 280px;
+      }
+      &_wide {
+        width: 690px;
+        width: 100%;
+        @include screen-max($medium) {
+          width: 580px;
+        }
+      }
       &__img {
+        object-fit: cover;
         border-radius: 6px;
+        width: 330px;
+        @include screen-max($medium) {
+          width: 280px;
+        }
+        &_wide {
+          width: 690px;
+          @include screen-max($medium) {
+            width: 580px;
+          }
+        }
       }
     }
   }

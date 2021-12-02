@@ -1,11 +1,17 @@
 .discount {
   &-container {
     padding: 124px 0 103px;
+    @include screen-max($medium) {
+      padding: 100px 0 50px;
+    }
   }
   &-heading {
     display: flex;
     align-items: center;
     margin-bottom: 32px;
+    @include screen-max($medium) {
+      margin-bottom: 22px;
+    }
     &__heading {
       margin-right: 30px;
     }
@@ -26,5 +32,8 @@
     display: flex;
     grid-gap: 30px;
     margin-bottom: 30px;
+    @include screen-max($medium) {
+      margin-bottom: 20px;
+    }
   }
 }

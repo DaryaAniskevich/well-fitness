@@ -3,6 +3,10 @@
   &__img {
     width: 280px;
     height: 29px;
+    @include screen-max($medium) {
+      width: 200px;
+      height: 19px;
+    }
     &_small {
       width: 275px;
       height: 34px;

@@ -1,4 +1,4 @@
-/*@mixin screen-max($width) {
+@mixin screen-max($width) {
   @media (max-width: $width - 1 + "px") {
     @content;
   }
@@ -9,4 +9,3 @@
     @content;
   }
 }
-*/

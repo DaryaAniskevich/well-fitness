@@ -2,6 +2,12 @@
   &-container {
     padding: 135px 0;
     display: flex;
+    @include screen-max($medium) {
+      padding: 60px 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 269px);
+    }
   }
   &-item {
     text-align: center;
@@ -10,9 +16,14 @@
     border: 1px solid rgba(133, 143, 164, 0.2);
     color: $button-gray;
     cursor: pointer;
-    width: 354px;
+    max-width: 354px;
+    width: 100%;
     font-size: 16px;
     line-height: 24px;
+    @include screen-max($medium) {
+      padding: 30px 20px 40px;
+      max-width: 470px;
+    }
     &:hover {
       color: $text-gray;
       background-color: $red;
@@ -29,6 +40,9 @@
       }
       .advantages-item__description {
         width: 170px;
+        @include screen-max($medium) {
+          width: 240px;
+        }
       }
       .advantages-item-icon__svg {
         fill: $white;
@@ -36,14 +50,25 @@
     }
     &-icon {
       margin-bottom: 27px;
+      @include screen-max($medium) {
+        margin-bottom: 15px;
+      }
     }
     &__heading {
       font-size: 20px;
       font-weight: 800;
       margin-bottom: 10px;
+      @include screen-max($medium) {
+        font-size: 18px;
+      }
     }
     &__description {
       margin-bottom: 20px;
+      @include screen-max($medium) {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 15px;
+      }
     }
     &__button {
       font-weight: 600;

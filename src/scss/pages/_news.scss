@@ -1,6 +1,9 @@
 .news {
   &-container {
     padding: 120px 0 60px;
+    @include screen-max($medium) {
+      padding: 100px 0 56px;
+    }
   }
   &-heading {
     margin-bottom: 30px;
@@ -21,5 +24,9 @@
     display: flex;
     grid-gap: 30px;
     margin-bottom: 30px;
+    @include screen-max($medium) {
+      grid-gap: 20px;
+      justify-content: space-between;
+    }
   }
 }

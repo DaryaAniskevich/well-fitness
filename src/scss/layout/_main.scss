@@ -1,4 +1,7 @@
 .main {
   background-color: $bg-color;
   padding: 39px 0 60px;
+  @include screen-max($medium) {
+    padding: 20px 0 56px;
+  }
 }

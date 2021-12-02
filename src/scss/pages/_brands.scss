@@ -2,6 +2,9 @@
   border-bottom: 1px solid rgba(133, 143, 164, 0.2);
   &-container {
     padding: 120px 0 30px;
+    @include screen-max($medium) {
+      padding-top: 98px;
+    }
   }
   &__heading {
     margin-bottom: 30px;
@@ -15,6 +18,13 @@
       cursor: pointer;
       &:not(:last-child) {
         margin-right: 30px;
+        @include screen-max($medium) {
+          margin-right: 15px;
+        }
+      }
+      @include screen-max($medium) {
+        font-weight: 14px;
+        line-height: 18px;
       }
     }
   }
@@ -23,6 +33,10 @@
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: 170px;
     margin-bottom: 30px;
+    @include screen-max($medium) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 141px;
+    }
     &-item {
       width: 282px;
       height: 170px;
@@ -31,9 +45,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      @include screen-max($medium) {
+        width: 234px;
+        height: 141px;
+      }
       &__img {
         width: 183px;
         height: 94px;
+        @include screen-max($medium) {
+          width: 152px;
+          height: 78px;
+        }
       }
     }
   }

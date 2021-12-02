@@ -3,8 +3,11 @@
     background-color: $main-dark-gray;
     display: flex;
     justify-content: space-between;
-    padding: 0 115px 0 98px;
+    padding: 0 98px;
     border-radius: 6px;
+    @include screen-max($medium) {
+      padding: 0px 25px;
+    }
   }
   &__background {
     background-image: url("../../images/partner-bg.png");
@@ -13,11 +16,18 @@
     width: 484px;
     height: 390px;
     align-self: flex-end;
+    background-position: -45px;
+    @include screen-max($medium) {
+      width: 400px;
+      background-position: -40px;
+    }
   }
   &-content {
     width: 572px;
     align-self: center;
-    margin-left: 141px;
+    @include screen-max($medium) {
+      width: 390px;
+    }
     &__title {
       font-style: normal;
       font-weight: 500;
@@ -25,6 +35,10 @@
       line-height: 43px;
       color: $white;
       margin-bottom: 30px;
+      @include screen-max($medium) {
+        font-size: 24px;
+        line-height: 29px;
+      }
       &_red {
         color: $red;
       }

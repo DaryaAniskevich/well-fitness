@@ -9,6 +9,7 @@
   </head>
   <body>
     <header class="header">
+  <div class="header-top">
   <div class="header-main container">
     <a class="logo header-logo" href="#"
       ><img
@@ -168,8 +169,17 @@
   </div>
 </div>
 
+      <button class="header-top-menu button button_unbordered">
+        <svg width="30" height="18" viewBox="0 0 30 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="30" height="2" fill="white"/>
+          <rect y="8" width="30" height="2" fill="white"/>
+          <rect y="16" width="30" height="2" fill="white"/>
+          </svg>
+      </button>
     </div>
   </div>
+
+</div>
   <div class="header-menu">
     <div class="container header-menu-container">
       <div class="header-menu-item">
@@ -473,8 +483,12 @@
   <div class="container ideas-container">
     <h2 class="heading heading_white ideas__heading">Идеи и подборки</h2>
     <div class="ideas-block">
-      <div class="ideas-block-item">
-        <img src="./images/banner_1.jpg" alt="" class="ideas-block-item__img" />
+      <div class="ideas-block-item ideas-block-item_wide">
+        <img
+          src="./images/banner_1.jpg"
+          alt=""
+          class="ideas-block-item__img ideas-block-item__img_wide"
+        />
       </div>
       <div class="ideas-block-item">
         <img src="./images/banner_2.jpg" alt="" class="ideas-block-item__img" />
@@ -682,16 +696,18 @@
         Надежный партнер с 2005 года для сотен компаний от Калининграда
         до Владивостока.
       </h3>
-      <p class="about-content__item">
-        Оптима Импорт — один из самых крупных импортеров фитнес-оборудования,
-        эксклюзивно представляет на российском рынке ведущих мировых
-        производителей: Sole Fitness, Optima Fitness, Halley, Marcy, SKI
-        Simulator и др.
-      </p>
-      <p class="about-content__item">
-        Мы предлагаем широкий спектр самой современной и качественной продукции
-        как для домашнего, так и для коммерческого фитнеса.
-      </p>
+      <div>
+        <p class="about-content__item">
+          Оптима Импорт — один из самых крупных импортеров фитнес-оборудования,
+          эксклюзивно представляет на российском рынке ведущих мировых
+          производителей: Sole Fitness, Optima Fitness, Halley, Marcy, SKI
+          Simulator и др.
+        </p>
+        <p class="about-content__item">
+          Мы предлагаем широкий спектр самой современной и качественной
+          продукции как для домашнего, так и для коммерческого фитнеса.
+        </p>
+      </div>
     </div>
     <button class="about__button button button_red button_banner">
       Подробнее о компании
@@ -842,7 +858,7 @@
         </button>
         <span class="footer-input__success">Вы успешно подписались</span>
       </form>
-      <div class="footer-contacts-block">
+      <div class="footer-contacts-block footer-contacts-block_phone">
         <div class="footer-contacts-block__item">
           +7 (000) 000-00-00 для Москвы
         </div>
@@ -853,7 +869,7 @@
           Заказать звонок
         </button>
       </div>
-      <div class="footer-contacts-block">
+      <div class="footer-contacts-block footer-contacts-block_mail">
         <div class="footer-contacts-block__item">wellfitness@wellfit.ru</div>
         <button class="footer-contacts-block__button button button_unbordered">
           Написать
@@ -884,9 +900,11 @@
           <img src="./images/youtube.svg" alt="Youtube"
         /></a>
       </div>
+      <div class="footer-bottom-buttons">
+        <a class="footer__button button">Become a Partner </a>
+        <a class="footer__button footer__button_unbordered">Для дилеров </a>
+      </div>
 
-      <a class="footer__button button">Become a Partner </a>
-      <a class="footer__button footer__button_unbordered">Для дилеров </a>
       <div class="footer-payment">
         <img src="./images/visa.svg" class="footer-payment__item" alt="Visa" />
         <img
@@ -1101,14 +1119,14 @@
       </div>
     </div>
     <div class="search-result-main">
-      <div class="search-result-main-item good-card good-card_seacrh">
+      <div class="search-result-main-item good-card good-card_search">
         <img
           src="./images/good.png"
           alt="good"
           class="good-card__image good-card__image_search"
         />
         <div class="good-card-description">
-          <h4 class="good-card__heading good-card__heading_seacrh">
+          <h4 class="good-card__heading good-card__heading_search">
             Беговая дорожка CardioPower S35
           </h4>
           <div class="good-card-rating good-card-rating_search">Рейтинг</div>

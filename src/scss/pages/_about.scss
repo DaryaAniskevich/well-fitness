@@ -1,23 +1,45 @@
 .about {
   position: relative;
   padding: 55px 0;
+  @include screen-max($medium) {
+    padding: 36px 0 439px;
+  }
   &-container {
     position: relative;
     padding: 25px 0;
     z-index: 4;
+    @include screen-max($medium) {
+      padding: 0;
+    }
   }
   &__heading {
     margin-bottom: 40px;
+    @include screen-max($medium) {
+      margin-bottom: 20px;
+    }
   }
   &-content {
     width: 572px;
     color: $button-gray;
-
+    display: flex;
+    flex-direction: column;
+    @include screen-max($medium) {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
     &__subtitle {
       font-size: 34px;
       line-height: 48px;
       margin-bottom: 20px;
       font-weight: 400;
+      @include screen-max($medium) {
+        width: 457px;
+        margin-bottom: 0;
+        margin-right: 20px;
+        font-size: 24px;
+        line-height: 34px;
+      }
     }
     &__item {
       font-size: 18px;
@@ -25,10 +47,16 @@
       &:not(:last-child) {
         margin-bottom: 20px;
       }
+      @include screen-max($medium) {
+        width: 457px;
+      }
     }
   }
   &__button {
     margin-top: 40px;
+    @include screen-max($medium) {
+      margin-top: 20px;
+    }
   }
   &__map {
     position: absolute;
@@ -40,5 +68,9 @@
     background-size: cover;
     right: 0px;
     top: 0px;
+    @include screen-max($medium) {
+      top: auto;
+      bottom: 30px;
+    }
   }
 }
