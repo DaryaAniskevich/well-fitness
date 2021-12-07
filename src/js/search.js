@@ -15,13 +15,13 @@ const search = () => {
     searchBlock.classList.add("hide");
   });
 
-  body.addEventListener("click", (e) => {
+  /* body.addEventListener("click", (e) => {
     if (e.target.tagName !== "svg" && e.target.tagName !== "path") {
       if (!e.target.className.includes("search")) {
         searchBlock.classList.add("hide");
       }
     }
-  });
+  });*/
 };
 
 search();

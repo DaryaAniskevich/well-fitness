@@ -1,0 +1,3 @@
+const comparison = () => {};
+
+comparison();

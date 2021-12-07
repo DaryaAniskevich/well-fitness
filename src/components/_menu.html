@@ -11,7 +11,7 @@
         </button>
         <img src="./images/avatar.svg" alt="avatar" class="sign-block__img" />
       </div>
-      <div class="menu-header-close">
+      <div class="menu-header-close menu-close">
         <svg
           width="16"
           height="16"
@@ -31,11 +31,11 @@
     </form>
     <div class="menu-catalog">
         <h3 class="menu__title menu-catalog__title">Каталог</h3>
-        <button class="menu-catalog-button button button_unbordered">
+        <button class="menu-catalog-button button button_unbordered" id="home-catalog">
           <span class="menu-catalog-button__text">Для дома</span>
           <span class="menu-catalog-button__arrow">&#8594;</span>
         </button>
-        <button class="menu-catalog-button button button_unbordered">
+        <button class="menu-catalog-button button button_unbordered" id="clubs-catalog">
           <span class="menu-catalog-button__text">Для фитнес клубов</span>
           <span class="menu-catalog-button__arrow">&#8594;</span>
         </button>
@@ -53,11 +53,11 @@
   </div>
   <div class="menu-home hide menu-window">
         <div class="menu-window-header">
-          <button class="menu-window-header__button button button_unbordered">
+          <button class="menu-window-header__button button-back button button_unbordered" data-back="home">
             Назад
           </button>
           <button
-            class="menu-window-header__button_close button button_unbordered"
+            class="menu-window-header__button_close menu-close button button_unbordered"
           >
             <svg
               width="16"
@@ -111,11 +111,11 @@
   </div>
   <div class="menu-clubs hide menu-window">
     <div class="menu-window-header">
-      <button class="menu-window-header__button button button_unbordered">
+      <button class="menu-window-header__button button-back button button_unbordered" data-back="clubs">
         Назад
       </button>
       <button
-        class="menu-window-header__button_close button button_unbordered"
+        class="menu-window-header__button_close menu-close button button_unbordered"
       >
         <svg
           width="16"

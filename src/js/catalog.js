@@ -9,11 +9,11 @@ const catalog = () => {
     catalogBlock.classList.toggle("hide");
   });
 
-  body.addEventListener("click", (e) => {
+  /* body.addEventListener("click", (e) => {
     if (!e.target.className.includes("catalog")) {
       catalogBlock.classList.add("hide");
     }
-  });
+  });*/
 };
 
 catalog();

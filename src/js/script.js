@@ -4,4 +4,8 @@
 @@include("callback.js")
 @@include("catalog.js")
 @@include("search.js")
+@@include("tabs.js")
 @@include("cart.js")
+@@include("comparison.js")
+@@include("favorite.js")
+@@include("menu.js")
