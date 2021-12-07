@@ -1,8 +1,6 @@
-.catalog {
+.modal-catalog {
   position: absolute;
-  background-color: $white;
-  width: 100vw;
-  top: 170px;
+  background-color: transparent;
   &:before {
     content: "";
     display: block;
@@ -11,15 +9,26 @@
     transform: rotate(45deg);
     background-color: $white;
     position: absolute;
-    top: -4px;
-    left: 105px;
+    top: 165px;
+    left: 80px;
+    @include screen-max($medium) {
+      display: none;
+    }
   }
-  &-container {
-    padding: 16px 0 22px;
+  &-content {
+    width: 100vw;
+    background-color: $white;
+    margin-top: 170px;
+    padding: 16px 10px 22px;
+    @include screen-max($medium) {
+      margin-top: 75px;
+    }
   }
+
   &-type {
     display: flex;
     position: relative;
+    padding: 0 10px;
     &:after {
       display: block;
       content: "";
@@ -39,25 +48,35 @@
       padding: 0 0 12px;
       z-index: 3;
       cursor: pointer;
+      border-radius: 0;
       &_active {
-        font-weight: 700px;
+        font-weight: 700;
         border-bottom: 4px solid $red;
       }
     }
   }
   &-category {
-    display: flex;
+    &-container {
+      display: flex;
+      overflow: hidden;
+    }
     &-name {
-      width: 327px;
       padding: 31px 0 0;
       border-right: 1px solid rgba(133, 143, 164, 0.2);
       font-weight: 600;
       font-size: 16px;
       line-height: 19px;
       color: $main-dark-gray;
+      @include screen-max($medium) {
+        font-size: 15px;
+      }
       &__item {
+        width: 327px;
         padding: 12px;
         cursor: pointer;
+        @include screen-max($medium) {
+          width: 300px;
+        }
         &:hover {
           background-color: $text-gray;
         }
@@ -77,20 +96,41 @@
       grid-template-columns: repeat(3, 1fr);
       grid-auto-rows: 90px;
       grid-gap: 22px;
+      background-color: $white;
+      @include screen-max($medium) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 90px;
+      }
+      @include screen-max($small) {
+        grid-auto-rows: 50px;
+        grid-gap: 10px;
+      }
       &-item {
         cursor: pointer;
         display: flex;
         align-items: center;
-        width: 330px;
+        max-width: 330px;
+        width: 100%;
+        @include screen-max($small) {
+          max-width: 150px;
+        }
         &__img {
           width: 90px;
           height: 90px;
+          @include screen-max($small) {
+            width: 50px;
+            height: 50px;
+          }
         }
         &__title {
-          width: 150px;
+          max-width: 150px;
+          width: 100%;
           font-size: 16px;
           line-height: 150%;
           color: $main-dark-gray;
+          @include screen-max($small) {
+            font-size: 12px;
+          }
         }
       }
     }

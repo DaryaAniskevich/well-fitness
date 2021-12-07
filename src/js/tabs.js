@@ -1,4 +1,6 @@
 const tabs = () => {
+  const modal_active = "modal_active";
+
   const openCart = document.querySelector(
     ".header-navigation-buttons-item_cart"
   );
@@ -24,80 +26,44 @@ const tabs = () => {
   const favorite = document.querySelector(".modal-favorite");
 
   openCart.addEventListener("click", () => {
-    if (!comparison.classList.contains("hide")) {
-      comparison.classList.add("hide");
-      openComparisonSvg.classList.remove(
-        "header-navigation-buttons-item__img_active"
-      );
-    }
-    if (!favorite.classList.contains("hide")) {
-      favorite.classList.add("hide");
-      openFavoriteSvg.classList.remove(
-        "header-navigation-buttons-item__img_active"
-      );
-    }
     openCartSvg.classList.toggle("header-navigation-buttons-item__img_active");
-    cart.classList.toggle("hide");
+    cart.classList.toggle(modal_active);
   });
 
-  /* body.addEventListener("click", (e) => {
-    if (!e.target.className.includes("cart")) {
-      openBtnSvg.classList.remove("header-navigation-buttons-item__img_active");
-      cart.classList.add("hide");
-    }
-  });*/
-
   openComparison.addEventListener("click", () => {
-    if (!cart.classList.contains("hide")) {
-      cart.classList.add("hide");
-      openCartSvg.classList.remove(
-        "header-navigation-buttons-item__img_active"
-      );
-    }
-    if (!favorite.classList.contains("hide")) {
-      favorite.classList.add("hide");
-      openFavoriteSvg.classList.remove(
-        "header-navigation-buttons-item__img_active"
-      );
-    }
     openComparisonSvg.classList.toggle(
       "header-navigation-buttons-item__img_active"
     );
-    comparison.classList.toggle("hide");
+    comparison.classList.toggle(modal_active);
   });
 
-  /* body.addEventListener("click", (e) => {
-    if (!e.target.className.includes("comparison")) {
-      openBtnSvg.classList.remove("header-navigation-buttons-item__img_active");
-      comparison.classList.add("hide");
-    } 
-  });*/
-
   openFavorite.addEventListener("click", () => {
-    if (!comparison.classList.contains("hide")) {
-      comparison.classList.add("hide");
-      openComparisonSvg.classList.remove(
-        "header-navigation-buttons-item__img_active"
-      );
-    }
-    if (!favorite.classList.contains("hide")) {
-      cart.classList.add("hide");
-      openCartSvg.classList.remove(
-        "header-navigation-buttons-item__img_active"
-      );
-    }
     openFavoriteSvg.classList.toggle(
       "header-navigation-buttons-item__img_active"
     );
-    favorite.classList.toggle("hide");
+    favorite.classList.toggle(modal_active);
   });
 
-  /* body.addEventListener("click", (e) => {
-    if (!e.target.className.includes("favorite")) {
-      openBtnSvg.classList.remove("header-navigation-buttons-item__img_active");
-      favorite.classList.add("hide");
-    }
-  });*/
+  const closeModal = (...args) => {
+    args.forEach((modal) => {
+      modal.addEventListener("click", (e) => {
+        if (
+          e.target.classList.contains("modal_active") ||
+          e.target.classList.contains("modal-wrapper")
+        ) {
+          modal.classList.remove("modal_active");
+          document
+            .querySelectorAll(".header-navigation-buttons-item__img_active")
+            .forEach((button) => {
+              button.classList.remove(
+                "header-navigation-buttons-item__img_active"
+              );
+            });
+        }
+      });
+    });
+  };
+  closeModal(favorite, cart, comparison);
 };
 
 tabs();

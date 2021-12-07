@@ -1,5 +1,6 @@
 .modal-favorite {
   position: absolute;
-  top: 30px;
-  right: 100px;
+  &-content {
+    margin-right: 120px;
+  }
 }

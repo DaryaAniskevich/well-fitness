@@ -1,5 +1,6 @@
 .modal-comparison {
   position: absolute;
-  top: 30px;
-  right: 160px;
+  &-content {
+    margin-right: 180px;
+  }
 }

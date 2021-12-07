@@ -1,5 +1,6 @@
 .modal-cart {
   position: absolute;
-  top: 30px;
-  right: 40px;
+  &-content {
+    margin-right: 60px;
+  }
 }

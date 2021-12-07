@@ -157,54 +157,128 @@ const callback = () => {
 callback();
 
 const catalog = () => {
+  const hide = "hide";
+
   const openBtn = document.querySelector(".header-navigation-catalog__button");
-  const catalogBlock = document.querySelector(".catalog");
+  const catalogBlock = document.querySelector(".modal-catalog");
   const body = document.querySelector("body");
   const searchBlock = document.querySelector(".search");
+  const catalogWrapper = catalogBlock.querySelector(".modal-wrapper");
+
+  const homeCatalogBtn = document.querySelectorAll(".header-menu-item");
+  const categoryHome = document.querySelector(".modal-catalog-category-home");
+  const categoryClubs = document.querySelector(".modal-catalog-category-clubs");
+
+  const homeCategoryBtn = document.querySelector(
+    ".modal-catalog-type__item_home"
+  );
+  const clubsCategoryBtn = document.querySelector(
+    ".modal-catalog-type__item_clubs"
+  );
+
+  const catalogCalegoryName = document.querySelector(
+    ".modal-catalog-category-name__item"
+  );
 
   openBtn.addEventListener("click", () => {
-    searchBlock.classList.add("hide");
-    catalogBlock.classList.toggle("hide");
+    searchBlock.classList.add(hide);
+    categoryClubs.classList.add(hide);
+    categoryHome.classList.remove(hide);
+    catalogBlock.classList.toggle("modal_active");
   });
 
-  /* body.addEventListener("click", (e) => {
-    if (!e.target.className.includes("catalog")) {
-      catalogBlock.classList.add("hide");
+  homeCatalogBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      if (e.target.dataset.category === "home") {
+        console.dir(e);
+        categoryClubs.classList.add(hide);
+        categoryHome.classList.remove(hide);
+        homeCategoryBtn.classList.add("catalog-type__item_active");
+        clubsCategoryBtn.classList.remove("catalog-type__item_active");
+      } else if (e.target.dataset.category === "clubs") {
+        categoryHome.classList.add(hide);
+        categoryClubs.classList.remove(hide);
+        clubsCategoryBtn.classList.add("catalog-type__item_active");
+        homeCategoryBtn.classList.remove("catalog-type__item_active");
+      }
+      catalogBlock.classList.add("modal_active");
+    });
+  });
+
+  homeCategoryBtn.addEventListener("click", () => {
+    categoryHome.classList.remove(hide);
+    categoryClubs.classList.add(hide);
+    homeCategoryBtn.classList.add("modal-catalog-type__item_active");
+    clubsCategoryBtn.classList.remove("modal-catalog-type__item_active");
+  });
+
+  clubsCategoryBtn.addEventListener("click", () => {
+    categoryClubs.classList.remove(hide);
+    categoryHome.classList.add(hide);
+    clubsCategoryBtn.classList.add("modal-catalog-type__item_active");
+    homeCategoryBtn.classList.remove("modal-catalog-type__item_active");
+  });
+
+  catalogWrapper.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("modal_active") ||
+      e.target.classList.contains("modal-wrapper")
+    ) {
+      catalogBlock.classList.remove("modal_active");
     }
-  });*/
+  });
+
+  window.addEventListener("scroll", () => {
+    if (
+      catalogBlock.classList.contains("modal_active") &&
+      pageYOffset > catalogBlock.offsetHeight - 50
+    ) {
+      catalogBlock.classList.remove("modal_active");
+    }
+  });
 };
 
 catalog();
 
 const search = () => {
+  const modal_active = "modal_active";
   const openBtn = document.querySelectorAll(".search-btn");
   const searchBlock = document.querySelector(".search");
   const closeBtn = searchBlock.querySelector(".search-form-button");
-  const body = document.querySelector("body");
-  const catalogBlock = document.querySelector(".catalog");
 
   openBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
-      catalogBlock.classList.add("hide");
-      searchBlock.classList.remove("hide");
+      searchBlock.classList.add(modal_active);
     });
   });
   closeBtn.addEventListener("click", () => {
-    searchBlock.classList.add("hide");
+    searchBlock.classList.remove(modal_active);
   });
 
-  /* body.addEventListener("click", (e) => {
-    if (e.target.tagName !== "svg" && e.target.tagName !== "path") {
-      if (!e.target.className.includes("search")) {
-        searchBlock.classList.add("hide");
-      }
+  searchBlock.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("modal_active") ||
+      e.target.classList.contains("modal-wrapper")
+    ) {
+      searchBlock.classList.remove("modal_active");
     }
-  });*/
+  });
+
+  window.addEventListener("scroll", () => {
+    if (
+      searchBlock.classList.contains("modal_active") &&
+      pageYOffset > searchBlock.offsetHeight - 50
+    ) {
+      searchBlock.classList.remove("modal_active");
+    }
+  });
 };
 
 search();
 
 const tabs = () => {
+  const modal_active = "modal_active";
+
   const openCart = document.querySelector(
     ".header-navigation-buttons-item_cart"
   );
@@ -230,80 +304,44 @@ const tabs = () => {
   const favorite = document.querySelector(".modal-favorite");
 
   openCart.addEventListener("click", () => {
-    if (!comparison.classList.contains("hide")) {
-      comparison.classList.add("hide");
-      openComparisonSvg.classList.remove(
-        "header-navigation-buttons-item__img_active"
-      );
-    }
-    if (!favorite.classList.contains("hide")) {
-      favorite.classList.add("hide");
-      openFavoriteSvg.classList.remove(
-        "header-navigation-buttons-item__img_active"
-      );
-    }
     openCartSvg.classList.toggle("header-navigation-buttons-item__img_active");
-    cart.classList.toggle("hide");
+    cart.classList.toggle(modal_active);
   });
 
-  /* body.addEventListener("click", (e) => {
-    if (!e.target.className.includes("cart")) {
-      openBtnSvg.classList.remove("header-navigation-buttons-item__img_active");
-      cart.classList.add("hide");
-    }
-  });*/
-
   openComparison.addEventListener("click", () => {
-    if (!cart.classList.contains("hide")) {
-      cart.classList.add("hide");
-      openCartSvg.classList.remove(
-        "header-navigation-buttons-item__img_active"
-      );
-    }
-    if (!favorite.classList.contains("hide")) {
-      favorite.classList.add("hide");
-      openFavoriteSvg.classList.remove(
-        "header-navigation-buttons-item__img_active"
-      );
-    }
     openComparisonSvg.classList.toggle(
       "header-navigation-buttons-item__img_active"
     );
-    comparison.classList.toggle("hide");
+    comparison.classList.toggle(modal_active);
   });
 
-  /* body.addEventListener("click", (e) => {
-    if (!e.target.className.includes("comparison")) {
-      openBtnSvg.classList.remove("header-navigation-buttons-item__img_active");
-      comparison.classList.add("hide");
-    } 
-  });*/
-
   openFavorite.addEventListener("click", () => {
-    if (!comparison.classList.contains("hide")) {
-      comparison.classList.add("hide");
-      openComparisonSvg.classList.remove(
-        "header-navigation-buttons-item__img_active"
-      );
-    }
-    if (!favorite.classList.contains("hide")) {
-      cart.classList.add("hide");
-      openCartSvg.classList.remove(
-        "header-navigation-buttons-item__img_active"
-      );
-    }
     openFavoriteSvg.classList.toggle(
       "header-navigation-buttons-item__img_active"
     );
-    favorite.classList.toggle("hide");
+    favorite.classList.toggle(modal_active);
   });
 
-  /* body.addEventListener("click", (e) => {
-    if (!e.target.className.includes("favorite")) {
-      openBtnSvg.classList.remove("header-navigation-buttons-item__img_active");
-      favorite.classList.add("hide");
-    }
-  });*/
+  const closeModal = (...args) => {
+    args.forEach((modal) => {
+      modal.addEventListener("click", (e) => {
+        if (
+          e.target.classList.contains("modal_active") ||
+          e.target.classList.contains("modal-wrapper")
+        ) {
+          modal.classList.remove("modal_active");
+          document
+            .querySelectorAll(".header-navigation-buttons-item__img_active")
+            .forEach((button) => {
+              button.classList.remove(
+                "header-navigation-buttons-item__img_active"
+              );
+            });
+        }
+      });
+    });
+  };
+  closeModal(favorite, cart, comparison);
 };
 
 tabs();

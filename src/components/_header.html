@@ -94,9 +94,6 @@
           alt="cart"
         /><span class="header-navigation-buttons-item__span">2</span>
       </button>
-      @@include("./_comparison.html")
-      @@include("./_favorite.html")
-      @@include("./_cart.html")
       <button class="header-top-menu button button_unbordered">
         <svg width="30" height="18" viewBox="0 0 30 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="30" height="2" fill="white"/>
@@ -110,14 +107,12 @@
 </div>
   <div class="header-menu">
     <div class="container header-menu-container">
-      <div class="header-menu-item">
-        <span>Для дома</span
-        ><img class="header-menu-item__img" src="./images/arrow-w.svg" alt="" />
-      </div>
-      <div class="header-menu-item">
-        <span>Для фитнес клуба</span
-        ><img class="header-menu-item__img" src="./images/arrow-w.svg" alt="" />
-      </div>
+      <button class="header-menu-item button button_unbordered" data-category="home">
+        Для дома<img class="header-menu-item__img" src="./images/arrow-w.svg" alt="" />
+      </button>
+      <button class="header-menu-item button button_unbordered" data-category="clubs">
+        Для фитнес клуба<img class="header-menu-item__img" src="./images/arrow-w.svg" alt="" />
+      </button>
     </div>
   </div>
   @@include("_menu.html")
