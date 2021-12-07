@@ -8,6 +8,11 @@
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, 269px);
     }
+    @include screen-max($small) {
+      padding-top: 30px;
+      display: flex;
+      flex-direction: column;
+    }
   }
   &-item {
     text-align: center;
@@ -24,6 +29,7 @@
       padding: 30px 20px 40px;
       max-width: 470px;
     }
+
     &:hover {
       color: $text-gray;
       background-color: $red;
@@ -34,6 +40,9 @@
       background-position: right bottom;
       .advantages-item__heading {
         color: $white;
+        @include screen-max($small) {
+          max-width: 200px;
+        }
       }
       .advantages-item__button {
         color: $white;
@@ -42,6 +51,9 @@
         width: 170px;
         @include screen-max($medium) {
           width: 240px;
+        }
+        @include screen-max($small) {
+          width: 150px;
         }
       }
       .advantages-item-icon__svg {
@@ -60,6 +72,10 @@
       margin-bottom: 10px;
       @include screen-max($medium) {
         font-size: 18px;
+      }
+      @include screen-max($small) {
+        font-size: 16px;
+        line-height: 18px;
       }
     }
     &__description {

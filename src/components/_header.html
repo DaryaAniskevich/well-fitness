@@ -7,12 +7,12 @@
         class="logo__img header-logo__img"
         alt="Logo"
     /></a>
-    <div class="header-city">
-      <div class="header-city__item">Москва</div>
-      <img class="header-city__img" src="./images/arrow.svg" alt="open" />
+    <div class="header-city city-btn">
+      <div class="header-city__item city-btn__item">Москва</div>
+      <img class="header-city__img city-btn__img" src="./images/arrow.svg" alt="open" />
     </div>
-    <a href="#" class="header__link">Для дилеров</a>
-    <a href="#" class="header__button button">Become a Partner</a>
+    <button class="partnership-btn partnership-btn_unbordered header__link button button_unbordered">Для дилеров</button>
+    <button class="partnership-btn header__button button">Become a Partner</button>
     <div class="header-phone">
       <div class="header-phone-choosen">
         <div class="header-phone-choosen__item select-choosen__item_small">
@@ -34,15 +34,15 @@
           </li>
         </div>
       </div>
-      <button class="header-phone__button button button_red">
+      <button class="header-phone__button callBack-btn button button_red">
         Заказать звонок
       </button>
     </div>
-    <div class="header-sign">
-      <button class="header-sign__button button button_unbordered">
+    <div class="header-sign sign-block">
+      <button class="header-sign__button sign-block__button button button_unbordered">
         Войти
       </button>
-      <img src="./images/avatar.svg" alt="avatar" class="header-sign__img" />
+      <img src="./images/avatar.svg" alt="avatar" class="header-sign__img sign-block__img" />
     </div>
   </div>
   <div class="header-border"></div>
@@ -51,7 +51,7 @@
       <button class="header-navigation-catalog__button button button_catalog">
         Каталог
       </button>
-      <button class="header-navigation-catalog-search button button_unbordered" ><img src="./images/search.svg" alt="search" class="header-navigation-catalog-search__img"></button>
+      <button class="header-navigation-catalog-search search-btn button button_unbordered" ><img src="./images/search.svg" alt="search" class="header-navigation-catalog-search__img"></button>
     </div>
     <nav class="header-navigation-nav nav">
       <a href="#" class="header-navigation-nav__item nav__item">Бренды</a>
@@ -94,6 +94,8 @@
           alt="cart"
         /><span class="header-navigation-buttons-item__span">2</span>
       </button>
+      @@include("./_comparison.html")
+      @@include("./_favorite.html")
       @@include("./_cart.html")
       <button class="header-top-menu button button_unbordered">
         <svg width="30" height="18" viewBox="0 0 30 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,4 +120,5 @@
       </div>
     </div>
   </div>
+  @@include("_menu.html")
 </header>

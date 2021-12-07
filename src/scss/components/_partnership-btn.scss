@@ -1,0 +1,22 @@
+.partnership-btn {
+  white-space: nowrap;
+  @include screen-max($medium) {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: $light-gray;
+    font-weight: 700;
+  }
+
+  &_unbordered {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: $light-gray;
+    margin-right: 90px;
+    @include screen-max($medium) {
+      margin-top: 5px;
+      margin-right: 0;
+    }
+  }
+}

@@ -4,14 +4,24 @@
     @include screen-max($medium) {
       padding: 100px 0 56px;
     }
+    @include screen-max($small) {
+      padding: 80px 5px 0;
+    }
   }
   &-heading {
     margin-bottom: 30px;
     display: flex;
     align-items: center;
+    @include screen-max($small) {
+      margin-bottom: 20px;
+    }
     &__heading {
       margin-right: 30px;
+      @include screen-max($small) {
+        margin-right: 20px;
+      }
     }
+
     &__button {
       font-weight: 800;
       font-size: 20px;
@@ -24,6 +34,7 @@
     display: flex;
     grid-gap: 30px;
     margin-bottom: 30px;
+    overflow: hidden;
     @include screen-max($medium) {
       grid-gap: 20px;
       justify-content: space-between;

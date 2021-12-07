@@ -2,6 +2,10 @@
   background-color: $bg-color;
   padding: 39px 0 60px;
   @include screen-max($medium) {
-    padding: 20px 0 56px;
+    padding: 20px 20px 56px;
+  }
+  @include screen-max($small) {
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }

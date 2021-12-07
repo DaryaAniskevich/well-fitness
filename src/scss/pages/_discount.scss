@@ -4,6 +4,9 @@
     @include screen-max($medium) {
       padding: 100px 0 50px;
     }
+    @include screen-max($small) {
+      padding: 80px 0 70px;
+    }
   }
   &-heading {
     display: flex;
@@ -12,8 +15,12 @@
     @include screen-max($medium) {
       margin-bottom: 22px;
     }
+
     &__heading {
       margin-right: 30px;
+      @include screen-max($small) {
+        margin-right: 20px;
+      }
     }
     &-buttons {
       padding-top: 5px;
@@ -24,6 +31,9 @@
         color: #828282;
         &:not(:last-child) {
           margin-right: 30px;
+          @include screen-max($small) {
+            margin-right: 15px;
+          }
         }
       }
     }

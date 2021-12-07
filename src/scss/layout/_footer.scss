@@ -6,15 +6,21 @@
     display: flex;
     color: $light-gray;
     @include screen-max($medium) {
-      padding-top: 84px;
+      padding: 84px 20px 28px;
       flex-direction: column;
       border-bottom: 0;
+    }
+    @include screen-max($small) {
+      padding: 27px 10px 0;
     }
     &_bottom {
       padding: 51px 0;
       color: $light-gray;
       @include screen-max($medium) {
-        padding: 23px 0 58px;
+        padding: 23px 20px 58px;
+      }
+      @include screen-max($small) {
+        padding: 30px 10px;
       }
     }
   }
@@ -29,30 +35,53 @@
       padding-bottom: 46px;
       border-bottom: 1px solid rgba(133, 143, 164, 0.15);
     }
+    @include screen-max($small) {
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+      max-width: 300px;
+      flex-wrap: wrap;
+    }
     &-item {
       display: flex;
       flex-direction: column;
-
+      &:not(:nth-last-child(-n + 2)) {
+        @include screen-max($small) {
+          margin-bottom: 30px;
+        }
+      }
       &__title {
         color: $white;
         margin-bottom: 40px;
         font-weight: 500;
         font-size: 16px;
         line-height: 21px;
+        @include screen-max($small) {
+          margin-bottom: 16px;
+        }
       }
       &-list {
         display: flex;
         flex-direction: column;
+        @include screen-max($small) {
+          width: 135px;
+        }
         &__item {
           font-weight: 500;
           font-size: 16px;
           line-height: 21px;
           color: $light-gray;
+          @include screen-max($small) {
+            font-size: 14px;
+            line-height: 20px;
+          }
           &:hover {
             color: $white;
           }
           &:not(:last-child) {
             margin-bottom: 12px;
+            @include screen-max($small) {
+              margin-bottom: 8px;
+            }
           }
         }
       }
@@ -65,15 +94,25 @@
         "p m . . s"
         "p m . . l";
     }
+    @include screen-max($small) {
+      grid-template-areas: "s" "p" "m" "l";
+    }
     &-block {
       &_phone {
         grid-area: p;
         @include screen-max($medium) {
           width: 163px;
         }
+        @include screen-max($small) {
+          margin-bottom: 30px;
+          width: 300px;
+        }
       }
       &_mail {
         grid-area: m;
+        @include screen-max($small) {
+          margin-bottom: 30px;
+        }
       }
       &__item {
         font-weight: 500;
@@ -114,6 +153,10 @@
       margin-bottom: 0;
       width: 235px;
     }
+    @include screen-max($small) {
+      margin-bottom: 30px;
+      width: 300px;
+    }
     &__item {
       border: none;
       outline: none;
@@ -124,6 +167,9 @@
       color: $light-gray;
       @include screen-max($medium) {
         width: 235px;
+      }
+      @include screen-max($small) {
+        width: 300px;
       }
     }
     &__button {
@@ -150,25 +196,43 @@
     @include screen-max($medium) {
       justify-content: space-between;
     }
+    @include screen-max($small) {
+      display: grid;
+      grid-template-areas: "buttons" "social" "pay" "logo";
+    }
     &-buttons {
       display: flex;
+      align-items: center;
+      grid-area: buttons;
       @include screen-max($medium) {
         flex-direction: column;
+      }
+      @include screen-max($small) {
+        margin-bottom: 30px;
+        align-items: flex-start;
       }
     }
   }
   &-logo {
     margin-right: 206px;
+    grid-area: logo;
     @include screen-max($medium) {
       margin-right: 0px;
+    }
+    @include screen-max($small) {
+      margin-bottom: 7px;
     }
   }
   &-socials {
     margin-right: 148px;
     display: flex;
     flex-wrap: nowrap;
+    grid-area: social;
     @include screen-max($medium) {
-      margin-right: 00px;
+      margin-right: 0px;
+    }
+    @include screen-max($small) {
+      margin-bottom: 90px;
     }
     &__item {
       width: 24px;
@@ -180,39 +244,31 @@
   }
   &__button {
     margin-right: 40px;
-    white-space: nowrap;
     @include screen-max($medium) {
-      background-color: transparent;
-      border: none;
-      padding: 0;
-      color: $light-gray;
-      font-weight: 700;
       margin-right: 0;
-    }
-    &_unbordered {
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 17px;
-      color: $light-gray;
-      margin-right: 90px;
-      @include screen-max($medium) {
-        margin-top: 5px;
-        margin-right: 0;
-      }
     }
   }
   &-payment {
     display: flex;
     align-items: center;
+    grid-area: pay;
     @include screen-max($medium) {
       width: 125px;
       flex-wrap: wrap;
+    }
+    @include screen-max($small) {
+      width: 100%;
+      flex-wrap: nowrap;
+      margin-bottom: 17px;
     }
     &__item {
       &:not(:last-child) {
         margin-right: 30px;
         @include screen-max($medium) {
           margin-right: 15px;
+        }
+        @include screen-max($small) {
+          margin-right: 30px;
         }
       }
     }

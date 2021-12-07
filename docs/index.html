@@ -17,12 +17,12 @@
         class="logo__img header-logo__img"
         alt="Logo"
     /></a>
-    <div class="header-city">
-      <div class="header-city__item">Москва</div>
-      <img class="header-city__img" src="./images/arrow.svg" alt="open" />
+    <div class="header-city city-btn">
+      <div class="header-city__item city-btn__item">Москва</div>
+      <img class="header-city__img city-btn__img" src="./images/arrow.svg" alt="open" />
     </div>
-    <a href="#" class="header__link">Для дилеров</a>
-    <a href="#" class="header__button button">Become a Partner</a>
+    <button class="partnership-btn partnership-btn_unbordered header__link button button_unbordered">Для дилеров</button>
+    <button class="partnership-btn header__button button">Become a Partner</button>
     <div class="header-phone">
       <div class="header-phone-choosen">
         <div class="header-phone-choosen__item select-choosen__item_small">
@@ -44,15 +44,15 @@
           </li>
         </div>
       </div>
-      <button class="header-phone__button button button_red">
+      <button class="header-phone__button callBack-btn button button_red">
         Заказать звонок
       </button>
     </div>
-    <div class="header-sign">
-      <button class="header-sign__button button button_unbordered">
+    <div class="header-sign sign-block">
+      <button class="header-sign__button sign-block__button button button_unbordered">
         Войти
       </button>
-      <img src="./images/avatar.svg" alt="avatar" class="header-sign__img" />
+      <img src="./images/avatar.svg" alt="avatar" class="header-sign__img sign-block__img" />
     </div>
   </div>
   <div class="header-border"></div>
@@ -61,7 +61,7 @@
       <button class="header-navigation-catalog__button button button_catalog">
         Каталог
       </button>
-      <button class="header-navigation-catalog-search button button_unbordered" ><img src="./images/search.svg" alt="search" class="header-navigation-catalog-search__img"></button>
+      <button class="header-navigation-catalog-search search-btn button button_unbordered" ><img src="./images/search.svg" alt="search" class="header-navigation-catalog-search__img"></button>
     </div>
     <nav class="header-navigation-nav nav">
       <a href="#" class="header-navigation-nav__item nav__item">Бренды</a>
@@ -104,19 +104,15 @@
           alt="cart"
         /><span class="header-navigation-buttons-item__span">2</span>
       </button>
-      <div class="modal-cart hide">
-  <div class="modal-cart-goods">
-    <div class="modal-cart-goods-item">
-      <img
-        src="./images/good.png"
-        class="modal-cart-goods-item__img"
-        alt="good"
-      />
-      <div class="modal-cart-item__name">
+      <div class="modal-comparison hide tab">
+  <div class="tab-goods">
+    <div class="tab-goods-item">
+      <img src="./images/good.png" class="tab-goods-item__img" alt="good" />
+      <div class="tab-goods-item__name">
         Вертикальный Велотренажер СardioPower B37
       </div>
-      <div class="modal-cart-goods-item__price">34 000 ₽</div>
-      <button class="modal-cart-goods-item-button button button_unbordered">
+      <div class="tab-goods-item__price">34 000 ₽</div>
+      <button class="tab-goods-item-button button button_unbordered">
         <svg
           width="8"
           height="8"
@@ -127,22 +123,18 @@
           <path
             d="M7.72959 1.57572L5.30563 3.99992L7.72959 6.42402C8.09014 6.78471 8.09014 7.36897 7.72959 7.72966C7.54944 7.90981 7.31325 7.99996 7.07718 7.99996C6.84071 7.99996 6.6045 7.90995 6.42449 7.72966L4.00001 5.30529L1.57571 7.72964C1.39559 7.90979 1.15938 7.99993 0.923098 7.99993C0.686888 7.99993 0.450838 7.90993 0.270551 7.72964C-0.09 7.36911 -0.09 6.78482 0.270551 6.424L2.69444 3.9999L0.270413 1.57572C-0.0901378 1.21516 -0.0901378 0.630758 0.270413 0.270207C0.630895 -0.090069 1.21496 -0.090069 1.57558 0.270207L3.99999 2.69442L6.42422 0.270207C6.78491 -0.090069 7.36904 -0.090069 7.72945 0.270207C8.09014 0.630758 8.09014 1.21516 7.72959 1.57572Z"
             fill="#858FA4"
-            class="modal-cart-goods-item-button__svg"
+            class="tab-goods-item-button__svg"
           />
         </svg>
       </button>
     </div>
-    <div class="modal-cart-goods-item">
-      <img
-        src="./images/good.png"
-        class="modal-cart-goods-item__img"
-        alt="good"
-      />
-      <div class="modal-cart-item__name">
+    <div class="tab-goods-item">
+      <img src="./images/good.png" class="tab-goods-item__img" alt="good" />
+      <div class="tab-goods-item__name">
         Вертикальный Велотренажер СardioPower B37
       </div>
-      <div class="modal-cart-goods-item__price">34 000 ₽</div>
-      <button class="modal-cart-goods-item-button button button_unbordered">
+      <div class="tab-goods-item__price">34 000 ₽</div>
+      <button class="tab-goods-item-button button button_unbordered">
         <svg
           width="8"
           height="8"
@@ -159,12 +151,118 @@
       </button>
     </div>
   </div>
-  <div class="modal-cart-footer">
-    <button class="modal-cart-footer__button button button_full-red">
+  <div class="tab-footer">
+    <button class="tab-footer__button button button_full-red">Сравнить</button>
+  </div>
+</div>
+
+      <div class="modal-favorive hide tab">
+  <div class="tab-goods">
+    <div class="tab-goods-item">
+      <img src="./images/good.png" class="tab-goods-item__img" alt="good" />
+      <div class="tab-goods-item__name">
+        Вертикальный Велотренажер СardioPower B37
+      </div>
+      <div class="tab-goods-item__price">34 000 ₽</div>
+      <button class="tab-goods-item-button button button_unbordered">
+        <svg
+          width="8"
+          height="8"
+          viewBox="0 0 8 8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.72959 1.57572L5.30563 3.99992L7.72959 6.42402C8.09014 6.78471 8.09014 7.36897 7.72959 7.72966C7.54944 7.90981 7.31325 7.99996 7.07718 7.99996C6.84071 7.99996 6.6045 7.90995 6.42449 7.72966L4.00001 5.30529L1.57571 7.72964C1.39559 7.90979 1.15938 7.99993 0.923098 7.99993C0.686888 7.99993 0.450838 7.90993 0.270551 7.72964C-0.09 7.36911 -0.09 6.78482 0.270551 6.424L2.69444 3.9999L0.270413 1.57572C-0.0901378 1.21516 -0.0901378 0.630758 0.270413 0.270207C0.630895 -0.090069 1.21496 -0.090069 1.57558 0.270207L3.99999 2.69442L6.42422 0.270207C6.78491 -0.090069 7.36904 -0.090069 7.72945 0.270207C8.09014 0.630758 8.09014 1.21516 7.72959 1.57572Z"
+            fill="#858FA4"
+            class="tab-goods-item-button__svg"
+          />
+        </svg>
+      </button>
+    </div>
+    <div class="tab-goods-item">
+      <img src="./images/good.png" class="tab-goods-item__img" alt="good" />
+      <div class="tab-goods-item__name">
+        Вертикальный Велотренажер СardioPower B37
+      </div>
+      <div class="tab-goods-item__price">34 000 ₽</div>
+      <button class="tab-goods-item-button button button_unbordered">
+        <svg
+          width="8"
+          height="8"
+          viewBox="0 0 8 8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.72959 1.57572L5.30563 3.99992L7.72959 6.42402C8.09014 6.78471 8.09014 7.36897 7.72959 7.72966C7.54944 7.90981 7.31325 7.99996 7.07718 7.99996C6.84071 7.99996 6.6045 7.90995 6.42449 7.72966L4.00001 5.30529L1.57571 7.72964C1.39559 7.90979 1.15938 7.99993 0.923098 7.99993C0.686888 7.99993 0.450838 7.90993 0.270551 7.72964C-0.09 7.36911 -0.09 6.78482 0.270551 6.424L2.69444 3.9999L0.270413 1.57572C-0.0901378 1.21516 -0.0901378 0.630758 0.270413 0.270207C0.630895 -0.090069 1.21496 -0.090069 1.57558 0.270207L3.99999 2.69442L6.42422 0.270207C6.78491 -0.090069 7.36904 -0.090069 7.72945 0.270207C8.09014 0.630758 8.09014 1.21516 7.72959 1.57572Z"
+            fill="#858FA4"
+            class="modal-cart-goods-item-button__svg"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="tab-footer">
+    <button class="tab-footer__button button button_full-red">
+      Перейти в избранное
+    </button>
+  </div>
+</div>
+
+      <div class="modal-cart tab hide">
+  <div class="tab-goods">
+    <div class="tab-goods-item">
+      <img src="./images/good.png" class="tab-goods-item__img" alt="good" />
+      <div class="tab-goods-item__name">
+        Вертикальный Велотренажер СardioPower B37
+      </div>
+      <div class="tab-goods-item__price">34 000 ₽</div>
+      <button class="tab-goods-item-button button button_unbordered">
+        <svg
+          width="8"
+          height="8"
+          viewBox="0 0 8 8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.72959 1.57572L5.30563 3.99992L7.72959 6.42402C8.09014 6.78471 8.09014 7.36897 7.72959 7.72966C7.54944 7.90981 7.31325 7.99996 7.07718 7.99996C6.84071 7.99996 6.6045 7.90995 6.42449 7.72966L4.00001 5.30529L1.57571 7.72964C1.39559 7.90979 1.15938 7.99993 0.923098 7.99993C0.686888 7.99993 0.450838 7.90993 0.270551 7.72964C-0.09 7.36911 -0.09 6.78482 0.270551 6.424L2.69444 3.9999L0.270413 1.57572C-0.0901378 1.21516 -0.0901378 0.630758 0.270413 0.270207C0.630895 -0.090069 1.21496 -0.090069 1.57558 0.270207L3.99999 2.69442L6.42422 0.270207C6.78491 -0.090069 7.36904 -0.090069 7.72945 0.270207C8.09014 0.630758 8.09014 1.21516 7.72959 1.57572Z"
+            fill="#858FA4"
+            class="tab-goods-item-button__svg"
+          />
+        </svg>
+      </button>
+    </div>
+    <div class="tab-goods-item">
+      <img src="./images/good.png" class="tab-goods-item__img" alt="good" />
+      <div class="tab-goods-item__name">
+        Вертикальный Велотренажер СardioPower B37
+      </div>
+      <div class="tab-goods-item__price">34 000 ₽</div>
+      <button class="tab-goods-item-button button button_unbordered">
+        <svg
+          width="8"
+          height="8"
+          viewBox="0 0 8 8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.72959 1.57572L5.30563 3.99992L7.72959 6.42402C8.09014 6.78471 8.09014 7.36897 7.72959 7.72966C7.54944 7.90981 7.31325 7.99996 7.07718 7.99996C6.84071 7.99996 6.6045 7.90995 6.42449 7.72966L4.00001 5.30529L1.57571 7.72964C1.39559 7.90979 1.15938 7.99993 0.923098 7.99993C0.686888 7.99993 0.450838 7.90993 0.270551 7.72964C-0.09 7.36911 -0.09 6.78482 0.270551 6.424L2.69444 3.9999L0.270413 1.57572C-0.0901378 1.21516 -0.0901378 0.630758 0.270413 0.270207C0.630895 -0.090069 1.21496 -0.090069 1.57558 0.270207L3.99999 2.69442L6.42422 0.270207C6.78491 -0.090069 7.36904 -0.090069 7.72945 0.270207C8.09014 0.630758 8.09014 1.21516 7.72959 1.57572Z"
+            fill="#858FA4"
+            class="modal-cart-goods-item-button__svg"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="tab-footer">
+    <button class="tab-footer__button button button_full-red">
       Оформить заказ
     </button>
-    <div class="modal-cart-footer-price">
-      Итого <span class="modal-cart-footer-price__sum">34 000 ₽</span>
+    <div class="tab-footer-price">
+      Итого <span class="tab-footer-price__sum">34 000 ₽</span>
     </div>
   </div>
 </div>
@@ -192,6 +290,193 @@
       </div>
     </div>
   </div>
+  <div class="menu hide">
+  <div class="menu-main">
+    <div class="menu-header">
+      <div class="menu-header-city city-btn">
+        <div class="header-city__item city-btn__item">Москва</div>
+        <img class="header-city__img city-btn__img" src="./images/arrow.svg" alt="open" />
+      </div>
+      <div class="menu-header-sign sign-block">
+        <button class="sign-block__button button button_unbordered">
+          Войти
+        </button>
+        <img src="./images/avatar.svg" alt="avatar" class="sign-block__img" />
+      </div>
+      <div class="menu-header-close">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15.4592 3.15144L10.6113 7.99986L15.4592 12.8481C16.1803 13.5694 16.1803 14.738 15.4592 15.4593C15.0989 15.8196 14.6265 15.9999 14.1544 15.9999C13.6814 15.9999 13.209 15.8199 12.849 15.4593L8.00004 10.6106L3.15143 15.4593C2.79118 15.8196 2.31876 15.9999 1.8462 15.9999C1.37378 15.9999 0.901677 15.8199 0.541103 15.4593C-0.18 14.7382 -0.18 13.5697 0.541103 12.848L5.38888 7.99981L0.540827 3.15144C-0.180276 2.43033 -0.180276 1.26152 0.540827 0.540414C1.26179 -0.180138 2.42992 -0.180138 3.15116 0.540414L7.99999 5.38884L12.8485 0.540414C13.5698 -0.180138 14.7381 -0.180138 15.4589 0.540414C16.1803 1.26152 16.1803 2.43033 15.4592 3.15144Z"
+            fill="#858FA4"
+          />
+        </svg>
+      </div>
+    </div>
+    <form class="menu-form">
+        <input class="menu-form__input search-btn" type="text" placeholder="Поиск" />
+    </form>
+    <div class="menu-catalog">
+        <h3 class="menu__title menu-catalog__title">Каталог</h3>
+        <button class="menu-catalog-button button button_unbordered">
+          <span class="menu-catalog-button__text">Для дома</span>
+          <span class="menu-catalog-button__arrow">&#8594;</span>
+        </button>
+        <button class="menu-catalog-button button button_unbordered">
+          <span class="menu-catalog-button__text">Для фитнес клубов</span>
+          <span class="menu-catalog-button__arrow">&#8594;</span>
+        </button>
+    </div>
+    <nav class="menu-navigation">
+        <a href="#" class="menu-navigation__item">Бренды</a>
+        <a href="#" class="menu-navigation__item">Сервис</a>
+        <a href="#" class="menu-navigation__item">Услуги</a>
+        <a href="#" class="menu-navigation__item">Поддержка</a>
+        <a href="#" class="menu-navigation__item">О компании</a>
+        <a href="#" class="menu-navigation__item">Блог</a>
+        <a href="#" class="menu-navigation__item">Выставочный зал</a>
+        <a href="#" class="menu-navigation__item">Контакты</a>
+    </nav>
+  </div>
+  <div class="menu-home hide menu-window">
+        <div class="menu-window-header">
+          <button class="menu-window-header__button button button_unbordered">
+            Назад
+          </button>
+          <button
+            class="menu-window-header__button_close button button_unbordered"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.4592 3.15144L10.6113 7.99986L15.4592 12.8481C16.1803 13.5694 16.1803 14.738 15.4592 15.4593C15.0989 15.8196 14.6265 15.9999 14.1544 15.9999C13.6814 15.9999 13.209 15.8199 12.849 15.4593L8.00004 10.6106L3.15143 15.4593C2.79118 15.8196 2.31876 15.9999 1.8462 15.9999C1.37378 15.9999 0.901677 15.8199 0.541103 15.4593C-0.18 14.7382 -0.18 13.5697 0.541103 12.848L5.38888 7.99981L0.540827 3.15144C-0.180276 2.43033 -0.180276 1.26152 0.540827 0.540414C1.26179 -0.180138 2.42992 -0.180138 3.15116 0.540414L7.99999 5.38884L12.8485 0.540414C13.5698 -0.180138 14.7381 -0.180138 15.4589 0.540414C16.1803 1.26152 16.1803 2.43033 15.4592 3.15144Z"
+                fill="#858FA4"
+              />
+            </svg>
+          </button>
+        </div>
+        <h3 class="menu__title menu-window__title">Для дома</h3>
+        <nav class="menu-window-nav">
+          <a href="#" class="menu-window-nav__item">
+            <span class="menu-window-nav__item_text">Кардиотренажеры</span>
+            <span class="menu-window-nav__item_arrow"> &#8594;</span>
+          </a>
+          <a href="#" class="menu-window-nav__item">
+            <span class="menu-window-nav__item_text">Силовые тренажеры</span>
+            <span class="menu-window-nav__item_arrow"> &#8594;</span>
+          </a>
+          <a href="#" class="menu-window-nav__item">
+            <span class="menu-window-nav__item_text">Уличные виды спорта</span>
+            <span class="menu-window-nav__item_arrow"> &#8594;</span>
+          </a>
+          <a href="#" class="menu-window-nav__item">
+            <span class="menu-window-nav__item_text">Свободные веса</span>
+            <span class="menu-window-nav__item_arrow"> &#8594;</span>
+          </a>
+          <a href="#" class="menu-window-nav__item">
+            <span class="menu-window-nav__item_text">Игровые столы</span>
+            <span class="menu-window-nav__item_arrow"> &#8594;</span>
+          </a>
+          <a href="#" class="menu-window-nav__item">
+            <span class="menu-window-nav__item_text">Массажное оборудование</span>
+            <span class="menu-window-nav__item_arrow"> &#8594;</span>
+          </a>
+          <a href="#" class="menu-window-nav__item">
+            <span class="menu-window-nav__item_text">Фитнес аксессуары</span>
+            <span class="menu-window-nav__item_arrow"> &#8594;</span>
+          </a>
+          <a href="#" class="menu-window-nav__item">
+            <span class="menu-window-nav__item_text">Функциональный тренинг</span>
+            <span class="menu-window-nav__item_arrow"> &#8594;</span>
+          </a>
+        </nav>
+  </div>
+  <div class="menu-clubs hide menu-window">
+    <div class="menu-window-header">
+      <button class="menu-window-header__button button button_unbordered">
+        Назад
+      </button>
+      <button
+        class="menu-window-header__button_close button button_unbordered"
+      >
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15.4592 3.15144L10.6113 7.99986L15.4592 12.8481C16.1803 13.5694 16.1803 14.738 15.4592 15.4593C15.0989 15.8196 14.6265 15.9999 14.1544 15.9999C13.6814 15.9999 13.209 15.8199 12.849 15.4593L8.00004 10.6106L3.15143 15.4593C2.79118 15.8196 2.31876 15.9999 1.8462 15.9999C1.37378 15.9999 0.901677 15.8199 0.541103 15.4593C-0.18 14.7382 -0.18 13.5697 0.541103 12.848L5.38888 7.99981L0.540827 3.15144C-0.180276 2.43033 -0.180276 1.26152 0.540827 0.540414C1.26179 -0.180138 2.42992 -0.180138 3.15116 0.540414L7.99999 5.38884L12.8485 0.540414C13.5698 -0.180138 14.7381 -0.180138 15.4589 0.540414C16.1803 1.26152 16.1803 2.43033 15.4592 3.15144Z"
+            fill="#858FA4"
+          />
+        </svg>
+      </button>
+    </div>
+    <h3 class="menu__title menu-window__title">Для фитнес клубов</h3>
+    <nav class="menu-window-nav">
+      <a href="#" class="menu-window-nav__item">
+        <span class="menu-window-nav__item_text">Кардиотренажеры</span>
+        <span class="menu-window-nav__item_arrow"> &#8594;</span>
+      </a>
+      <a href="#" class="menu-window-nav__item">
+        <span class="menu-window-nav__item_text">Грузоблочные тренажеры</span>
+        <span class="menu-window-nav__item_arrow"> &#8594;</span>
+      </a>
+      <a href="#" class="menu-window-nav__item">
+        <span class="menu-window-nav__item_text">Тренажеры на свободных весах</span>
+        <span class="menu-window-nav__item_arrow"> &#8594;</span>
+      </a>
+      <a href="#" class="menu-window-nav__item">
+        <span class="menu-window-nav__item_text">Функциональный тренинг</span>
+        <span class="menu-window-nav__item_arrow"> &#8594;</span>
+      </a>
+      <a href="#" class="menu-window-nav__item">
+        <span class="menu-window-nav__item_text">СПА, массаж</span>
+        <span class="menu-window-nav__item_arrow"> &#8594;</span>
+      </a>
+      <a href="#" class="menu-window-nav__item">
+        <span class="menu-window-nav__item_text">Спортивная медицина</span>
+        <span class="menu-window-nav__item_arrow"> &#8594;</span>
+      </a>
+      <a href="#" class="menu-window-nav__item">
+        <span class="menu-window-nav__item_text">Свободные веса</span>
+        <span class="menu-window-nav__item_arrow"> &#8594;</span>
+      </a>
+      
+    </nav>
+</div>
+      <div class="menu-phone">
+        <span class="menu-catalog-phone__item header-phone-choosen__item_white"
+          >+7 (800) 999-00-00</span
+        >
+        <button
+          class="menu-phone__button callBack-btn header-phone__button button button_red"
+        >
+          Заказать звонок
+        </button>
+      </div>
+      <div class="menu-links">
+        <button class="partnership-btn menu-links__item button">Для дилеров</button>
+        <button class="partnership-btn menu-links__item button"
+          >Become a Partner</button
+        >
+      </div>
+    </div>
+    
+  </div>
+</div>
+
 </header>
 
     <main class="main">
@@ -865,7 +1150,13 @@
         <div class="footer-contacts-block__item">
           8 (800) 000-00-00 для России
         </div>
-        <button class="footer-contacts-block__button button button_unbordered">
+        <button
+          class="
+            footer-contacts-block__button
+            callBack-btn
+            button button_unbordered
+          "
+        >
           Заказать звонок
         </button>
       </div>
@@ -901,8 +1192,10 @@
         /></a>
       </div>
       <div class="footer-bottom-buttons">
-        <a class="footer__button button">Become a Partner </a>
-        <a class="footer__button footer__button_unbordered">Для дилеров </a>
+        <a class="partnership-btn footer__button button">Become a Partner </a>
+        <a class="partnership-btn partnership-btn_unbordered footer__button"
+          >Для дилеров
+        </a>
       </div>
 
       <div class="footer-payment">
@@ -1110,12 +1403,18 @@
         <div class="search-result-header__text">
           Найдено <span class="search-result-header__number">53 товара</span>
         </div>
-        <button class="search-result-header__button button button_light">
-          Для дома
-        </button>
-        <button class="search-result-header__button button button_light">
-          Для фитнес клубов
-        </button>
+        <div class="search-result-header-buttons">
+          <button
+            class="search-result-header-buttons__item button button_light"
+          >
+            Для дома
+          </button>
+          <button
+            class="search-result-header-buttons__item button button_light"
+          >
+            Для фитнес клубов
+          </button>
+        </div>
       </div>
     </div>
     <div class="search-result-main">

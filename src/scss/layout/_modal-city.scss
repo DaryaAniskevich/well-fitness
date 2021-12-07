@@ -8,18 +8,31 @@
     padding: 20px 20px 30px 30px;
     display: flex;
     flex-direction: column;
+    @include screen-max($small) {
+      margin-top: 0;
+      width: 320px;
+      padding: 27px 16px 27px 20px;
+      border-radius: 0;
+      height: 100vh;
+    }
     &__title {
       margin-bottom: 28px;
     }
     &-form {
       margin-bottom: 14px;
       position: relative;
+      @include screen-max($small) {
+        width: 280px;
+      }
       &__input {
         background: $text-gray;
         border: 1px solid rgba(133, 143, 164, 0.15);
         border-radius: 5px;
         width: 100%;
         padding: 15px 20px;
+        @include screen-max($small) {
+          padding: 15px 15px;
+        }
       }
       &-button {
         position: absolute;

@@ -1,6 +1,8 @@
 const modal = (modal, openBtn, closeBtn) => {
-  openBtn.addEventListener("click", () => {
-    modal.classList.add("modal_active");
+  openBtn.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      modal.classList.add("modal_active");
+    });
   });
   closeBtn.addEventListener("click", () => {
     modal.classList.remove("modal_active");
@@ -17,7 +19,7 @@ const modal = (modal, openBtn, closeBtn) => {
 };
 ;
 const chooseCity = () => {
-  const cityOpenBtn = document.querySelector(".header-city");
+  const cityOpenBtn = document.querySelectorAll(".city-btn");
   const cityModal = document.querySelector(".modal-city");
   const cityCloseBtn = cityModal.querySelector(".modal-city-content-button");
   const searchCityBtn = cityModal.querySelector(
@@ -78,10 +80,7 @@ const phoneModal = () => {
 phoneModal();
 
 const callback = () => {
-  const openBtnHeader = document.querySelector(".header-phone__button");
-  const openBtnFooter = document.querySelector(
-    ".footer-contacts-block__button"
-  );
+  const openBtn = document.querySelectorAll(".callBack-btn");
   const modalCall = document.querySelector(".modal-call");
   const closeBtn = modalCall.querySelector(".modal-call-content-button");
   const callBackBtn = modalCall.querySelector(
@@ -92,8 +91,7 @@ const callback = () => {
     ".modal-call-content-form-text_success"
   );
 
-  modal(modalCall, openBtnHeader, closeBtn);
-  modal(modalCall, openBtnFooter, closeBtn);
+  modal(modalCall, openBtn, closeBtn);
 
   let nameIsValid = true;
   let phoneIsValid = true;
@@ -179,15 +177,17 @@ const catalog = () => {
 catalog();
 
 const search = () => {
-  const openBtn = document.querySelector(".header-navigation-catalog-search");
+  const openBtn = document.querySelectorAll(".search-btn");
   const searchBlock = document.querySelector(".search");
   const closeBtn = searchBlock.querySelector(".search-form-button");
   const body = document.querySelector("body");
   const catalogBlock = document.querySelector(".catalog");
 
-  openBtn.addEventListener("click", () => {
-    catalogBlock.classList.add("hide");
-    searchBlock.classList.remove("hide");
+  openBtn.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      catalogBlock.classList.add("hide");
+      searchBlock.classList.remove("hide");
+    });
   });
   closeBtn.addEventListener("click", () => {
     searchBlock.classList.add("hide");

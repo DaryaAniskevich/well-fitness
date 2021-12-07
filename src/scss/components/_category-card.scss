@@ -12,12 +12,22 @@
     border-radius: 4px;
     padding: 27px 20px;
   }
+  @include screen-max($small) {
+    max-width: 145px;
+    height: 140px;
+    padding: 18px 11px;
+  }
   &_hight {
     height: 430px;
     padding: 36px 30px;
     @include screen-max($medium) {
       padding: 27px 20px;
       height: 290px;
+    }
+    @include screen-max($small) {
+      max-width: 300px;
+      height: 140px;
+      padding: 13px 20px;
     }
   }
   &_wide {
@@ -30,6 +40,11 @@
       height: 190px;
       padding: 20px 22px;
     }
+    @include screen-max($small) {
+      max-width: 300px;
+      height: 140px;
+      padding: 13px 24px;
+    }
   }
   &_square {
     max-width: 330px;
@@ -38,6 +53,11 @@
     @include screen-max($medium) {
       max-width: 220px;
       height: 190px;
+    }
+    @include screen-max($small) {
+      max-width: 145px;
+      height: 140px;
+      padding: 18px 11px;
     }
   }
   &_dark {

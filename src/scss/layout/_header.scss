@@ -8,6 +8,10 @@
     @include screen-max($medium) {
       flex-direction: row;
       justify-content: space-between;
+      padding: 0 20px;
+    }
+    @include screen-max($small) {
+      padding: 0 10px;
     }
     &-menu {
       display: none;
@@ -15,6 +19,9 @@
       @include screen-max($medium) {
         display: flex;
         align-items: center;
+      }
+      @include screen-max($small) {
+        width: 23px;
       }
     }
   }
@@ -24,7 +31,7 @@
     height: 1px;
     background-color: rgba(133, 143, 164, 0.15);
     @include screen-max($medium) {
-      height: 0;
+      display: none;
     }
   }
   &-main {
@@ -40,31 +47,24 @@
     @include screen-max($medium) {
       margin-right: 31px;
     }
+    @include screen-max($small) {
+      margin-right: 10px;
+    }
   }
   &-city {
-    display: flex;
-    align-items: center;
     margin-right: 229px;
-    cursor: pointer;
     @include screen-max($medium) {
       margin-right: 0;
+    }
+    @include screen-max($small) {
+      display: none;
     }
     &:hover {
       color: $white;
     }
-    &__item {
-      margin-right: 10px;
-      white-space: nowrap;
-    }
-    &__img {
-      width: 6px;
-      height: 6px;
-    }
   }
   &__link {
-    color: $light-gray;
     margin-right: 30px;
-    white-space: nowrap;
     @include screen-max($medium) {
       display: none;
     }
@@ -132,29 +132,26 @@
     }
   }
   &-sign {
-    display: flex;
-    align-items: center;
     @include screen-max($medium) {
       display: none;
-    }
-    &__button {
-      margin-right: 14px;
-    }
-    &__img {
-      width: 20px;
-      height: 20px;
     }
   }
   &-navigation {
     padding: 16px 0;
     display: flex;
     align-items: center;
+    @include screen-max($medium) {
+      justify-content: flex-end;
+    }
     &-catalog {
       display: flex;
       align-items: center;
       margin-right: 48px;
       @include screen-max($medium) {
         margin-right: 32px;
+      }
+      @include screen-max($small) {
+        margin-right: 22px;
       }
       &:after {
         content: "";
@@ -165,6 +162,13 @@
         border-radius: 1px;
         margin-left: 30px;
         align-self: center;
+        @include screen-max($medium) {
+          margin-left: 14px;
+        }
+        @include screen-max($small) {
+          height: 30px;
+          margin-left: 5px;
+        }
       }
       &__button {
         margin-right: 51px;
@@ -177,11 +181,17 @@
         padding: 5px;
         width: 52px;
         height: 30px;
-
+        @include screen-max($small) {
+          width: 30px;
+        }
         &__img {
           width: 20px;
           height: 20px;
           vertical-align: middle;
+          @include screen-max($small) {
+            width: 18px;
+            height: 18px;
+          }
         }
       }
     }
@@ -195,17 +205,26 @@
     &-buttons {
       display: flex;
       position: relative;
-      @include screen-max($medium) {
-        margin-right: 37px;
-      }
       &-item {
         position: relative;
         font-size: 10px;
         line-height: 12px;
+        @include screen-max($small) {
+          display: none;
+        }
+        &_cart {
+          @include screen-max($small) {
+            display: flex;
+          }
+        }
+
         &:not(:last-child) {
           margin-right: 47px;
           @include screen-max($medium) {
             margin-right: 40px;
+          }
+          @include screen-max($small) {
+            margin-right: 23px;
           }
         }
         &__img {
@@ -224,6 +243,10 @@
           &_cart {
             width: 21px;
             height: 24px;
+            @include screen-max($small) {
+              width: 16px;
+              height: 18px;
+            }
           }
           &_active {
             opacity: 1;
@@ -246,6 +269,12 @@
           font-size: 10px;
           line-height: 12px;
           border: 2px solid $main-dark-gray;
+          @include screen-max($small) {
+            width: 14px;
+            height: 14px;
+            right: -8px;
+            font-size: 9px;
+          }
         }
       }
     }
@@ -255,6 +284,12 @@
     &-container {
       padding: 14px 0;
       display: flex;
+      @include screen-max($medium) {
+        padding: 14px 20px;
+      }
+      @include screen-max($small) {
+        padding: 12px 5px;
+      }
     }
     &-item {
       color: $white;
@@ -263,6 +298,11 @@
       align-items: center;
       position: relative;
       cursor: pointer;
+      @include screen-max($small) {
+        padding-right: 20px;
+        font-size: 12px;
+        line-height: 15px;
+      }
       &:not(:first-child) {
         padding-left: 19px;
       }

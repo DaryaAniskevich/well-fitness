@@ -1,0 +1,16 @@
+.city-btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 140%;
+  color: $light-gray;
+  &__item {
+    margin-right: 10px;
+    white-space: nowrap;
+  }
+  &__img {
+    width: 6px;
+    height: 6px;
+  }
+}

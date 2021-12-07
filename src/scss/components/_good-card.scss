@@ -10,6 +10,9 @@
   @include screen-max($medium) {
     max-width: 270px;
   }
+  @include screen-max($small) {
+    max-width: 220px;
+  }
   &:hover {
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.12))
       drop-shadow(0px 4px 30px rgba(19, 15, 38, 0.1));
@@ -22,6 +25,9 @@
   }
   &_search {
     width: 210px;
+    @include screen-max($small) {
+      width: 126px;
+    }
     &:hover {
       filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.12))
         drop-shadow(0px 2px 5px rgba(19, 15, 38, 0.1));
@@ -46,6 +52,10 @@
       align-items: center;
       justify-content: center;
       position: absolute;
+      @include screen-max($small) {
+        width: 26px;
+        height: 26px;
+      }
       &:hover {
         .good-card-icons-item__img {
           fill: $red;
@@ -54,23 +64,45 @@
       &_comparison {
         background-color: transparent;
         right: 30px;
+        @include screen-max($small) {
+          width: 36px;
+          height: 36px;
+          top: -5px;
+        }
       }
       &_favorite {
         background-color: transparent;
         right: -6px;
+        @include screen-max($small) {
+          width: 36px;
+          height: 36px;
+          top: -5px;
+        }
       }
       &__img {
         &_discount {
           width: 14px;
           height: 13px;
+          @include screen-max($small) {
+            width: 10px;
+            height: 9px;
+          }
         }
         &_choice {
           width: 13px;
           height: 14px;
+          @include screen-max($small) {
+            width: 10px;
+            height: 11px;
+          }
         }
         &_new {
           width: 27px;
           height: 11px;
+          @include screen-max($small) {
+            width: 22px;
+            height: 9px;
+          }
         }
       }
       &_red {
@@ -81,11 +113,17 @@
         background-color: $blue;
         left: 25px;
         z-index: 3;
+        @include screen-max($small) {
+          left: 18px;
+        }
       }
       &_green {
         background-color: $green;
         left: 50px;
         z-index: 4;
+        @include screen-max($small) {
+          left: 38px;
+        }
       }
     }
   }
@@ -97,23 +135,42 @@
     @include screen-max($medium) {
       max-width: 270px;
     }
+    @include screen-max($small) {
+      max-width: 220px;
+    }
     &_search {
       width: 210px;
       height: 210px;
+      @include screen-max($small) {
+        width: 126px;
+        height: 126px;
+      }
     }
   }
   &-description {
     padding: 20px;
+    @include screen-max($small) {
+      padding: 12px;
+    }
   }
   &-availibility {
     margin-bottom: 8px;
+    @include screen-max($small) {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0;
+    }
     &_available {
       color: $green;
       margin-right: 6px;
+      @include screen-max($small);
     }
     &_blue {
       color: $blue;
       margin-left: 8px;
+      @include screen-max($small) {
+        margin-left: 0;
+      }
     }
   }
   &__heading {
@@ -124,15 +181,28 @@
     &_search {
       font-size: 14px;
       line-height: 20px;
+      @include screen-max($small) {
+        font-size: 12px;
+        line-height: 16px;
+        margin-bottom: 5px;
+      }
     }
   }
   &-rating {
     color: #909cb5;
     margin-bottom: 18px;
+    @include screen-max($small) {
+      margin-bottom: 8px;
+    }
     &_search {
       font-size: 12px;
       line-height: 15px;
       margin-bottom: 16px;
+      @include screen-max($small) {
+        font-size: 7px;
+        line-height: 9px;
+        margin-bottom: 10px;
+      }
     }
   }
   &-bottom {
@@ -140,12 +210,25 @@
     justify-content: space-between;
   }
   &-price {
+    @include screen-max($small) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     &__item {
       font-weight: 700;
       font-size: 17px;
       line-height: 23px;
+      @include screen-max($small) {
+        font-size: 15px;
+        line-height: 20px;
+      }
       &_search {
         color: $main-dark-gray;
+        @include screen-max($small) {
+          font-size: 13px;
+          line-height: 18px;
+        }
       }
       &_crossed {
         font-weight: 400;
@@ -153,7 +236,17 @@
         line-height: 22px;
         text-decoration: line-through;
         color: $light-gray;
+        @include screen-max($small) {
+          font-size: 13px;
+          line-height: 17px;
+          margin-left: 15px;
+        }
       }
+    }
+  }
+  &__button {
+    @include screen-max($small) {
+      display: none;
     }
   }
 }

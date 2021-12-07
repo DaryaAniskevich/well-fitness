@@ -2,6 +2,10 @@
   font-weight: bold;
   font-size: 30px;
   line-height: 33px;
+  @include screen-max($small) {
+    font-size: 22px;
+    line-height: 24px;
+  }
   &_white {
     color: $white;
   }

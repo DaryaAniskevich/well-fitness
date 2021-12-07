@@ -1,0 +1,84 @@
+.tab {
+  width: 500px;
+  background-color: $white;
+  box-shadow: 0px 10px 30px rgba(133, 143, 164, 0.1);
+  border-radius: 5px;
+  padding: 17px 18px 22px;
+  @include screen-max($small) {
+    width: 300px;
+    right: 0px;
+  }
+  &-goods {
+    margin-bottom: 18px;
+    &-item {
+      display: flex;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(133, 143, 164, 0.15);
+      @include screen-max($small) {
+        display: grid;
+        grid-template-areas: "img title title del" ". . price price";
+      }
+      &__img {
+        width: 68px;
+        height: 68px;
+        margin-right: 12px;
+        grid-area: img;
+        @include screen-max($small) {
+          width: 58px;
+          height: 58px;
+        }
+      }
+      &__name {
+        font-size: 16px;
+        line-height: 150%;
+        margin-right: 12px;
+        grid-area: title;
+        @include screen-max($small) {
+          font-size: 14px;
+        }
+      }
+      &__price {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: $button-gray;
+        margin-right: 34px;
+        white-space: nowrap;
+        grid-area: price;
+        @include screen-max($small) {
+          margin-top: 8px;
+        }
+      }
+      &-button {
+        width: 16px;
+        height: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: del;
+        &:hover {
+          .modal-cart-goods-item-button__svg {
+            fill: $minor-gray;
+          }
+        }
+      }
+    }
+  }
+  &-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    @include screen-max($small) {
+      flex-direction: column-reverse;
+    }
+    &-price {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+      color: $main-dark-gray;
+      @include screen-max($small) {
+        margin-bottom: 12px;
+      }
+    }
+  }
+}

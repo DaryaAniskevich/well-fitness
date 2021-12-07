@@ -20,22 +20,46 @@
       grid-gap: 20px;
       margin-bottom: 20px;
     }
+    @include screen-max($small) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 140px;
+      grid-gap: 10px;
+    }
     &__item {
       background-image: url("../../images/card-small-bg.png");
       background-repeat: no-repeat;
       background-size: contain;
       background-position: right;
+      @include screen-max($small) {
+        background-size: 70%;
+      }
       &_one {
         grid-row-start: 1;
         grid-row-end: 3;
+        @include screen-max($small) {
+          grid-row-start: 1;
+          grid-row-end: 2;
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
       }
       &_two {
         grid-row-start: 1;
         grid-row-end: 3;
+        @include screen-max($small) {
+          grid-row-start: 2;
+          grid-row-end: 3;
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
       }
       &_hight {
         background-size: cover;
         background-image: url("../../images/card-hight-white.jpg");
+        @include screen-max($small) {
+          background-size: cover;
+          background-position: bottom;
+        }
       }
     }
   }

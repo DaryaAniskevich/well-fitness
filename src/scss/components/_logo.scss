@@ -7,9 +7,17 @@
       width: 200px;
       height: 19px;
     }
+    @include screen-max($small) {
+      width: 170px;
+      height: 16px;
+    }
     &_small {
       width: 275px;
       height: 34px;
+      @include screen-max($small) {
+        width: 182px;
+        height: 23px;
+      }
     }
   }
 }

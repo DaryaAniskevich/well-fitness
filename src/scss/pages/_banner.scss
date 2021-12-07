@@ -8,6 +8,9 @@
   @include screen-max($medium) {
     border-radius: 5px;
   }
+  @include screen-max($small) {
+    background-image: url("../../images/banner-small.png");
+  }
   &-container {
     padding: 83px 203px 30px 195px;
     display: flex;
@@ -15,12 +18,19 @@
     @include screen-max($medium) {
       padding: 54px 30px 30px 36px;
     }
+    @include screen-max($small) {
+      padding: 29px 20px 20px;
+      flex-direction: column;
+    }
   }
   &-content {
     align-self: flex-start;
     width: 512px;
     @include screen-max($medium) {
       width: 265px;
+    }
+    @include screen-max($small) {
+      margin-bottom: 180px;
     }
     &__heading {
       font-weight: 900;
@@ -32,6 +42,11 @@
         font-size: 26px;
         line-height: 29px;
         margin-bottom: 13px;
+      }
+      @include screen-max($small) {
+        font-size: 24px;
+        line-height: 26px;
+        margin-bottom: 12px;
       }
       &_light {
         font-weight: 400;
@@ -45,10 +60,17 @@
           font-size: 14px;
           line-height: 110%;
         }
+        @include screen-max($small) {
+          font-size: 14px;
+          line-height: 16px;
+        }
       }
     }
     &__button {
       margin-bottom: 50px;
+      @include screen-max($small) {
+        margin-bottom: 0;
+      }
     }
   }
   &-buttons {

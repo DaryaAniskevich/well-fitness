@@ -1,5 +1,5 @@
 const chooseCity = () => {
-  const cityOpenBtn = document.querySelector(".header-city");
+  const cityOpenBtn = document.querySelectorAll(".city-btn");
   const cityModal = document.querySelector(".modal-city");
   const cityCloseBtn = cityModal.querySelector(".modal-city-content-button");
   const searchCityBtn = cityModal.querySelector(

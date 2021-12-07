@@ -8,6 +8,10 @@
     @include screen-max($medium) {
       padding: 0px 25px;
     }
+    @include screen-max($small) {
+      flex-direction: column-reverse;
+      padding: 64px 28px 0;
+    }
   }
   &__background {
     background-image: url("../../images/partner-bg.png");
@@ -21,12 +25,23 @@
       width: 400px;
       background-position: -40px;
     }
+    @include screen-max($small) {
+      width: 320px;
+      height: 239px;
+      background-position: 30px;
+      background-size: contain;
+    }
   }
   &-content {
     width: 572px;
     align-self: center;
     @include screen-max($medium) {
       width: 390px;
+    }
+    @include screen-max($small) {
+      width: 231px;
+      font-size: 18px;
+      line-height: 120%;
     }
     &__title {
       font-style: normal;

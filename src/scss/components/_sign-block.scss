@@ -1,0 +1,11 @@
+.sign-block {
+  display: flex;
+  align-items: center;
+  &__button {
+    margin-right: 14px;
+  }
+  &__img {
+    width: 20px;
+    height: 20px;
+  }
+}

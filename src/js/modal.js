@@ -1,6 +1,8 @@
 const modal = (modal, openBtn, closeBtn) => {
-  openBtn.addEventListener("click", () => {
-    modal.classList.add("modal_active");
+  openBtn.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      modal.classList.add("modal_active");
+    });
   });
   closeBtn.addEventListener("click", () => {
     modal.classList.remove("modal_active");

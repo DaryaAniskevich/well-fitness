@@ -1,8 +1,5 @@
 const callback = () => {
-  const openBtnHeader = document.querySelector(".header-phone__button");
-  const openBtnFooter = document.querySelector(
-    ".footer-contacts-block__button"
-  );
+  const openBtn = document.querySelectorAll(".callBack-btn");
   const modalCall = document.querySelector(".modal-call");
   const closeBtn = modalCall.querySelector(".modal-call-content-button");
   const callBackBtn = modalCall.querySelector(
@@ -13,8 +10,7 @@ const callback = () => {
     ".modal-call-content-form-text_success"
   );
 
-  modal(modalCall, openBtnHeader, closeBtn);
-  modal(modalCall, openBtnFooter, closeBtn);
+  modal(modalCall, openBtn, closeBtn);
 
   let nameIsValid = true;
   let phoneIsValid = true;

@@ -4,6 +4,9 @@
   @include screen-max($medium) {
     padding: 40px 0 20px;
   }
+  @include screen-max($small) {
+    padding: 20px 0 40px;
+  }
   &__heading {
     margin-bottom: 30px;
     @include screen-max($medium) {
@@ -21,10 +24,21 @@
       grid-auto-rows: 190px;
       grid-gap: 20px;
     }
+    @include screen-max($small) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 140px;
+      grid-gap: 10px;
+    }
     &__item {
       &_one {
         grid-column-start: 1;
         grid-column-end: 3;
+        @include screen-max($small) {
+          grid-row-start: 1;
+          grid-row-end: 2;
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
       }
     }
   }

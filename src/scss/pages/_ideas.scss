@@ -1,9 +1,15 @@
 .ideas {
   background-color: $main-dark-gray;
+  @include screen-max($medium) {
+    border-radius: 10px;
+  }
   &-container {
     padding: 119px 0 102px;
     @include screen-max($medium) {
-      padding: 100px 0 62px;
+      padding: 100px 20px 62px;
+    }
+    @include screen-max($small) {
+      padding: 80px 5px 60px;
     }
   }
   &__heading {
@@ -14,18 +20,31 @@
     justify-content: space-between;
     grid-gap: 30px;
     margin-bottom: 30px;
+    overflow: hidden;
+    @include screen-max($small) {
+      flex-direction: column;
+      grid-gap: 10px;
+    }
     &-item {
       border-radius: 6px;
       cursor: pointer;
       width: 330px;
+      @include screen-max($medium) {
+        width: 280px;
+      }
+      @include screen-max($small) {
+        width: 300px;
+        height: 160px;
+      }
       &:last-child {
         @include screen-max($medium) {
           display: none;
         }
+        @include screen-max($small) {
+          display: block;
+        }
       }
-      @include screen-max($medium) {
-        width: 280px;
-      }
+
       &_wide {
         width: 690px;
         width: 100%;
@@ -39,6 +58,10 @@
         width: 330px;
         @include screen-max($medium) {
           width: 280px;
+        }
+        @include screen-max($small) {
+          width: 300px;
+          height: 160px;
         }
         &_wide {
           width: 690px;
