@@ -1,11 +1,14 @@
 .nav {
   display: flex;
   flex-wrap: nowrap;
+  justify-content: space-between;
+  max-width: 768px;
+  width: 100%;
   &__item {
     color: $white;
     white-space: nowrap;
     &:not(:last-child) {
-      margin-right: 36px;
+      margin-right: 10px;
     }
   }
 }

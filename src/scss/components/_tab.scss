@@ -1,6 +1,7 @@
 .tab {
   justify-content: flex-end;
   background-color: transparent;
+  position: absolute;
   &-content {
     width: 500px;
     background-color: $white;
@@ -8,6 +9,9 @@
     border-radius: 5px;
     padding: 17px 18px 22px;
     margin-top: 150px;
+    @include screen-max($medium) {
+      margin-top: 60px;
+    }
     @include screen-max($small) {
       width: 300px;
       margin-top: 50px;
