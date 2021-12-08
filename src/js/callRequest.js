@@ -1,4 +1,9 @@
-const callback = () => {
+const callRequest = () => {
+  const RED = "#f53b49";
+  const GRAY = `rgba(144,156,181,.5)`;
+  const HIDE = "hide";
+  const modal_active = "modal_active";
+
   const openBtn = document.querySelectorAll(".callBack-btn");
   const modalCall = document.querySelector(".modal-call");
   const closeBtn = modalCall.querySelector(".modal-call-content-button");
@@ -9,6 +14,9 @@ const callback = () => {
   const successMessage = document.querySelector(
     ".modal-call-content-form-text_success"
   );
+  const errorMessage = document.querySelector(
+    ".modal-call-content-form__error"
+  );
 
   modal(modalCall, openBtn, closeBtn);
 
@@ -17,40 +25,35 @@ const callback = () => {
 
   const validText = (input) => {
     if (input.value.trim().length <= 1) {
-      input.style.borderColor = "#f53b49";
+      input.style.borderColor = RED;
       nameIsValid = false;
     }
   };
 
   const validPhone = (input) => {
-    const re = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
-    const valid = re.test(input.value);
+    const value = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+    const valid = value.test(input.value);
     if (!valid) {
-      input.style.borderColor = "#f53b49";
-      document
-        .querySelector(".modal-call-content-form__error")
-        .classList.remove("hide");
+      input.style.borderColor = RED;
+
+      errorMessage.classList.remove(HIDE);
       phoneIsValid = false;
     }
   };
 
   const validation = (inputs) => {
     inputs.forEach((input) => {
-      input.style.borderColor = `rgba(144,156,181,.5)`;
-      document
-        .querySelector(".modal-call-content-form__error")
-        .classList.add("hide");
+      input.style.borderColor = GRAY;
+      errorMessage.classList.add(HIDE);
       if (input.name === "name") {
         input.addEventListener("click", () => {
-          input.style.borderColor = `rgba(144,156,181,.5)`;
+          input.style.borderColor = GRAY;
         });
         validText(input);
       } else if (input.name === "phone") {
         input.addEventListener("click", () => {
-          input.style.borderColor = `rgba(144,156,181,.5)`;
-          document
-            .querySelector(".modal-call-content-form__error")
-            .classList.add("hide");
+          input.style.borderColor = GRAY;
+          errorMessage.classList.add(HIDE);
         });
         validPhone(input);
       }
@@ -62,10 +65,10 @@ const callback = () => {
     validation(inputs);
     if (nameIsValid && phoneIsValid) {
       inputs.forEach((input) => (input.value = ""));
-      successMessage.classList.remove("hide");
+      successMessage.classList.remove(HIDE);
       setTimeout(() => {
-        modalCall.classList.remove("modal_active");
-        successMessage.classList.add("hide");
+        modalCall.classList.remove(modal_active);
+        successMessage.classList.add(HIDE);
       }, 5000);
     }
     nameIsValid = true;
@@ -73,4 +76,4 @@ const callback = () => {
   });
 };
 
-callback();
+callRequest();

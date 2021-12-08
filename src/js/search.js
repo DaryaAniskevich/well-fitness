@@ -15,19 +15,19 @@ const search = () => {
 
   searchBlock.addEventListener("click", (e) => {
     if (
-      e.target.classList.contains("modal_active") ||
+      e.target.classList.contains(modal_active) ||
       e.target.classList.contains("modal-wrapper")
     ) {
-      searchBlock.classList.remove("modal_active");
+      searchBlock.classList.remove(modal_active);
     }
   });
 
   window.addEventListener("scroll", () => {
     if (
-      searchBlock.classList.contains("modal_active") &&
+      searchBlock.classList.contains(modal_active) &&
       pageYOffset > searchBlock.offsetHeight - 50
     ) {
-      searchBlock.classList.remove("modal_active");
+      searchBlock.classList.remove(modal_active);
     }
   });
 };

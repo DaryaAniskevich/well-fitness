@@ -1,24 +1,28 @@
 const modal = (modal, openBtn, closeBtn) => {
+  const modal_active = "modal_active";
+
   openBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
-      modal.classList.add("modal_active");
+      modal.classList.add(modal_active);
     });
   });
   closeBtn.addEventListener("click", () => {
-    modal.classList.remove("modal_active");
+    modal.classList.remove(modal_active);
   });
 
   modal.addEventListener("click", (e) => {
     if (
-      e.target.classList.contains("modal_active") ||
+      e.target.classList.contains(modal_active) ||
       e.target.classList.contains("modal-wrapper")
     ) {
-      modal.classList.remove("modal_active");
+      modal.classList.remove(modal_active);
     }
   });
 };
 ;
 const chooseCity = () => {
+  const modal_active = "modal_active";
+
   const cityOpenBtn = document.querySelectorAll(".city-btn");
   const cityModal = document.querySelector(".modal-city");
   const cityCloseBtn = cityModal.querySelector(".modal-city-content-button");
@@ -33,43 +37,28 @@ const chooseCity = () => {
     e.preventDefault();
     if (inputCity.value.trim()) {
       choosenCityName.textContent = inputCity.value;
-      cityModal.classList.remove("modal_active");
+      cityModal.classList.remove(modal_active);
       inputCity.value = "";
     }
   });
-  /*cityOpenBtn.addEventListener("click", () => {
-    inputCity.value = "";
-    cityModal.classList.add("modal_active");
-  });
-  cityCloseBtn.addEventListener("click", () => {
-    cityModal.classList.remove("modal_active");
-  });
-
-  cityModal.addEventListener("click", (e) => {
-    if (
-      e.target.classList.contains("modal_active") ||
-      e.target.classList.contains("modal-wrapper")
-    ) {
-      cityModal.classList.remove("modal_active");
-    }
-  });*/
 };
 
 chooseCity();
 
 const phoneModal = () => {
+  const HIDE = "hide";
   const choosePhoneBtn = document.querySelector(".header-phone-choosen");
   const allPhonesBlock = document.querySelector(".header-phone-open");
   const selectedPhone = document.querySelectorAll(".header-phone-open__item");
 
   choosePhoneBtn.addEventListener("click", () => {
-    allPhonesBlock.classList.remove("hide");
+    allPhonesBlock.classList.remove(HIDE);
   });
 
   selectedPhone.forEach((item) => {
     item.addEventListener("click", () => {
       console.log();
-      allPhonesBlock.classList.add("hide");
+      allPhonesBlock.classList.add(HIDE);
       choosePhoneBtn.querySelector(
         ".header-phone-choosen__item"
       ).innerHTML = `<span class="header-phone-choosen__item_white">${item.children[0].dataset.phone}</span> ${item.children[1].dataset.city}`;
@@ -79,7 +68,12 @@ const phoneModal = () => {
 
 phoneModal();
 
-const callback = () => {
+const callRequest = () => {
+  const RED = "#f53b49";
+  const GRAY = `rgba(144,156,181,.5)`;
+  const HIDE = "hide";
+  const modal_active = "modal_active";
+
   const openBtn = document.querySelectorAll(".callBack-btn");
   const modalCall = document.querySelector(".modal-call");
   const closeBtn = modalCall.querySelector(".modal-call-content-button");
@@ -90,6 +84,9 @@ const callback = () => {
   const successMessage = document.querySelector(
     ".modal-call-content-form-text_success"
   );
+  const errorMessage = document.querySelector(
+    ".modal-call-content-form__error"
+  );
 
   modal(modalCall, openBtn, closeBtn);
 
@@ -98,40 +95,35 @@ const callback = () => {
 
   const validText = (input) => {
     if (input.value.trim().length <= 1) {
-      input.style.borderColor = "#f53b49";
+      input.style.borderColor = RED;
       nameIsValid = false;
     }
   };
 
   const validPhone = (input) => {
-    const re = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
-    const valid = re.test(input.value);
+    const value = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+    const valid = value.test(input.value);
     if (!valid) {
-      input.style.borderColor = "#f53b49";
-      document
-        .querySelector(".modal-call-content-form__error")
-        .classList.remove("hide");
+      input.style.borderColor = RED;
+
+      errorMessage.classList.remove(HIDE);
       phoneIsValid = false;
     }
   };
 
   const validation = (inputs) => {
     inputs.forEach((input) => {
-      input.style.borderColor = `rgba(144,156,181,.5)`;
-      document
-        .querySelector(".modal-call-content-form__error")
-        .classList.add("hide");
+      input.style.borderColor = GRAY;
+      errorMessage.classList.add(HIDE);
       if (input.name === "name") {
         input.addEventListener("click", () => {
-          input.style.borderColor = `rgba(144,156,181,.5)`;
+          input.style.borderColor = GRAY;
         });
         validText(input);
       } else if (input.name === "phone") {
         input.addEventListener("click", () => {
-          input.style.borderColor = `rgba(144,156,181,.5)`;
-          document
-            .querySelector(".modal-call-content-form__error")
-            .classList.add("hide");
+          input.style.borderColor = GRAY;
+          errorMessage.classList.add(HIDE);
         });
         validPhone(input);
       }
@@ -143,10 +135,10 @@ const callback = () => {
     validation(inputs);
     if (nameIsValid && phoneIsValid) {
       inputs.forEach((input) => (input.value = ""));
-      successMessage.classList.remove("hide");
+      successMessage.classList.remove(HIDE);
       setTimeout(() => {
-        modalCall.classList.remove("modal_active");
-        successMessage.classList.add("hide");
+        modalCall.classList.remove(modal_active);
+        successMessage.classList.add(HIDE);
       }, 5000);
     }
     nameIsValid = true;
@@ -154,10 +146,11 @@ const callback = () => {
   });
 };
 
-callback();
+callRequest();
 
 const catalog = () => {
   const hide = "hide";
+  const modal_active = "modal_active";
 
   const openBtn = document.querySelector(".header-navigation-catalog__button");
   const catalogBlock = document.querySelector(".modal-catalog");
@@ -184,7 +177,7 @@ const catalog = () => {
     searchBlock.classList.add(hide);
     categoryClubs.classList.add(hide);
     categoryHome.classList.remove(hide);
-    catalogBlock.classList.toggle("modal_active");
+    catalogBlock.classList.toggle(modal_active);
   });
 
   homeCatalogBtn.forEach((btn) => {
@@ -201,7 +194,7 @@ const catalog = () => {
         clubsCategoryBtn.classList.add("catalog-type__item_active");
         homeCategoryBtn.classList.remove("catalog-type__item_active");
       }
-      catalogBlock.classList.add("modal_active");
+      catalogBlock.classList.add(modal_active);
     });
   });
 
@@ -221,19 +214,19 @@ const catalog = () => {
 
   catalogWrapper.addEventListener("click", (e) => {
     if (
-      e.target.classList.contains("modal_active") ||
+      e.target.classList.contains(modal_active) ||
       e.target.classList.contains("modal-wrapper")
     ) {
-      catalogBlock.classList.remove("modal_active");
+      catalogBlock.classList.remove(modal_active);
     }
   });
 
   window.addEventListener("scroll", () => {
     if (
-      catalogBlock.classList.contains("modal_active") &&
+      catalogBlock.classList.contains(modal_active) &&
       pageYOffset > catalogBlock.offsetHeight - 50
     ) {
-      catalogBlock.classList.remove("modal_active");
+      catalogBlock.classList.remove(modal_active);
     }
   });
 };
@@ -257,19 +250,19 @@ const search = () => {
 
   searchBlock.addEventListener("click", (e) => {
     if (
-      e.target.classList.contains("modal_active") ||
+      e.target.classList.contains(modal_active) ||
       e.target.classList.contains("modal-wrapper")
     ) {
-      searchBlock.classList.remove("modal_active");
+      searchBlock.classList.remove(modal_active);
     }
   });
 
   window.addEventListener("scroll", () => {
     if (
-      searchBlock.classList.contains("modal_active") &&
+      searchBlock.classList.contains(modal_active) &&
       pageYOffset > searchBlock.offsetHeight - 50
     ) {
-      searchBlock.classList.remove("modal_active");
+      searchBlock.classList.remove(modal_active);
     }
   });
 };
@@ -326,10 +319,10 @@ const tabs = () => {
     args.forEach((modal) => {
       modal.addEventListener("click", (e) => {
         if (
-          e.target.classList.contains("modal_active") ||
+          e.target.classList.contains(modal_active) ||
           e.target.classList.contains("modal-wrapper")
         ) {
-          modal.classList.remove("modal_active");
+          modal.classList.remove(modal_active);
           document
             .querySelectorAll(".header-navigation-buttons-item__img_active")
             .forEach((button) => {
@@ -359,6 +352,8 @@ const favorite = () => {};
 favorite();
 
 const menu = () => {
+  const HIDE = "hide";
+
   const openBtn = document.querySelector(".header-top-menu");
   const menu = document.querySelector(".menu");
   const closeBtn = menu.querySelectorAll(".menu-close");
@@ -374,44 +369,44 @@ const menu = () => {
   const backBtn = menu.querySelectorAll(".button-back");
 
   openBtn.addEventListener("click", () => {
-    if (!search.classList.contains("hide")) {
-      search.classList.add("hide");
+    if (!search.classList.contains(HIDE)) {
+      search.classList.add(HIDE);
     }
-    mainWIndow.classList.remove("hide");
-    menu.classList.remove("hide");
+    mainWIndow.classList.remove(HIDE);
+    menu.classList.remove(HIDE);
   });
 
   closeBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
-      if (!homeWindow.classList.contains("hide")) {
-        homeWindow.classList.add("hide");
+      if (!homeWindow.classList.contains(HIDE)) {
+        homeWindow.classList.add(HIDE);
       }
-      if (!clubsWindow.classList.contains("hide")) {
-        clubsWindow.classList.add("hide");
+      if (!clubsWindow.classList.contains(HIDE)) {
+        clubsWindow.classList.add(HIDE);
       }
-      menu.classList.add("hide");
+      menu.classList.add(HIDE);
     });
   });
 
   homeCatalogBtn.addEventListener("click", () => {
-    mainWIndow.classList.add("hide");
-    homeWindow.classList.remove("hide");
+    mainWIndow.classList.add(HIDE);
+    homeWindow.classList.remove(HIDE);
   });
 
   clubsCatalogBtn.addEventListener("click", () => {
-    mainWIndow.classList.add("hide");
-    clubsWindow.classList.remove("hide");
+    mainWIndow.classList.add(HIDE);
+    clubsWindow.classList.remove(HIDE);
   });
 
   backBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
       if (btn.dataset.back === "home") {
-        homeWindow.classList.add("hide");
+        homeWindow.classList.add(HIDE);
       }
       if (btn.dataset.back === "clubs") {
-        clubsWindow.classList.add("hide");
+        clubsWindow.classList.add(HIDE);
       }
-      mainWIndow.classList.remove("hide");
+      mainWIndow.classList.remove(HIDE);
     });
   });
 };

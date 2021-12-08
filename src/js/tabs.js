@@ -48,10 +48,10 @@ const tabs = () => {
     args.forEach((modal) => {
       modal.addEventListener("click", (e) => {
         if (
-          e.target.classList.contains("modal_active") ||
+          e.target.classList.contains(modal_active) ||
           e.target.classList.contains("modal-wrapper")
         ) {
-          modal.classList.remove("modal_active");
+          modal.classList.remove(modal_active);
           document
             .querySelectorAll(".header-navigation-buttons-item__img_active")
             .forEach((button) => {

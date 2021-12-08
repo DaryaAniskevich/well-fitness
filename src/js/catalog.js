@@ -1,5 +1,6 @@
 const catalog = () => {
   const hide = "hide";
+  const modal_active = "modal_active";
 
   const openBtn = document.querySelector(".header-navigation-catalog__button");
   const catalogBlock = document.querySelector(".modal-catalog");
@@ -26,7 +27,7 @@ const catalog = () => {
     searchBlock.classList.add(hide);
     categoryClubs.classList.add(hide);
     categoryHome.classList.remove(hide);
-    catalogBlock.classList.toggle("modal_active");
+    catalogBlock.classList.toggle(modal_active);
   });
 
   homeCatalogBtn.forEach((btn) => {
@@ -43,7 +44,7 @@ const catalog = () => {
         clubsCategoryBtn.classList.add("catalog-type__item_active");
         homeCategoryBtn.classList.remove("catalog-type__item_active");
       }
-      catalogBlock.classList.add("modal_active");
+      catalogBlock.classList.add(modal_active);
     });
   });
 
@@ -63,19 +64,19 @@ const catalog = () => {
 
   catalogWrapper.addEventListener("click", (e) => {
     if (
-      e.target.classList.contains("modal_active") ||
+      e.target.classList.contains(modal_active) ||
       e.target.classList.contains("modal-wrapper")
     ) {
-      catalogBlock.classList.remove("modal_active");
+      catalogBlock.classList.remove(modal_active);
     }
   });
 
   window.addEventListener("scroll", () => {
     if (
-      catalogBlock.classList.contains("modal_active") &&
+      catalogBlock.classList.contains(modal_active) &&
       pageYOffset > catalogBlock.offsetHeight - 50
     ) {
-      catalogBlock.classList.remove("modal_active");
+      catalogBlock.classList.remove(modal_active);
     }
   });
 };

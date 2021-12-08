@@ -1,4 +1,6 @@
 const menu = () => {
+  const HIDE = "hide";
+
   const openBtn = document.querySelector(".header-top-menu");
   const menu = document.querySelector(".menu");
   const closeBtn = menu.querySelectorAll(".menu-close");
@@ -14,44 +16,44 @@ const menu = () => {
   const backBtn = menu.querySelectorAll(".button-back");
 
   openBtn.addEventListener("click", () => {
-    if (!search.classList.contains("hide")) {
-      search.classList.add("hide");
+    if (!search.classList.contains(HIDE)) {
+      search.classList.add(HIDE);
     }
-    mainWIndow.classList.remove("hide");
-    menu.classList.remove("hide");
+    mainWIndow.classList.remove(HIDE);
+    menu.classList.remove(HIDE);
   });
 
   closeBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
-      if (!homeWindow.classList.contains("hide")) {
-        homeWindow.classList.add("hide");
+      if (!homeWindow.classList.contains(HIDE)) {
+        homeWindow.classList.add(HIDE);
       }
-      if (!clubsWindow.classList.contains("hide")) {
-        clubsWindow.classList.add("hide");
+      if (!clubsWindow.classList.contains(HIDE)) {
+        clubsWindow.classList.add(HIDE);
       }
-      menu.classList.add("hide");
+      menu.classList.add(HIDE);
     });
   });
 
   homeCatalogBtn.addEventListener("click", () => {
-    mainWIndow.classList.add("hide");
-    homeWindow.classList.remove("hide");
+    mainWIndow.classList.add(HIDE);
+    homeWindow.classList.remove(HIDE);
   });
 
   clubsCatalogBtn.addEventListener("click", () => {
-    mainWIndow.classList.add("hide");
-    clubsWindow.classList.remove("hide");
+    mainWIndow.classList.add(HIDE);
+    clubsWindow.classList.remove(HIDE);
   });
 
   backBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
       if (btn.dataset.back === "home") {
-        homeWindow.classList.add("hide");
+        homeWindow.classList.add(HIDE);
       }
       if (btn.dataset.back === "clubs") {
-        clubsWindow.classList.add("hide");
+        clubsWindow.classList.add(HIDE);
       }
-      mainWIndow.classList.remove("hide");
+      mainWIndow.classList.remove(HIDE);
     });
   });
 };

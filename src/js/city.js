@@ -1,4 +1,6 @@
 const chooseCity = () => {
+  const modal_active = "modal_active";
+
   const cityOpenBtn = document.querySelectorAll(".city-btn");
   const cityModal = document.querySelector(".modal-city");
   const cityCloseBtn = cityModal.querySelector(".modal-city-content-button");
@@ -13,26 +15,10 @@ const chooseCity = () => {
     e.preventDefault();
     if (inputCity.value.trim()) {
       choosenCityName.textContent = inputCity.value;
-      cityModal.classList.remove("modal_active");
+      cityModal.classList.remove(modal_active);
       inputCity.value = "";
     }
   });
-  /*cityOpenBtn.addEventListener("click", () => {
-    inputCity.value = "";
-    cityModal.classList.add("modal_active");
-  });
-  cityCloseBtn.addEventListener("click", () => {
-    cityModal.classList.remove("modal_active");
-  });
-
-  cityModal.addEventListener("click", (e) => {
-    if (
-      e.target.classList.contains("modal_active") ||
-      e.target.classList.contains("modal-wrapper")
-    ) {
-      cityModal.classList.remove("modal_active");
-    }
-  });*/
 };
 
 chooseCity();
