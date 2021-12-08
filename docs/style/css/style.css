@@ -426,9 +426,13 @@ a:hover {
 }
 
 .button_full-red {
-  background: #f53b49;
+  background-color: #f53b49;
   border-radius: 4px;
   padding: 12px 20px;
+}
+
+.button_full-red:hover {
+  background-color: #e32a38;
 }
 
 .button_light {
@@ -436,6 +440,14 @@ a:hover {
   border-radius: 4px;
   color: #384255;
   font-weight: 700;
+}
+
+.button_full-white {
+  padding: 13px 20px;
+  background-color: #ffffff;
+  color: #858fa4;
+  border-radius: 4px;
+  border: 1px solid rgba(144, 156, 181, 0.7);
 }
 
 .city-btn {
@@ -811,6 +823,7 @@ a:hover {
   -ms-flex-item-align: end;
       align-self: flex-end;
   margin-bottom: 4px;
+  cursor: pointer;
 }
 
 .modal-button:hover .modal-button__svg {
@@ -2044,6 +2057,169 @@ a:hover {
   padding: 0 5px;
 }
 
+.sign-content {
+  margin-top: 170px;
+  width: 600px;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 10px 30px rgba(133, 143, 164, 0.1);
+          box-shadow: 0px 10px 30px rgba(133, 143, 164, 0.1);
+  border-radius: 6px;
+  padding: 20px 20px 58px 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sign__title {
+  margin-bottom: 21px;
+  text-align: center;
+}
+
+.sign-buttons {
+  margin-bottom: 21px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sign-buttons__item:not(:last-child) {
+  margin-right: 12px;
+}
+
+.sign-buttons__item:hover {
+  background-color: #384255;
+  border-color: #384255;
+  color: #ffffff;
+}
+
+.sign-buttons__item_active {
+  background-color: #384255;
+  border-color: #384255;
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+.sign-autorization {
+  margin-bottom: 21px;
+  font-size: 16px;
+  line-height: 150%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.sign-autorization__text {
+  margin-right: 12px;
+}
+
+.sign-autorization-button {
+  width: 24px;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sign-autorization-button:hover {
+  background-color: #ffffff;
+}
+
+.sign-autorization-button:not(:last-child) {
+  margin-right: 12px;
+}
+
+.sign-autorization-button__img {
+  width: 24px;
+  height: 24px;
+}
+
+.sign-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 34px 0 50px;
+  width: 100%;
+  position: relative;
+}
+
+.sign-form__input {
+  outline: none;
+  background: #f7f7f7;
+  border: 1px solid rgba(144, 156, 181, 0.3);
+  border-radius: 6px;
+  padding: 8px 20px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.sign-form__button {
+  margin-bottom: 12px;
+  width: 180px;
+}
+
+.sign-form__button_password {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  color: #909cb5;
+}
+
+.sign-form__button_show-pswd {
+  -webkit-transition: all ease 0.4s;
+  -o-transition: all ease 0.4s;
+  transition: all ease 0.4s;
+  position: absolute;
+  right: 50px;
+  top: 58px;
+  width: 20px;
+  height: 16px;
+}
+
+.sign-form__img {
+  width: 20px;
+  height: 16px;
+}
+
+.sign__link {
+  font-weight: 500;
+  color: #4b7ee8;
+}
+
+.sign__error {
+  text-align: center;
+  font-size: 12px;
+  color: #f53b49;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
 .banner {
   background-color: #858fa4;
   background-image: url("../../images/banner-run.jpg");
@@ -2771,6 +2947,15 @@ a:hover {
     grid-auto-rows: 90px;
   }
 
+  .sign-content {
+    width: 500px;
+    padding-left: 20px;
+  }
+
+  .sign-form {
+    padding-left: 34px;
+  }
+
   .banner {
     border-radius: 5px;
   }
@@ -3471,6 +3656,65 @@ a:hover {
 
   .menu-phone__button {
     margin-left: auto;
+  }
+
+  .sign-content {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 0;
+    border-radius: 0;
+  }
+
+  .sign__title {
+    margin-bottom: 16px;
+  }
+
+  .sign-buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 16px;
+  }
+
+  .sign-buttons__item {
+    width: 100%;
+  }
+
+  .sign-buttons__item:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+
+  .sign-autorization {
+    font-size: 14px;
+  }
+
+  .sign-autorization__text {
+    margin-right: 8px;
+  }
+
+  .sign-autorization-button:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  .sign-form__input {
+    margin-bottom: 12px;
+  }
+
+  .sign-form__button {
+    margin-bottom: 10px;
+  }
+
+  .sign-form__button_show-pswd {
+    top: 60px;
+    width: 15px;
+    height: 11px;
+  }
+
+  .sign-form__img {
+    width: 15px;
+    height: 11px;
   }
 
   .banner {

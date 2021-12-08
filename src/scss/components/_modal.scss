@@ -18,6 +18,7 @@
   &-button {
     align-self: flex-end;
     margin-bottom: 4px;
+    cursor: pointer;
     &:hover {
       .modal-button__svg {
         fill: #2a2c38;

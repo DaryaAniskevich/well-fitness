@@ -76,14 +76,24 @@
     }
   }
   &_full-red {
-    background: $red;
+    background-color: $red;
     border-radius: 4px;
     padding: 12px 20px;
+    &:hover {
+      background-color: $dark-red;
+    }
   }
   &_light {
     background-color: rgba(144, 156, 181, 0.2);
     border-radius: 4px;
     color: $button-gray;
     font-weight: 700;
+  }
+  &_full-white {
+    padding: 13px 20px;
+    background-color: $white;
+    color: $light-gray;
+    border-radius: 4px;
+    border: 1px solid rgba(144, 156, 181, 0.7);
   }
 }

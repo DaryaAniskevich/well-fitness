@@ -9,3 +9,4 @@
 @@include("comparison.js")
 @@include("favorite.js")
 @@include("menu.js")
+@@include("sign.js")
