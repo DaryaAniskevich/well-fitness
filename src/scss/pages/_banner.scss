@@ -1,36 +1,60 @@
 .banner {
-  background-color: $light-gray;
-  background-image: url("../../images/banner-run.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
-  @include screen-max($medium) {
-    border-radius: 5px;
-  }
-  @include screen-max($small) {
-    background-image: url("../../images/banner-small.png");
-  }
+  position: relative;
   &-container {
-    padding: 83px 203px 30px 195px;
+    overflow: hidden;
+    width: 100%;
+  }
+  &-wrapper {
     display: flex;
-    justify-content: space-between;
-    @include screen-max($medium) {
-      padding: 54px 30px 30px 36px;
-    }
-    @include screen-max($small) {
-      padding: 29px 20px 20px;
-      flex-direction: column;
-    }
+    grid-gap: 10px;
+    transition: all ease 0.5s;
   }
   &-content {
+    background-color: $light-gray;
+    border-radius: 10px;
+    padding: 83px 203px 81px 195px;
     align-self: flex-start;
-    width: 512px;
+    max-width: 1800px;
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     @include screen-max($medium) {
-      width: 265px;
+      border-radius: 5px;
+      padding: 54px 30px 60px 36px;
+      max-width: 940px;
+      height: 318px;
     }
     @include screen-max($small) {
-      margin-bottom: 180px;
+      height: 460px;
+      padding: 29px 20px 250px 20px;
+      flex-direction: column;
+      max-width: 300px;
+    }
+    &_run {
+      background-image: url("../../images/banner-run.jpg");
+      @include screen-max($small) {
+        background-image: url("../../images/banner-small.png");
+      }
+    }
+    &_str {
+      background-image: url("../../images/banner-str.jpg");
+      @include screen-max($small) {
+        background-image: url("../../images/banner-str-sm.jpg");
+      }
+    }
+    &_home {
+      background-image: url("../../images/banner-home.jpg");
+      @include screen-max($small) {
+        background-image: url("../../images/banner-home-small.jpg");
+      }
+    }
+    &-text {
+      width: 512px;
+      @include screen-max($medium) {
+        width: 265px;
+      }
     }
     &__heading {
       font-weight: 900;
@@ -65,17 +89,31 @@
           line-height: 16px;
         }
       }
-    }
-    &__button {
-      margin-bottom: 50px;
-      @include screen-max($small) {
-        margin-bottom: 0;
+      &_white {
+        color: $white;
+      }
+      &_big {
+        color: $main-dark-gray;
+        font-size: 89px;
+        line-height: 110%;
+        @include screen-max($medium) {
+          font-size: 60px;
+        }
+        @include screen-max($small) {
+          font-size: 36px;
+        }
       }
     }
   }
   &-buttons {
+    display: flex;
     align-self: flex-end;
-
+    position: absolute;
+    bottom: 30px;
+    right: 195px;
+    @include screen-max($small) {
+      right: 20px;
+    }
     &__item {
       font-weight: 700;
       &:not(:last-child) {

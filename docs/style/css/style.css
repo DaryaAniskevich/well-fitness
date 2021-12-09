@@ -450,6 +450,17 @@ a:hover {
   border: 1px solid rgba(144, 156, 181, 0.7);
 }
 
+.button_blue {
+  border: 1px solid #4b7ee8;
+  color: #4b7ee8;
+  background-color: transparent;
+}
+
+.button_blue:hover {
+  color: #ffffff;
+  background-color: #4b7ee8;
+}
+
 .city-btn {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2073,7 +2084,7 @@ a:hover {
   -webkit-box-shadow: 0px 10px 30px rgba(133, 143, 164, 0.1);
           box-shadow: 0px 10px 30px rgba(133, 143, 164, 0.1);
   border-radius: 6px;
-  padding: 20px 20px 58px 36px;
+  padding: 20px 20px 58px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2096,6 +2107,9 @@ a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .sign-buttons__item:not(:last-child) {
@@ -2173,8 +2187,7 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 34px 0 50px;
-  width: 100%;
+  width: 460px;
   position: relative;
 }
 
@@ -2205,7 +2218,7 @@ a:hover {
   -o-transition: all ease 0.4s;
   transition: all ease 0.4s;
   position: absolute;
-  right: 50px;
+  right: 20px;
   top: 58px;
   width: 20px;
   height: 16px;
@@ -2230,27 +2243,51 @@ a:hover {
 }
 
 .banner {
-  background-color: #858fa4;
-  background-image: url("../../images/banner-run.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
+  position: relative;
 }
 
 .banner-container {
-  padding: 83px 203px 30px 195px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.banner-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  grid-gap: 10px;
+  -webkit-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  transition: all ease 0.5s;
 }
 
 .banner-content {
+  background-color: #858fa4;
+  border-radius: 10px;
+  padding: 83px 203px 81px 195px;
   -ms-flex-item-align: start;
       align-self: flex-start;
+  max-width: 1800px;
+  width: 100%;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-content_run {
+  background-image: url("../../images/banner-run.jpg");
+}
+
+.banner-content_str {
+  background-image: url("../../images/banner-str.jpg");
+}
+
+.banner-content_home {
+  background-image: url("../../images/banner-home.jpg");
+}
+
+.banner-content-text {
   width: 512px;
 }
 
@@ -2273,13 +2310,25 @@ a:hover {
   color: #f53b49;
 }
 
-.banner-content__button {
-  margin-bottom: 50px;
+.banner-content__heading_white {
+  color: #ffffff;
+}
+
+.banner-content__heading_big {
+  color: #1a1a25;
+  font-size: 89px;
+  line-height: 110%;
 }
 
 .banner-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-item-align: end;
       align-self: flex-end;
+  position: absolute;
+  bottom: 30px;
+  right: 195px;
 }
 
 .banner-buttons__item {
@@ -2792,6 +2841,7 @@ a:hover {
 
   .header-main {
     padding: 27px 0;
+    margin-right: 20px;
   }
 
   .header-logo {
@@ -2966,22 +3016,20 @@ a:hover {
 
   .sign-content {
     width: 500px;
-    padding-left: 20px;
   }
 
   .sign-form {
-    padding-left: 34px;
-  }
-
-  .banner {
-    border-radius: 5px;
-  }
-
-  .banner-container {
-    padding: 54px 30px 30px 36px;
+    width: 400px;
   }
 
   .banner-content {
+    border-radius: 5px;
+    padding: 54px 30px 60px 36px;
+    max-width: 940px;
+    height: 318px;
+  }
+
+  .banner-content-text {
     width: 265px;
   }
 
@@ -2994,6 +3042,10 @@ a:hover {
   .banner-content__heading_red {
     font-size: 14px;
     line-height: 110%;
+  }
+
+  .banner-content__heading_big {
+    font-size: 60px;
   }
 
   .home {
@@ -3439,6 +3491,10 @@ a:hover {
     width: 23px;
   }
 
+  .header-main {
+    margin-right: 15px;
+  }
+
   .header-logo {
     margin-right: 10px;
   }
@@ -3448,7 +3504,7 @@ a:hover {
   }
 
   .header-navigation-catalog {
-    margin-right: 22px;
+    margin-right: 18px;
   }
 
   .header-navigation-catalog:after {
@@ -3715,6 +3771,10 @@ a:hover {
     margin-right: 8px;
   }
 
+  .sign-form {
+    width: 280px;
+  }
+
   .sign-form__input {
     margin-bottom: 12px;
   }
@@ -3734,20 +3794,26 @@ a:hover {
     height: 11px;
   }
 
-  .banner {
-    background-image: url("../../images/banner-small.png");
-  }
-
-  .banner-container {
-    padding: 29px 20px 20px;
+  .banner-content {
+    height: 460px;
+    padding: 29px 20px 250px 20px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    max-width: 300px;
   }
 
-  .banner-content {
-    margin-bottom: 180px;
+  .banner-content_run {
+    background-image: url("../../images/banner-small.png");
+  }
+
+  .banner-content_str {
+    background-image: url("../../images/banner-str-sm.jpg");
+  }
+
+  .banner-content_home {
+    background-image: url("../../images/banner-home-small.jpg");
   }
 
   .banner-content__heading {
@@ -3761,8 +3827,12 @@ a:hover {
     line-height: 16px;
   }
 
-  .banner-content__button {
-    margin-bottom: 0;
+  .banner-content__heading_big {
+    font-size: 36px;
+  }
+
+  .banner-buttons {
+    right: 20px;
   }
 
   .home-cards {

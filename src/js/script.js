@@ -10,3 +10,4 @@
 @@include("favorite.js")
 @@include("menu.js")
 @@include("sign.js")
+@@include("slider-banner.js")

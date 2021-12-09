@@ -96,4 +96,13 @@
     border-radius: 4px;
     border: 1px solid rgba(144, 156, 181, 0.7);
   }
+  &_blue {
+    border: 1px solid $blue;
+    color: $blue;
+    background-color: transparent;
+    &:hover {
+      color: $white;
+      background-color: $blue;
+    }
+  }
 }
