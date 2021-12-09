@@ -10,7 +10,7 @@
     }
     @include screen-max($small) {
       flex-direction: column-reverse;
-      padding: 64px 28px 0;
+      padding: 64px 20px 0;
     }
   }
   &__background {
@@ -26,9 +26,9 @@
       background-position: -40px;
     }
     @include screen-max($small) {
-      width: 320px;
-      height: 239px;
-      background-position: 30px;
+      width: 280px;
+      height: 220px;
+      background-position: 10px;
       background-size: contain;
     }
   }

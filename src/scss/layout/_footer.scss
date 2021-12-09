@@ -4,6 +4,7 @@
     padding: 88px 0 28px;
     border-bottom: 1px solid rgba(133, 143, 164, 0.15);
     display: flex;
+
     color: $light-gray;
     @include screen-max($medium) {
       padding: 84px 20px 28px;
@@ -12,6 +13,7 @@
     }
     @include screen-max($small) {
       padding: 27px 10px 0;
+      align-items: center;
     }
     &_bottom {
       padding: 51px 0;
@@ -21,6 +23,7 @@
       }
       @include screen-max($small) {
         padding: 30px 10px;
+        justify-content: center;
       }
     }
   }
@@ -38,6 +41,7 @@
     @include screen-max($small) {
       padding-bottom: 30px;
       margin-bottom: 30px;
+      margin-right: 0;
       max-width: 300px;
       flex-wrap: wrap;
     }
@@ -193,6 +197,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 14px;
+    width: 100vw;
     @include screen-max($medium) {
       justify-content: space-between;
     }

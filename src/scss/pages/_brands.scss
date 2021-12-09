@@ -42,15 +42,16 @@
   }
   &-cards {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    grid-template-columns: repeat(5, 282px);
     grid-auto-rows: 170px;
     margin-bottom: 30px;
     @include screen-max($medium) {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, 234px);
       grid-auto-rows: 141px;
     }
     @include screen-max($small) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 100px);
       grid-auto-rows: 60px;
       margin-bottom: 20px;
     }

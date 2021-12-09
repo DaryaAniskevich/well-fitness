@@ -2,10 +2,11 @@
   &-container {
     padding: 135px 0;
     display: flex;
+    justify-content: center;
     @include screen-max($medium) {
       padding: 60px 0;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 354px);
       grid-template-rows: repeat(2, 269px);
     }
     @include screen-max($small) {

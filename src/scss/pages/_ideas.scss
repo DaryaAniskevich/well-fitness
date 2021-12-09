@@ -4,6 +4,7 @@
     border-radius: 10px;
   }
   &-container {
+    width: 100vw;
     padding: 119px 0 102px;
     @include screen-max($medium) {
       padding: 100px 20px 62px;
@@ -18,6 +19,7 @@
   &-block {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     grid-gap: 30px;
     margin-bottom: 30px;
     overflow: hidden;
