@@ -1,0 +1,1780 @@
+{
+  "db": {
+    "catalog": [
+      {
+        "id": "001",
+        "place": "home",
+        "category": "Кардиотренажеры",
+        "subcategory": "Беговые дорожки",
+        "href": "#",
+        "img": "img/cardio-001.jpg"
+      },
+      {
+        "id": "002",
+        "place": "home",
+        "category": "Кардиотренажеры",
+        "subcategory": "Эллиптические тренажеры",
+        "href": "#",
+        "img": "img/cardio-002.jpg"
+      },
+      {
+        "id": "003",
+        "place": "home",
+        "category": "Кардиотренажеры",
+        "subcategory": "Велотренажеры",
+        "href": "#",
+        "img": "img/cardio-003.jpg"
+      },
+      {
+        "id": "004",
+        "place": "home",
+        "category": "Кардиотренажеры",
+        "subcategory": "Степперы",
+        "href": "#",
+        "img": "img/cardio-004.jpg"
+      },
+      {
+        "id": "005",
+        "place": "home",
+        "category": "Кардиотренажеры",
+        "subcategory": "Гребные тренажеры",
+        "href": "#",
+        "img": "img/cardio-005.jpg"
+      },
+      {
+        "id": "006",
+        "place": "home",
+        "category": "Кардиотренажеры",
+        "subcategory": "Сайклинг",
+        "href": "#",
+        "img": "img/cardio-006.jpg"
+      },
+      {
+        "id": "007",
+        "place": "home",
+        "category": "Кардиотренажеры",
+        "subcategory": "Горнолыжные тренажеры",
+        "href": "#",
+        "img": "img/cardio-007.jpg"
+      },
+      {
+        "id": "008",
+        "place": "home",
+        "category": "Силовые тренажеры",
+        "subcategory": "Турники, брусья",
+        "href": "#",
+        "img": "img/str-001.jpg"
+      },
+      {
+        "id": "009",
+        "place": "home",
+        "category": "Силовые тренажеры",
+        "subcategory": "Шведские стенки",
+        "href": "#",
+        "img": "img/str-002.jpg"
+      },
+      {
+        "id": "010",
+        "place": "home",
+        "category": "Силовые тренажеры",
+        "subcategory": "Скамьи для жима, пресса и спины",
+        "href": "#",
+        "img": "img/str-003.jpg"
+      },
+      {
+        "id": "011",
+        "place": "home",
+        "category": "Силовые тренажеры",
+        "subcategory": "Многофункциональные станции",
+        "href": "#",
+        "img": "img/str-004.jpg"
+      },
+      {
+        "id": "012",
+        "place": "home",
+        "category": "Уличные виды спорта",
+        "subcategory": "Workout",
+        "href": "#",
+        "img": "img/str-002.jpg"
+      },
+      {
+        "id": "013",
+        "place": "home",
+        "category": "Уличные виды спорта",
+        "subcategory": "Скейтбординг",
+        "href": "#",
+        "img": "img/street-001.jpg"
+      },
+      {
+        "id": "014",
+        "place": "home",
+        "category": "Уличные виды спорта",
+        "subcategory": "Стритбол",
+        "href": "#",
+        "img": "img/street-003.webp"
+      },
+      {
+        "id": "015",
+        "place": "home",
+        "category": "Уличные виды спорта",
+        "subcategory": "ВМХ",
+        "href": "#",
+        "img": "img/street-002.jpg"
+      },
+      {
+        "id": "016",
+        "place": "home",
+        "category": "Свободные веса",
+        "subcategory": "Гантели и гири",
+        "href": "#",
+        "img": "img/free-001.jpg"
+      },
+      {
+        "id": "017",
+        "place": "home",
+        "category": "Свободные веса",
+        "subcategory": "Штанги",
+        "href": "#",
+        "img": "img/free-002.jpg"
+      },
+      {
+        "id": "018",
+        "place": "home",
+        "category": "Игровые столы",
+        "subcategory": "Игровые столы",
+        "href": "#",
+        "img": "img/game-001.jpg"
+      },
+      {
+        "id": "019",
+        "place": "home",
+        "category": "Массажное оборудование",
+        "subcategory": "Массажные ролики, коврики",
+        "href": "#",
+        "img": "img/massage-001.jpg"
+      },
+      {
+        "id": "020",
+        "place": "home",
+        "category": "Массажное оборудование",
+        "subcategory": "Ручные массажеры",
+        "href": "#",
+        "img": "img/massage-002.jpg"
+      },
+      {
+        "id": "021",
+        "place": "home",
+        "category": "Фитнес аксессуары",
+        "subcategory": "Коврики, маты",
+        "href": "#",
+        "img": "img/fitness-001.jpg"
+      },
+      {
+        "id": "022",
+        "place": "home",
+        "category": "Фитнес аксессуары",
+        "subcategory": "Обручи, хула-хупы",
+        "href": "#",
+        "img": "img/fitness-002.jpg"
+      },
+      {
+        "id": "023",
+        "place": "home",
+        "category": "Фитнес аксессуары",
+        "subcategory": "Утяжеленные мячи",
+        "href": "#",
+        "img": "img/fitness-003.jpg"
+      },
+      {
+        "id": "024",
+        "place": "home",
+        "category": "Фитнес аксессуары",
+        "subcategory": "Ленты",
+        "href": "#",
+        "img": "img/fitness-004.jpg"
+      },
+      {
+        "id": "025",
+        "place": "home",
+        "category": "Фитнес аксессуары",
+        "subcategory": "Йога и пилатес",
+        "href": "#",
+        "img": "img/fitness-005.jpg"
+      },
+      {
+        "id": "026",
+        "place": "club",
+        "category": "Профессиональные кардиотренажеры",
+        "subcategory": "Велотренажеры",
+        "href": "#",
+        "img": "img/cardio-003.jpg"
+      },
+      {
+        "id": "027",
+        "place": "club",
+        "category": "Профессиональные кардиотренажеры",
+        "subcategory": "Гребные тренажеры",
+        "href": "#",
+        "img": "img/cardio-005.jpg"
+      },
+      {
+        "id": "028",
+        "place": "club",
+        "category": "Профессиональные кардиотренажеры",
+        "subcategory": "Беговые дорожки",
+        "href": "#",
+        "img": "img/cardio-001.jpg"
+      },
+      {
+        "id": "029",
+        "place": "club",
+        "category": "Профессиональные кардиотренажеры",
+        "subcategory": "Степперы",
+        "href": "#",
+        "img": "img/cardio-004.jpg"
+      },
+      {
+        "id": "030",
+        "place": "club",
+        "category": "Профессиональные кардиотренажеры",
+        "subcategory": "Эллиптические тренажеры",
+        "href": "#",
+        "img": "img/cardio-002.jpg"
+      },
+      {
+        "id": "031",
+        "place": "club",
+        "category": "Профессиональные кардиотренажеры",
+        "subcategory": "Сайклинг",
+        "href": "#",
+        "img": "img/cardio-006.jpg"
+      },
+      {
+        "id": "032",
+        "place": "club",
+        "category": "Профессиональные кардиотренажеры",
+        "subcategory": "Горнолыжные тренажеры",
+        "href": "#",
+        "img": "img/cardio-007.jpg"
+      },
+      {
+        "id": "033",
+        "place": "club",
+        "category": "Грузоблочные тренажеры",
+        "subcategory": "Баттерфляй",
+        "href": "#",
+        "img": "img/block-001.jpg"
+      },
+      {
+        "id": "034",
+        "place": "club",
+        "category": "Грузоблочные тренажеры",
+        "subcategory": "Верхний/нижний блок",
+        "href": "#",
+        "img": "img/block-002.jpg"
+      },
+      {
+        "id": "035",
+        "place": "club",
+        "category": "Грузоблочные тренажеры",
+        "subcategory": "Гравитроны",
+        "href": "#",
+        "img": "img/block-003.jpg"
+      },
+      {
+        "id": "036",
+        "place": "club",
+        "category": "Грузоблочные тренажеры",
+        "subcategory": "Жим ногами",
+        "href": "#",
+        "img": "img/block-004.jpg"
+      },
+      {
+        "id": "037",
+        "place": "club",
+        "category": "Грузоблочные тренажеры",
+        "subcategory": "Для ног",
+        "href": "#",
+        "img": "img/block-005.jpg"
+      },
+      {
+        "id": "038",
+        "place": "club",
+        "category": "Грузоблочные тренажеры",
+        "subcategory": "Для груди",
+        "href": "#",
+        "img": "img/block-006.jpg"
+      },
+      {
+        "id": "039",
+        "place": "club",
+        "category": "Свободные веса",
+        "subcategory": "Гантели и гантельные ряды",
+        "href": "#",
+        "img": "img/weight-001.jpg"
+      },
+      {
+        "id": "040",
+        "place": "club",
+        "category": "Свободные веса",
+        "subcategory": "Грифы",
+        "href": "#",
+        "img": "img/weight-002.jpg"
+      },
+      {
+        "id": "041",
+        "place": "club",
+        "category": "Свободные веса",
+        "subcategory": "Диски",
+        "href": "#",
+        "img": "img/weight-003.jpg"
+      },
+      {
+        "id": "042",
+        "place": "club",
+        "category": "Тренажеры на свободных весах",
+        "subcategory": "Платформы для тяжелой атлетики",
+        "href": "#",
+        "img": "img/weight-004.jpg"
+      },
+      {
+        "id": "043",
+        "place": "club",
+        "category": "Тренажеры на свободных весах",
+        "subcategory": "Тяги на свободных весах",
+        "href": "#",
+        "img": "img/weight-005.jpg"
+      },
+      {
+        "id": "044",
+        "place": "club",
+        "category": "СПА, массаж",
+        "subcategory": "Вибромассажеры",
+        "href": "#",
+        "img": "img/massage-003.jpg"
+      },
+      {
+        "id": "045",
+        "place": "club",
+        "category": "Спортивная медицина и реабилитация",
+        "subcategory": "Пассивная разработка суставов",
+        "href": "#",
+        "img": "img/med-001.jpg"
+      },
+      {
+        "id": "046",
+        "place": "club",
+        "category": "Спортивная медицина и реабилитация",
+        "subcategory": "Мобильное и портативное оборудование",
+        "href": "#",
+        "img": "img/med-001.jpg"
+      }
+    ],
+    "category": {
+      "home": [
+        {
+          "id": "001",
+          "title": "Беговые дорожки",
+          "href": "#",
+          "img": "img/home-001.png"
+        },
+        {
+          "id": "002",
+          "title": "Эллиптические тренажеры",
+          "href": "#",
+          "img": "img/home-002.png"
+        },
+        {
+          "id": "003",
+          "title": "Велотренажеры",
+          "href": "#",
+          "img": "img/home-004.png"
+        },
+        {
+          "id": "004",
+          "title": "Силовые тренажеры",
+          "href": "#",
+          "img": "img/home-003.png"
+        },
+        {
+          "id": "005",
+          "title": "Горнолыжные тренажеры",
+          "href": "#",
+          "img": "img/home-005.png"
+        },
+        {
+          "id": "006",
+          "title": "Батуты",
+          "href": "#",
+          "img": "img/home-007.png"
+        },
+        {
+          "id": "007",
+          "title": "Гребные тренажеры",
+          "href": "#",
+          "img": "img/home-006.png"
+        },
+        {
+          "id": "008",
+          "title": "Игровые столы",
+          "href": "#",
+          "img": "img/home-008.png"
+        },
+        {
+          "id": "009",
+          "title": "Массажные кресла",
+          "href": "#",
+          "img": "img/home-009.png"
+        },
+        {
+          "id": "010",
+          "title": "Фитнес аксессуары",
+          "href": "#",
+          "img": "img/home-010.png"
+        }
+      ],
+      "club": [
+        {
+          "id": "011",
+          "title": "Профессиональные кардиотренажеры",
+          "href": "#",
+          "img": "img/club-001.png"
+        },
+        {
+          "id": "012",
+          "title": "Грузоблочные тренажеры",
+          "href": "#",
+          "img": "img/club-002.png"
+        },
+        {
+          "id": "013",
+          "title": "Тренажеры на свободных весах",
+          "href": "#",
+          "img": "img/club-003.png"
+        },
+        {
+          "id": "014",
+          "title": "Функциональный тренинг",
+          "href": "#",
+          "img": "img/club-004.png"
+        },
+        {
+          "id": "015",
+          "title": "Wellness, СПА, Массаж",
+          "href": "#",
+          "img": "img/club-005.png"
+        },
+        {
+          "id": "016",
+          "title": "Спортивная медицина и реабилитация",
+          "href": "#",
+          "img": "img/club-006.png"
+        },
+        {
+          "id": "017",
+          "title": "Свободные веса",
+          "href": "#",
+          "img": "img/club-007.png"
+        }
+      ]
+    },
+    "brands": {
+      "treadmill": [
+        {
+          "id": "001",
+          "name": "boxing bar",
+          "img": "img/brand-001.png",
+          "href": "#"
+        },
+        {
+          "id": "002",
+          "name": "cardio power",
+          "img": "img/brand-002.png",
+          "href": "#"
+        },
+        {
+          "id": "003",
+          "name": "cardio power pro",
+          "img": "img/brand-003.png",
+          "href": "#"
+        },
+        {
+          "id": "004",
+          "name": "double fish",
+          "img": "img/brand-004.png",
+          "href": "#"
+        },
+        {
+          "id": "005",
+          "name": "eclipse",
+          "img": "img/brand-005.png",
+          "href": "#"
+        },
+        {
+          "id": "006",
+          "name": "gym80",
+          "img": "img/brand-006.png",
+          "href": "#"
+        },
+        {
+          "id": "007",
+          "name": "hyfit",
+          "img": "img/brand-007.png",
+          "href": "#"
+        },
+        {
+          "id": "008",
+          "name": "kernel",
+          "img": "img/brand-008.png",
+          "href": "#"
+        },
+        {
+          "id": "009",
+          "name": "meridien",
+          "img": "img/brand-009.png",
+          "href": "#"
+        }
+      ],
+      "elliptical-trainer": [
+        {
+          "id": "010",
+          "name": "double fish",
+          "img": "img/brand-004.png",
+          "href": "#"
+        },
+        {
+          "id": "011",
+          "name": "hyfit",
+          "img": "img/brand-007.png",
+          "href": "#"
+        },
+        {
+          "id": "012",
+          "name": "cardio power",
+          "img": "img/brand-002.png",
+          "href": "#"
+        },
+        {
+          "id": "013",
+          "name": "nautilus",
+          "img": "img/brand-010.png",
+          "href": "#"
+        },
+        {
+          "id": "014",
+          "name": "octane fitness",
+          "img": "img/brand-011.png",
+          "href": "#"
+        },
+        {
+          "id": "015",
+          "name": "optima fitness",
+          "img": "img/brand-012.png",
+          "href": "#"
+        },
+        {
+          "id": "016",
+          "name": "meridien",
+          "img": "img/brand-009.png",
+          "href": "#"
+        },
+        {
+          "id": "017",
+          "name": "original fitness",
+          "img": "img/brand-013.png",
+          "href": "#"
+        },
+        {
+          "id": "018",
+          "name": "bowflex",
+          "img": "img/brand-015.png",
+          "href": "#"
+        }
+      ],
+      "exercise-bike": [
+        {
+          "id": "019",
+          "name": "bowflex",
+          "img": "img/brand-015.png",
+          "href": "#"
+        },
+        {
+          "id": "020",
+          "name": "pro sky",
+          "img": "img/brand-014.png",
+          "href": "#"
+        },
+        {
+          "id": "021",
+          "name": "original fitness",
+          "img": "img/brand-013.png",
+          "href": "#"
+        },
+        {
+          "id": "022",
+          "name": "optima fitness",
+          "img": "img/brand-012.png",
+          "href": "#"
+        },
+        {
+          "id": "023",
+          "name": "octane fitness",
+          "img": "img/brand-011.png",
+          "href": "#"
+        },
+        {
+          "id": "024",
+          "name": "nautilus",
+          "img": "img/brand-010.png",
+          "href": "#"
+        },
+        {
+          "id": "025",
+          "name": "meridien",
+          "img": "img/brand-009.png",
+          "href": "#"
+        }
+      ],
+      "power-trainer": [
+        {
+          "id": "026",
+          "name": "double fish",
+          "img": "img/brand-004.png",
+          "href": "#"
+        },
+        {
+          "id": "027",
+          "name": "eclipse",
+          "img": "img/brand-005.png",
+          "href": "#"
+        },
+        {
+          "id": "028",
+          "name": "gym80",
+          "img": "img/brand-006.png",
+          "href": "#"
+        },
+        {
+          "id": "029",
+          "name": "hyfit",
+          "img": "img/brand-007.png",
+          "href": "#"
+        },
+        {
+          "id": "030",
+          "name": "kernel",
+          "img": "img/brand-008.png",
+          "href": "#"
+        },
+        {
+          "id": "031",
+          "name": "meridien",
+          "img": "img/brand-009.png",
+          "href": "#"
+        },
+        {
+          "id": "032",
+          "name": "nautilus",
+          "img": "img/brand-010.png",
+          "href": "#"
+        },
+        {
+          "id": "033",
+          "name": "octane fitness",
+          "img": "img/brand-011.png",
+          "href": "#"
+        },
+        {
+          "id": "034",
+          "name": "optima fitness",
+          "img": "img/brand-012.png",
+          "href": "#"
+        }
+      ],
+      "trampoline": [
+        {
+          "id": "035",
+          "name": "original fitness",
+          "img": "img/brand-013.png",
+          "href": "#"
+        },
+        {
+          "id": "036",
+          "name": "pro sky",
+          "img": "img/brand-014.png",
+          "href": "#"
+        },
+        {
+          "id": "037",
+          "name": "bowflex",
+          "img": "img/brand-015.png",
+          "href": "#"
+        },
+        {
+          "id": "038",
+          "name": "cardio power pro",
+          "img": "img/brand-003.png",
+          "href": "#"
+        }
+      ],
+      "game-table": [
+        {
+          "id": "039",
+          "name": "double fish",
+          "img": "img/brand-004.png",
+          "href": "#"
+        },
+        {
+          "id": "040",
+          "name": "gym80",
+          "img": "img/brand-006.png",
+          "href": "#"
+        },
+        {
+          "id": "041",
+          "name": "kernel",
+          "img": "img/brand-008.png",
+          "href": "#"
+        },
+        {
+          "id": "042",
+          "category": "Игровые столы",
+          "name": "nautilus",
+          "img": "img/brand-010.png",
+          "href": "#"
+        },
+        {
+          "id": "043",
+          "category": "Игровые столы",
+          "name": "optima fitness",
+          "img": "img/brand-012.png",
+          "href": "#"
+        }
+      ]
+    },
+    "goods": [
+      {
+        "id": "0001",
+        "img": "img/good-0001.png",
+        "name": "Велотренажер Pro Max 2000",
+        "label": "",
+        "description": "Велотренажер Pro Max 2000",
+        "price": "340000",
+        "discountPrice": "315000",
+        "category": "Кардиотренажеры",
+        "subcategory": "Велотренажеры",
+        "cities": [
+          "Москва",
+          "Санкт-Петербург",
+          "Саратов",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень"
+        ],
+        "href": "#",
+        "discount": true,
+        "choice": true,
+        "new": true,
+        "availibility": true,
+        "raiting": "4.5"
+      },
+      {
+        "id": "0002",
+        "img": "img/good-0001.png",
+        "name": "Велотренажер Nautilus S35",
+        "label": "",
+        "description": "Велотренажер Nautilus S35",
+        "price": "325000",
+        "discountPrice": "310000",
+        "category": "Кардиотренажеры",
+        "subcategory": "Велотренажеры",
+        "cities": [
+          "Москва",
+          "Пермь",
+          "Новосибирск",
+          "Санкт-Петербург",
+          "Саратов",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень"
+        ],
+        "href": "#",
+        "discount": true,
+        "choice": true,
+        "new": true,
+        "availibility": true,
+        "raiting": "4.1"
+      },
+      {
+        "id": "0003",
+        "img": "img/good-0002.png",
+        "name": "Эллиптический тренажер Puls T20",
+        "label": "",
+        "description": "Эллиптический тренажер Puls T20",
+        "price": "400000",
+        "discountPrice": null,
+        "category": "Кардиотренажеры",
+        "subcategory": "Эллиптические тренажеры",
+        "cities": [
+          "Москва",
+          "Пермь",
+          "Новосибирск",
+          "Санкт-Петербург",
+          "Саратов",
+          "Екатеринбург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": true,
+        "new": false,
+        "availibility": true,
+        "raiting": "4.8"
+      },
+      {
+        "id": "0004",
+        "img": "img/good-0003.png",
+        "name": "Беговая дорожка CardioPower PM2001",
+        "label": "",
+        "description": "Беговая дорожка CardioPower PM2001",
+        "price": "270000",
+        "discountPrice": "260000",
+        "category": "Кардиотренажеры",
+        "subcategory": "Беговые дорожки",
+        "cities": [],
+        "href": "#",
+        "discount": true,
+        "choice": true,
+        "new": true,
+        "availibility": false,
+        "raiting": "4.0"
+      },
+      {
+        "id": "0005",
+        "img": "img/good-0004.png",
+        "name": "Беговая дорожка Run Forest run",
+        "label": "",
+        "description": "Беговая дорожка Run Forest run",
+        "price": "335900",
+        "discountPrice": "315000",
+        "category": "Кардиотренажеры",
+        "subcategory": "Беговые дорожки",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень"
+        ],
+        "href": "#",
+        "discount": true,
+        "choice": true,
+        "new": true,
+        "availibility": true,
+        "raiting": "4.7"
+      },
+      {
+        "id": "0006",
+        "img": "img/good-0002.png",
+        "name": "Эллиптический тренажер LowFat",
+        "label": "",
+        "description": "Эллиптический тренажер LowFat",
+        "price": "300000",
+        "discountPrice": null,
+        "category": "Кардиотренажеры",
+        "subcategory": "Эллиптические тренажеры",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": false,
+        "new": false,
+        "availibility": true,
+        "raiting": "3.5"
+      },
+      {
+        "id": "0007",
+        "img": "img/good-0004.png",
+        "name": "Беговая дорожка Nautilus AKA47",
+        "label": "",
+        "description": "Беговая дорожка Nautilus AKA4",
+        "price": "299000",
+        "discountPrice": null,
+        "category": "Кардиотренажеры",
+        "subcategory": "Беговые дорожки",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": false,
+        "new": false,
+        "availibility": true,
+        "raiting": "4.5"
+      },
+      {
+        "id": "0008",
+        "img": "img/good-0001.png",
+        "name": "Велотренажер STOPFAT Power3000",
+        "label": "",
+        "description": "Велотренажер STOPFAT Power3000",
+        "price": "200000",
+        "discountPrice": null,
+        "category": "Кардиотренажеры",
+        "subcategory": "Эллиптические тренажеры",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": false,
+        "new": false,
+        "availibility": true,
+        "raiting": "4.2"
+      },
+      {
+        "id": "0009",
+        "img": "img/good-0003.png",
+        "name": "Беговая дорожка CardioPower PRO Light ",
+        "label": "",
+        "description": "Беговая дорожка CardioPower PRO Light",
+        "price": "250000",
+        "discountPrice": "230000",
+        "category": "Кардиотренажеры",
+        "subcategory": "Беговые дорожки",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень"
+        ],
+        "href": "#",
+        "discount": true,
+        "choice": true,
+        "new": true,
+        "availibility": false,
+        "raiting": "4.4"
+      },
+      {
+        "id": "0010",
+        "img": "img/block-004.jpg",
+        "name": "Блочная платформа для жима ногами",
+        "label": "",
+        "description": "Блочная платформа для жима ногами",
+        "price": "450000",
+        "discountPrice": "4390000",
+        "category": "Грузоблочные тренажеры",
+        "subcategory": "Жим ногами",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень"
+        ],
+        "href": "#",
+        "discount": true,
+        "choice": true,
+        "new": true,
+        "availibility": true,
+        "raiting": "4.4"
+      },
+      {
+        "id": "0011",
+        "img": "img/weight-002.jpg",
+        "name": "Гриф для штанги",
+        "label": "",
+        "description": "Гриф для штанги",
+        "price": "30000",
+        "discountPrice": "25000",
+        "category": "Свободные веса",
+        "subcategory": "Грифы",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": true,
+        "choice": true,
+        "new": true,
+        "availibility": true,
+        "raiting": "4.9"
+      },
+      {
+        "id": "0012",
+        "img": "img/weight-005.jpg",
+        "name": "Горизонтальная тяга на свободных весах",
+        "label": "",
+        "description": "Горизонтальная тяга на свободных весах",
+        "price": "200000",
+        "discountPrice": "190000",
+        "category": "Тренажеры на свободных весах",
+        "subcategory": "Тяги на свободных весах",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": true,
+        "choice": true,
+        "new": true,
+        "availibility": true,
+        "raiting": "4.5"
+      },
+      {
+        "id": "0013",
+        "img": "img/block-006.jpg",
+        "name": "Грудной жим Impact CT2003",
+        "label": "",
+        "description": "Грудной жим Impact CT2003",
+        "price": "400000",
+        "discountPrice": null,
+        "category": "Грузоблочные тренажеры",
+        "subcategory": "Для груди",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": true,
+        "new": false,
+        "availibility": true,
+        "raiting": "4.7"
+      },
+      {
+        "id": "0014",
+        "img": "img/block-003.jpg",
+        "name": "Гравитрон OverTheSky",
+        "label": "",
+        "description": "Гравитрон OverTheSky",
+        "price": "380000",
+        "discountPrice": null,
+        "category": "Грузоблочные тренажеры",
+        "subcategory": "Гравитроны",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": false,
+        "new": true,
+        "availibility": true,
+        "raiting": "4.2"
+      },
+      {
+        "id": "0015",
+        "img": "img/block-002.jpg",
+        "name": "Верхний/нижний блок Protrain PWD1638",
+        "label": "",
+        "description": "Верхний/нижний блок Protrain PWD1638",
+        "price": "400000",
+        "discountPrice": "389000",
+        "category": "Грузоблочные тренажеры",
+        "subcategory": "Верхний/нижний блок",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": true,
+        "choice": true,
+        "new": true,
+        "availibility": true,
+        "raiting": "4.6"
+      },
+      {
+        "id": "0016",
+        "img": "img/fitness-001.jpg",
+        "name": "Коврик для йоги и растяжки",
+        "label": "",
+        "description": "Коврик для йоги и растяжки",
+        "price": "7000",
+        "discountPrice": null,
+        "category": "Фитнес аксессуары ",
+        "subcategory": "Коврики, маты",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": false,
+        "new": false,
+        "availibility": true,
+        "raiting": "4.3"
+      },
+      {
+        "id": "0017",
+        "img": "img/fitness-004.jpg",
+        "name": "Набор латексных ленточных петель для аэробики Livepro LP8412 (4шт)",
+        "label": "",
+        "description": "Набор латексных ленточных петель для аэробики Livepro LP8412 (4шт)",
+        "price": "5000",
+        "discountPrice": "4500",
+        "category": "Фитнес аксессуары",
+        "subcategory": "Ленты",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": true,
+        "choice": true,
+        "new": false,
+        "availibility": true,
+        "raiting": "4.9"
+      },
+      {
+        "id": "0018",
+        "img": "img/free-001.jpg",
+        "name": "Гантели 1-10кг",
+        "label": "",
+        "description": "Гантели 1-10кг",
+        "price": "29000",
+        "discountPrice": null,
+        "category": "Свободные веса",
+        "subcategory": "Гантели и гири",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": false,
+        "new": false,
+        "availibility": true,
+        "raiting": "4.2"
+      },
+      {
+        "id": "0019",
+        "img": "img/free-002.jpg",
+        "name": "Штанга 10кг",
+        "label": "",
+        "description": "Штанга 10кг",
+        "price": "15000",
+        "discountPrice": null,
+        "category": "Свободные веса",
+        "subcategory": "Штанги",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": false,
+        "new": false,
+        "availibility": true,
+        "raiting": "3.4"
+      },
+      {
+        "id": "0020",
+        "img": "img/game-001.jpg",
+        "name": "Стол для настольного тенниса",
+        "label": "",
+        "description": "Стол для настольного тенниса",
+        "price": "45000",
+        "discountPrice": null,
+        "category": "Игровые столы",
+        "subcategory": "Игровые столы",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": true,
+        "new": false,
+        "availibility": true,
+        "raiting": "4.7"
+      },
+      {
+        "id": "0021",
+        "img": "img/home-009.png",
+        "name": "Массажное кресло 'Полный расслабон'",
+        "label": "",
+        "description": "",
+        "price": "70000",
+        "discountPrice": null,
+        "category": "СПА, массаж",
+        "subcategory": "Вибромассажеры",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": false,
+        "new": false,
+        "availibility": true,
+        "raiting": "4.3"
+      },
+      {
+        "id": "0022",
+        "img": "img/massage-003.jpg",
+        "name": "Вибромассажер Прощай целлюлит",
+        "label": "",
+        "description": "Вибромассажер Прощай целлюлит",
+        "price": "95000",
+        "discountPrice": "90000",
+        "category": "СПА, массаж",
+        "subcategory": "Вибромассажеры",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": true,
+        "choice": true,
+        "new": true,
+        "availibility": true,
+        "raiting": "4.2"
+      },
+      {
+        "id": "0023",
+        "img": "img/massage-001.jpg",
+        "name": "Ролл для самомассажа",
+        "label": "",
+        "description": "Ролл для самомассажа",
+        "price": "4000",
+        "discountPrice": "3500",
+        "category": "Массажное оборудование",
+        "subcategory": "Массажные ролики, коврики",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": true,
+        "choice": true,
+        "new": true,
+        "availibility": true,
+        "raiting": "4.2"
+      },
+      {
+        "id": "0024",
+        "img": "img/str-001.jpg",
+        "name": "Турник с креплением на стену 'Широкие крылышки'",
+        "label": "",
+        "description": "Турник с креплением на стену 'Широкие крылышки'",
+        "price": "20000",
+        "discountPrice": null,
+        "category": "Силовые тренажеры",
+        "subcategory": "Турники, брусья",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": false,
+        "new": false,
+        "availibility": false,
+        "raiting": "3.4"
+      },
+      {
+        "id": "0025",
+        "img": "img/str-002.jpg",
+        "name": "Шведская стенка",
+        "label": "",
+        "description": "Шведская стенка",
+        "price": "90000",
+        "discountPrice": null,
+        "category": "Силовые тренажеры",
+        "subcategory": "Шведские стенки",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": true,
+        "new": false,
+        "availibility": true,
+        "raiting": "4.2"
+      },
+      {
+        "id": "0026",
+        "img": "img/str-004.jpg",
+        "name": "Многофункциональный блочный тренажер",
+        "label": "",
+        "description": "Многофункциональный блочный тренажер",
+        "price": "400000",
+        "discountPrice": null,
+        "category": "Силовые тренажеры",
+        "subcategory": "Многофункциональные станции",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": false,
+        "new": false,
+        "availibility": true,
+        "raiting": "4.5"
+      },
+      {
+        "id": "0027",
+        "img": "img/weight-003.jpg",
+        "name": "Блин для штанги 2.5кг",
+        "label": "",
+        "description": "Блин Диск для штанги 2.5кг",
+        "price": "6000",
+        "discountPrice": null,
+        "category": "Свободные веса",
+        "subcategory": "Диски",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": false,
+        "new": false,
+        "availibility": true,
+        "raiting": "4.1"
+      },
+      {
+        "id": "0028",
+        "img": "img/weight-001.jpg",
+        "name": "Гантельный ряд Профессиональный 1-10кг",
+        "label": "",
+        "description": "Гантельный ряд Профессиональный 1-10кг",
+        "price": "100000",
+        "discountPrice": null,
+        "category": "Свободные веса",
+        "subcategory": "Гантели и гантельные ряды",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": true,
+        "new": false,
+        "availibility": true,
+        "raiting": "4.7"
+      },
+      {
+        "id": "0029",
+        "img": "img/str-003.jpg",
+        "name": "Наклонная скамья для пресса",
+        "label": "",
+        "description": "Наклонная скамья для пресса",
+        "price": "150000",
+        "discountPrice": null,
+        "category": "Силовые тренажеры",
+        "subcategory": "Скамьи для жима, пресса и спины",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": false,
+        "new": false,
+        "availibility": true,
+        "raiting": "4.7"
+      },
+      {
+        "id": "0030",
+        "img": "img/str-003.jpg",
+        "name": "Скамья для гиперэкстензии",
+        "label": "",
+        "description": "Скамья для гиперэкстензии",
+        "price": "120000",
+        "discountPrice": "110000",
+        "category": "Силовые тренажеры",
+        "subcategory": "Скамьи для жима, пресса и спины",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": true,
+        "choice": true,
+        "new": true,
+        "availibility": true,
+        "raiting": "4.5"
+      },
+      {
+        "id": "0031",
+        "img": "img/home-007.png",
+        "name": "Батут детский",
+        "label": "",
+        "description": "Батут детский",
+        "price": "75000",
+        "discountPrice": null,
+        "category": "Батуты",
+        "cities": [
+          "Москва",
+          "Екатеринбург",
+          "Нижний Новгород",
+          "Семфирополь",
+          "Пермь",
+          "Волгоград",
+          "Волжск",
+          "Краснодар",
+          "Ставрополь",
+          "Омск",
+          "Тюмень",
+          "Ростов",
+          "Ярославль",
+          "Санкт-Петербург"
+        ],
+        "href": "#",
+        "discount": false,
+        "choice": false,
+        "new": false,
+        "availibility": true,
+        "raiting": "3.3"
+      }
+    ],
+    "news": [
+      {
+        "id": "001",
+        "href": "#",
+        "img": "img/news-001.jpg",
+        "title": "В продажу поступили тренажеры Nautilus",
+        "description": "Представляем тренажеры Nautilus 626 серии.",
+        "date": "2021.12.01"
+      },
+      {
+        "id": "002",
+        "href": "#",
+        "img": "img/news-002.jpg",
+        "title": "Что такое кроссфит",
+        "description": "Комплекс тренировок для новичков от профессионального тренера",
+        "date": "2021.11.25"
+      },
+      {
+        "id": "003",
+        "href": "#",
+        "img": "img/news-003.jpg",
+        "title": "Худеем дома ",
+        "description": "Коротко о том, как подобрать правильный кардиотренажер",
+        "date": "2021.11.12"
+      },
+      {
+        "id": "004",
+        "href": "#",
+        "img": "img/news-004.jpg",
+        "title": "Скамья для жима: как выбрать",
+        "description": "Подборка от лучших производителей для комфортных тренировок ",
+        "date": "2021.11.03"
+      },
+      {
+        "id": "005",
+        "href": "#",
+        "img": "img/news-005.jpg",
+        "title": "Как подобрать обувь для тренировок",
+        "description": "Какие кроссовки для каких видов тренировок подходят",
+        "date": "2021.10.28"
+      },
+      {
+        "id": "006",
+        "href": "#",
+        "img": "img/news-006.jpg",
+        "title": "Турник для дома",
+        "description": "На что обратить внимание при выборе",
+        "date": "2021.10.20"
+      }
+    ]
+  }
+}

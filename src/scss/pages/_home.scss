@@ -26,13 +26,6 @@
       grid-gap: 10px;
     }
     &__item {
-      background-image: url("../../images/card-small-bg.png");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: right;
-      @include screen-max($small) {
-        background-size: 70%;
-      }
       &_one {
         grid-row-start: 1;
         grid-row-end: 3;
@@ -51,14 +44,6 @@
           grid-row-end: 3;
           grid-column-start: 1;
           grid-column-end: 3;
-        }
-      }
-      &_hight {
-        background-size: cover;
-        background-image: url("../../images/card-hight-white.jpg");
-        @include screen-max($small) {
-          background-size: cover;
-          background-position: bottom;
         }
       }
     }

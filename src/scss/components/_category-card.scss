@@ -1,11 +1,13 @@
 .category-card {
-  background-color: $card-bg;
+  background-color: $white;
   max-width: 330px;
   width: 100%;
   height: 200px;
   border-radius: 6px;
   padding: 31px 30px;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
   @include screen-max($medium) {
     max-width: 220px;
     height: 135px;
@@ -20,6 +22,7 @@
   &_hight {
     height: 430px;
     padding: 36px 30px;
+    background-color: #cccdd6;
     @include screen-max($medium) {
       padding: 27px 20px;
       height: 290px;
@@ -61,7 +64,7 @@
     }
   }
   &_dark {
-    background-color: $minor-gray;
+    background-color: $main-dark-gray;
   }
 
   &__heading {
@@ -70,16 +73,87 @@
     line-height: 24px;
     max-width: 150px;
     width: 100%;
+    position: relative;
+    z-index: 1;
     @include screen-max($medium) {
       font-size: 13px;
       line-height: 14px;
       max-width: 130px;
     }
+    @include screen-max($small) {
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 5px 10px rgba(255, 255, 255, 0.8);
+    }
     &_white {
       color: $white;
+      @include screen-max($small) {
+        background-color: transparent;
+        box-shadow: none;
+      }
+    }
+    &_gray {
+      @include screen-max($small) {
+        background-color: transparent;
+        box-shadow: none;
+      }
     }
     &_wide {
       max-width: 230px;
+    }
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 215px;
+    width: 100%;
+    height: 200px;
+    @include screen-max($medium) {
+      max-width: 144px;
+      height: 135px;
+    }
+    @include screen-max($small) {
+      max-width: 145px;
+      height: 140px;
+    }
+    &_height {
+      max-width: 330px;
+      height: 430px;
+      @include screen-max($medium) {
+        max-width: 220px;
+        height: 290px;
+      }
+      @include screen-max($small) {
+        max-width: 130px;
+        height: 170px;
+        top: auto;
+        bottom: 0;
+        right: 20px;
+      }
+    }
+    &_wide {
+      max-width: 518px;
+      height: 280px;
+      @include screen-max($medium) {
+        max-width: 387px;
+        height: 190px;
+      }
+      @include screen-max($small) {
+        max-width: 252px;
+        height: 140px;
+      }
+    }
+    &_square {
+      max-width: 275px;
+      height: 280px;
+      @include screen-max($medium) {
+        max-width: 183px;
+        height: 190px;
+      }
+      @include screen-max($small) {
+        max-width: 145px;
+        height: 140px;
+      }
     }
   }
 }

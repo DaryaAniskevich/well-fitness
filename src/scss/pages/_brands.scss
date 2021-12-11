@@ -38,22 +38,32 @@
         font-weight: 14px;
         line-height: 18px;
       }
+      &_active {
+        font-weight: 700;
+      }
     }
   }
   &-cards {
     display: grid;
-    justify-content: center;
     grid-template-columns: repeat(5, 282px);
     grid-auto-rows: 170px;
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
+    max-width: 1410px;
+    width: 100%;
+    min-height: 330px;
+    height: 100%;
     @include screen-max($medium) {
       grid-template-columns: repeat(4, 234px);
       grid-auto-rows: 141px;
+      max-width: 938px;
+      min-height: 280px;
     }
     @include screen-max($small) {
       grid-template-columns: repeat(3, 100px);
       grid-auto-rows: 60px;
       margin-bottom: 20px;
+      max-width: 300px;
+      min-height: 190px;
     }
     &-item {
       max-width: 282px;
@@ -64,6 +74,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
       @include screen-max($medium) {
         max-width: 234px;
         height: 141px;

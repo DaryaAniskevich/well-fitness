@@ -11,3 +11,6 @@
 @@include("menu.js")
 @@include("sign.js")
 @@include("slider-banner.js")
+@@include("home.js")
+@@include("clubs.js")
+@@include("brands.js")
