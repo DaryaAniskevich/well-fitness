@@ -9,18 +9,14 @@
     max-width: 250px;
   }
   &__img {
-    max-width: 315px;
-    width: 100%;
-    height: 260px;
+    width: 315px;
     margin-bottom: 20px;
     border-radius: 6px;
     @include screen-max($medium) {
-      max-width: 290px;
-      height: 239px;
+      width: 290px;
     }
     @include screen-max($small) {
-      max-width: 250px;
-      height: 260px;
+      width: 250px;
     }
   }
   &__heading {

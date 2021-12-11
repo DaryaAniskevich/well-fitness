@@ -1,10 +1,10 @@
-const catalog = () => {
+const catalogModal = () => {
   const hide = "hide";
   const modal_active = "modal_active";
+  const active_btn = "modal-catalog-type__item_active";
 
   const openBtn = document.querySelector(".header-navigation-catalog__button");
   const catalogBlock = document.querySelector(".modal-catalog");
-  const body = document.querySelector("body");
   const searchBlock = document.querySelector(".search");
   const catalogWrapper = catalogBlock.querySelector(".modal-wrapper");
 
@@ -33,16 +33,15 @@ const catalog = () => {
   homeCatalogBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       if (e.target.dataset.category === "home") {
-        console.dir(e);
         categoryClubs.classList.add(hide);
         categoryHome.classList.remove(hide);
-        homeCategoryBtn.classList.add("catalog-type__item_active");
-        clubsCategoryBtn.classList.remove("catalog-type__item_active");
+        homeCategoryBtn.classList.add(active_btn);
+        clubsCategoryBtn.classList.remove(active_btn);
       } else if (e.target.dataset.category === "clubs") {
         categoryHome.classList.add(hide);
         categoryClubs.classList.remove(hide);
-        clubsCategoryBtn.classList.add("catalog-type__item_active");
-        homeCategoryBtn.classList.remove("catalog-type__item_active");
+        clubsCategoryBtn.classList.add(active_btn);
+        homeCategoryBtn.classList.remove(active_btn);
       }
       catalogBlock.classList.add(modal_active);
     });
@@ -51,15 +50,15 @@ const catalog = () => {
   homeCategoryBtn.addEventListener("click", () => {
     categoryHome.classList.remove(hide);
     categoryClubs.classList.add(hide);
-    homeCategoryBtn.classList.add("modal-catalog-type__item_active");
-    clubsCategoryBtn.classList.remove("modal-catalog-type__item_active");
+    homeCategoryBtn.classList.add(active_btn);
+    clubsCategoryBtn.classList.remove(active_btn);
   });
 
   clubsCategoryBtn.addEventListener("click", () => {
     categoryClubs.classList.remove(hide);
     categoryHome.classList.add(hide);
-    clubsCategoryBtn.classList.add("modal-catalog-type__item_active");
-    homeCategoryBtn.classList.remove("modal-catalog-type__item_active");
+    clubsCategoryBtn.classList.add(active_btn);
+    homeCategoryBtn.classList.remove(active_btn);
   });
 
   catalogWrapper.addEventListener("click", (e) => {
@@ -81,4 +80,4 @@ const catalog = () => {
   });
 };
 
-catalog();
+catalogModal();

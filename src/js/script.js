@@ -1,8 +1,8 @@
-@@include("modal.js");
+@@include("modal.js")
 @@include("city.js")
 @@include("phone.js")
 @@include("callRequest.js")
-@@include("catalog.js")
+@@include("catalogModal.js")
 @@include("search.js")
 @@include("tabs.js")
 @@include("cart.js")
@@ -14,3 +14,7 @@
 @@include("home.js")
 @@include("clubs.js")
 @@include("brands.js")
+@@include("news.js")
+@@include("catalogRender.js")
+@@include("catalogHome.js")
+@@include("catalogClubs.js")

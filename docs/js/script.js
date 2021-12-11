@@ -19,7 +19,7 @@ const modal = (modal, openBtn, closeBtn) => {
     }
   });
 };
-;
+
 const chooseCity = () => {
   const modal_active = "modal_active";
 
@@ -148,13 +148,13 @@ const callRequest = () => {
 
 callRequest();
 
-const catalog = () => {
+const catalogModal = () => {
   const hide = "hide";
   const modal_active = "modal_active";
+  const active_btn = "modal-catalog-type__item_active";
 
   const openBtn = document.querySelector(".header-navigation-catalog__button");
   const catalogBlock = document.querySelector(".modal-catalog");
-  const body = document.querySelector("body");
   const searchBlock = document.querySelector(".search");
   const catalogWrapper = catalogBlock.querySelector(".modal-wrapper");
 
@@ -183,16 +183,15 @@ const catalog = () => {
   homeCatalogBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       if (e.target.dataset.category === "home") {
-        console.dir(e);
         categoryClubs.classList.add(hide);
         categoryHome.classList.remove(hide);
-        homeCategoryBtn.classList.add("catalog-type__item_active");
-        clubsCategoryBtn.classList.remove("catalog-type__item_active");
+        homeCategoryBtn.classList.add(active_btn);
+        clubsCategoryBtn.classList.remove(active_btn);
       } else if (e.target.dataset.category === "clubs") {
         categoryHome.classList.add(hide);
         categoryClubs.classList.remove(hide);
-        clubsCategoryBtn.classList.add("catalog-type__item_active");
-        homeCategoryBtn.classList.remove("catalog-type__item_active");
+        clubsCategoryBtn.classList.add(active_btn);
+        homeCategoryBtn.classList.remove(active_btn);
       }
       catalogBlock.classList.add(modal_active);
     });
@@ -201,15 +200,15 @@ const catalog = () => {
   homeCategoryBtn.addEventListener("click", () => {
     categoryHome.classList.remove(hide);
     categoryClubs.classList.add(hide);
-    homeCategoryBtn.classList.add("modal-catalog-type__item_active");
-    clubsCategoryBtn.classList.remove("modal-catalog-type__item_active");
+    homeCategoryBtn.classList.add(active_btn);
+    clubsCategoryBtn.classList.remove(active_btn);
   });
 
   clubsCategoryBtn.addEventListener("click", () => {
     categoryClubs.classList.remove(hide);
     categoryHome.classList.add(hide);
-    clubsCategoryBtn.classList.add("modal-catalog-type__item_active");
-    homeCategoryBtn.classList.remove("modal-catalog-type__item_active");
+    clubsCategoryBtn.classList.add(active_btn);
+    homeCategoryBtn.classList.remove(active_btn);
   });
 
   catalogWrapper.addEventListener("click", (e) => {
@@ -231,7 +230,7 @@ const catalog = () => {
   });
 };
 
-catalog();
+catalogModal();
 
 const search = () => {
   const modal_active = "modal_active";
@@ -777,7 +776,7 @@ const brands = () => {
   const brandsBlock = document.querySelector(".brands-cards");
   const brandsButtons = document.querySelectorAll(".brands-buttons__item");
 
-  let category = "treadmill";
+  let category = "all";
 
   const renderCards = (data) => {
     data.forEach((item) => {
@@ -814,6 +813,192 @@ const brands = () => {
       getData(category);
     });
   });
+
+  getData("all");
 };
 
 brands();
+
+const news = () => {
+  const newsBlock = document.querySelector(".news-cards");
+
+  const renderBlock = (data) => {
+    data.forEach((item) => {
+      const { id, href, img, title, description, date } = item;
+      const div = document.createElement("div");
+      div.classList.add("news-cards__item", "news-card");
+      div.setAttribute("data-href", href);
+
+      div.innerHTML = `<img src="./images/db/${img}" alt="${title}" class="news-card__img" />
+    <div class="news-card-content">
+      <h4 class="news-card__heading">
+        ${title}
+      </h4>
+      <p class="news-card__paragraf">
+        ${description}
+      </p>
+      <p class="news-card__paragraf news-card__paragraf_light">
+        ${date}
+      </p>
+      </div>`;
+
+      div.addEventListener("click", () => {
+        window.location.href = div.dataset.href;
+      });
+
+      newsBlock.append(div);
+    });
+  };
+
+  fetch(
+    "https://wellfitness-a4db3-default-rtdb.europe-west1.firebasedatabase.app/db/news.json"
+  )
+    .then((res) => res.json())
+    .then((res) => renderBlock(res));
+};
+
+news();
+
+const catalogRender = (data, container) => {
+  const active_category = "modal-catalog-category-name__item_active";
+
+  const categories = [];
+
+  const getCategories = (data) => {
+    data.forEach((item) => {
+      if (!categories.includes(item.category)) {
+        categories.push(item.category);
+      }
+    });
+  };
+  getCategories(data);
+
+  const renderCategoriesName = (block) => {
+    const categoryBlock = document.createElement("div");
+    categoryBlock.classList.add("modal-catalog-category-name");
+
+    categories.forEach((category) => {
+      categoryBlock.innerHTML += `<div
+        class="
+          modal-catalog-category-name__item
+        " data-category="${category}"
+      >
+        ${category}
+        <span class="modal-catalog-category-name__item_arrow">
+          &#8594;</span
+        >
+      </div>`;
+
+      block.append(categoryBlock);
+    });
+  };
+
+  const renderSubcategories = (block, subcategory, href, img) => {
+    block.innerHTML += `
+      <div class="modal-catalog-category-subcategory-item" data-href=${href}>
+        <img
+          src="./images/db/${img}"
+          alt="${subcategory}"
+          class="modal-catalog-category-subcategory-item__img"
+        />
+        <div class="modal-catalog-category-subcategory-item__title">
+         ${subcategory}
+        </div>
+      </div>
+    `;
+
+    block
+      .querySelectorAll(".modal-catalog-category-subcategory-item")
+      .forEach((item) => {
+        item.addEventListener("click", () => {
+          window.location.href = item.dataset.href;
+        });
+      });
+  };
+
+  const renderCatalog = (data) => {
+    const div = document.createElement("div");
+    div.classList.add("modal-catalog-category-container");
+    renderCategoriesName(div);
+
+    const subcategoryBlock = document.createElement("div");
+    subcategoryBlock.classList.add("modal-catalog-category-subcategory");
+
+    div.append(subcategoryBlock);
+    container.append(div);
+
+    const categoryName = container.querySelectorAll(
+      ".modal-catalog-category-name__item"
+    );
+    console.log(categoryName);
+    categoryName.forEach((item) => {
+      item.addEventListener("click", () => {
+        container.querySelector(
+          ".modal-catalog-category-subcategory"
+        ).innerHTML = "";
+      });
+    });
+
+    data.forEach((item) => {
+      const { id, category, subcategory, href, img } = item;
+
+      if (category === categories[0]) {
+        renderSubcategories(subcategoryBlock, subcategory, href, img);
+      }
+
+      const changeSubcategories = (container) => {
+        const categoryName = container.querySelectorAll(
+          ".modal-catalog-category-name__item"
+        );
+        categoryName.forEach((item) => {
+          item.addEventListener("click", () => {
+            categoryName.forEach((item) => {
+              item.classList.remove(active_category);
+            });
+            item.classList.add(active_category);
+            if (item.dataset.category === category) {
+              renderSubcategories(subcategoryBlock, subcategory, href, img);
+            }
+          });
+        });
+      };
+      changeSubcategories(container);
+    });
+
+    categoryName[0].classList.add(active_category);
+  };
+
+  renderCatalog(data);
+};
+
+const catalogHome = () => {
+  const catalogHomeBlock = document.querySelector(
+    ".modal-catalog-category-home"
+  );
+
+  fetch(
+    "https://wellfitness-a4db3-default-rtdb.europe-west1.firebasedatabase.app/db/catalog/home.json"
+  )
+    .then((res) => res.json())
+    .then((res) => {
+      catalogRender(res, catalogHomeBlock);
+    });
+};
+
+catalogHome();
+
+const catalogClubs = () => {
+  const catalogClubsBlock = document.querySelector(
+    ".modal-catalog-category-clubs"
+  );
+
+  fetch(
+    "https://wellfitness-a4db3-default-rtdb.europe-west1.firebasedatabase.app/db/catalog/club.json"
+  )
+    .then((res) => res.json())
+    .then((res) => {
+      catalogRender(res, catalogClubsBlock);
+    });
+};
+
+catalogClubs();

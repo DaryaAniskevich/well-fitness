@@ -814,9 +814,7 @@ a:hover {
 }
 
 .news-card__img {
-  max-width: 315px;
-  width: 100%;
-  height: 260px;
+  width: 315px;
   margin-bottom: 20px;
   border-radius: 6px;
 }
@@ -1859,11 +1857,17 @@ a:hover {
           align-items: center;
   max-width: 330px;
   width: 100%;
+  border: 1px dotted #ffffff;
+}
+
+.modal-catalog-category-subcategory-item:hover {
+  border-color: #1a1a25;
 }
 
 .modal-catalog-category-subcategory-item__img {
   width: 90px;
   height: 90px;
+  margin-right: 5px;
 }
 
 .modal-catalog-category-subcategory-item__title {
@@ -2806,6 +2810,9 @@ a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   grid-gap: 30px;
   margin-bottom: 30px;
   overflow: hidden;
@@ -2879,8 +2886,7 @@ a:hover {
   }
 
   .news-card__img {
-    max-width: 290px;
-    height: 239px;
+    width: 290px;
   }
 
   .partnership-btn {
@@ -3333,9 +3339,6 @@ a:hover {
 
   .news-cards {
     grid-gap: 20px;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
   }
 }
 
@@ -3558,8 +3561,7 @@ a:hover {
   }
 
   .news-card__img {
-    max-width: 250px;
-    height: 260px;
+    width: 250px;
   }
 
   .news-card__heading {

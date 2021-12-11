@@ -2,7 +2,7 @@ const brands = () => {
   const brandsBlock = document.querySelector(".brands-cards");
   const brandsButtons = document.querySelectorAll(".brands-buttons__item");
 
-  let category = "treadmill";
+  let category = "all";
 
   const renderCards = (data) => {
     data.forEach((item) => {
@@ -39,6 +39,8 @@ const brands = () => {
       getData(category);
     });
   });
+
+  getData("all");
 };
 
 brands();
