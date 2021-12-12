@@ -10,7 +10,7 @@
     flex-direction: column;
     @include screen-max($small) {
       margin-top: 0;
-      width: 320px;
+      width: 100vw;
       padding: 27px 16px 27px 20px;
       border-radius: 0;
       height: 100vh;

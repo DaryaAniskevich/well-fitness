@@ -1840,7 +1840,6 @@ a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow: hidden;
 }
 
 .modal-catalog-category-name {
@@ -2726,6 +2725,7 @@ a:hover {
   position: relative;
   padding: 25px 0;
   z-index: 4;
+  max-width: 470px;
 }
 
 .about__heading {
@@ -3188,7 +3188,7 @@ a:hover {
   }
 
   .discount-container {
-    padding: 100px 0 50px;
+    padding: 100px 10px 50px;
   }
 
   .discount-heading {
@@ -3368,7 +3368,7 @@ a:hover {
   }
 
   .news-container {
-    padding: 100px 0 56px;
+    padding: 100px 10px 56px;
   }
 
   .news-cards {
@@ -3558,6 +3558,16 @@ a:hover {
     margin-bottom: 10px;
   }
 
+  .good-card-bottom {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+
   .good-card-price {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3587,7 +3597,7 @@ a:hover {
   }
 
   .good-card__button {
-    display: none;
+    margin-top: 15px;
   }
 
   .news-card {
@@ -3792,6 +3802,10 @@ a:hover {
   }
 
   .footer-bottom {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 300px;
     display: grid;
     grid-template-areas: "buttons" "social" "pay" "logo";
   }
@@ -3853,7 +3867,7 @@ a:hover {
 
   .modal-city-content {
     margin-top: 0;
-    width: 320px;
+    width: 100vw;
     padding: 27px 16px 27px 20px;
     border-radius: 0;
     height: 100vh;
@@ -3898,9 +3912,23 @@ a:hover {
     padding-bottom: 12px;
   }
 
+  .modal-catalog-category-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .modal-catalog-category-name {
+    border-right: none;
+    padding-bottom: 10px;
+  }
+
   .modal-catalog-category-subcategory {
     grid-auto-rows: 50px;
-    grid-gap: 10px;
+    grid-gap: 20px 10px;
+    padding: 20px 10px;
+    border-top: 1px solid rgba(133, 143, 164, 0.2);
   }
 
   .modal-catalog-category-subcategory-item {
@@ -3913,7 +3941,7 @@ a:hover {
   }
 
   .modal-catalog-category-subcategory-item__title {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .menu-phone__button {
@@ -4051,7 +4079,17 @@ a:hover {
   }
 
   .discount-container {
-    padding: 80px 0 70px;
+    padding: 80px 10px 70px;
+  }
+
+  .discount-heading {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
 
   .discount-heading__heading {
@@ -4187,7 +4225,10 @@ a:hover {
     width: 345px;
     height: 254px;
     bottom: 20px;
-    left: -35px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
 
   .partner-container {
@@ -4212,7 +4253,7 @@ a:hover {
   }
 
   .news-container {
-    padding: 80px 5px 0;
+    padding: 80px 10px 0;
   }
 
   .news-heading {

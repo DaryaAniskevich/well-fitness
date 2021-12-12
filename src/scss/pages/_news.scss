@@ -2,10 +2,10 @@
   &-container {
     padding: 120px 0 60px;
     @include screen-max($medium) {
-      padding: 100px 0 56px;
+      padding: 100px 10px 56px;
     }
     @include screen-max($small) {
-      padding: 80px 5px 0;
+      padding: 80px 10px 0;
     }
   }
   &-heading {

@@ -208,6 +208,10 @@
   &-bottom {
     display: flex;
     justify-content: space-between;
+    @include screen-max($small) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
   &-price {
     @include screen-max($small) {
@@ -246,7 +250,7 @@
   }
   &__button {
     @include screen-max($small) {
-      display: none;
+      margin-top: 15px;
     }
   }
 }

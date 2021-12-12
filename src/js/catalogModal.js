@@ -19,10 +19,6 @@ const catalogModal = () => {
     ".modal-catalog-type__item_clubs"
   );
 
-  const catalogCalegoryName = document.querySelector(
-    ".modal-catalog-category-name__item"
-  );
-
   openBtn.addEventListener("click", () => {
     searchBlock.classList.add(hide);
     categoryClubs.classList.add(hide);

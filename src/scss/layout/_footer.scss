@@ -198,10 +198,13 @@
     align-items: center;
     margin-bottom: 14px;
     width: 100vw;
+
     @include screen-max($medium) {
       justify-content: space-between;
     }
     @include screen-max($small) {
+      justify-content: center;
+      width: 300px;
       display: grid;
       grid-template-areas: "buttons" "social" "pay" "logo";
     }
