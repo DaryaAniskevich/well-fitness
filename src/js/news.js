@@ -2,13 +2,14 @@ const news = () => {
   const newsBlock = document.querySelector(".news-cards");
 
   const renderBlock = (data) => {
-    data.forEach((item) => {
+    data.forEach((item, index) => {
       const { id, href, img, title, description, date } = item;
-      const div = document.createElement("div");
-      div.classList.add("news-cards__item", "news-card");
-      div.setAttribute("data-href", href);
+      if (index < 6) {
+        const div = document.createElement("div");
+        div.classList.add("news-cards__item", "news-card");
+        div.setAttribute("data-href", href);
 
-      div.innerHTML = `<img src="./images/db/${img}" alt="${title}" class="news-card__img" />
+        div.innerHTML = `<img src="./images/db/${img}" alt="${title}" class="news-card__img" />
     <div class="news-card-content">
       <h4 class="news-card__heading">
         ${title}
@@ -21,11 +22,12 @@ const news = () => {
       </p>
       </div>`;
 
-      div.addEventListener("click", () => {
-        window.location.href = div.dataset.href;
-      });
+        div.addEventListener("click", () => {
+          window.location.href = div.dataset.href;
+        });
 
-      newsBlock.append(div);
+        newsBlock.append(div);
+      }
     });
   };
 

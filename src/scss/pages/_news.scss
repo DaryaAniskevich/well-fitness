@@ -32,10 +32,8 @@
   }
   &-cards {
     display: flex;
-    justify-content: flex-start;
     grid-gap: 30px;
     margin-bottom: 30px;
-    overflow: hidden;
     @include screen-max($medium) {
       grid-gap: 20px;
     }

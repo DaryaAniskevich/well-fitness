@@ -986,6 +986,38 @@ a:hover {
   color: #1a1a25;
 }
 
+.slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.slider-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  width: 100vw;
+}
+
+.slider-controls {
+  width: 100%;
+  position: absolute;
+  top: 25%;
+}
+
+.slider-controls__prev {
+  position: absolute;
+  left: 30px;
+}
+
+.slider-controls__next {
+  position: absolute;
+  right: 30px;
+}
+
 .header {
   background-color: #1a1a25;
   color: #858fa4;
@@ -2475,7 +2507,6 @@ a:hover {
   display: flex;
   grid-gap: 30px;
   margin-bottom: 30px;
-  overflow: hidden;
 }
 
 .clubs {
@@ -2817,12 +2848,8 @@ a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
   grid-gap: 30px;
   margin-bottom: 30px;
-  overflow: hidden;
 }
 
 @media (max-width: 1279px) {
@@ -3618,6 +3645,14 @@ a:hover {
 
   .tab-footer-price {
     margin-bottom: 12px;
+  }
+
+  .slider-controls__prev {
+    left: 15px;
+  }
+
+  .slider-controls__next {
+    right: 15px;
   }
 
   .header-top {

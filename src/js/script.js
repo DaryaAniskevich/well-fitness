@@ -19,3 +19,6 @@
 @@include("catalogHome.js")
 @@include("catalogClubs.js")
 @@include("discount.js")
+@@include("sliderCommon.js")
+@@include("slider-discount.js")
+@@include("slider-news.js")

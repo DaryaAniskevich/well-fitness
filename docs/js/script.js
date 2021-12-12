@@ -822,13 +822,14 @@ const news = () => {
   const newsBlock = document.querySelector(".news-cards");
 
   const renderBlock = (data) => {
-    data.forEach((item) => {
+    data.forEach((item, index) => {
       const { id, href, img, title, description, date } = item;
-      const div = document.createElement("div");
-      div.classList.add("news-cards__item", "news-card");
-      div.setAttribute("data-href", href);
+      if (index < 6) {
+        const div = document.createElement("div");
+        div.classList.add("news-cards__item", "news-card");
+        div.setAttribute("data-href", href);
 
-      div.innerHTML = `<img src="./images/db/${img}" alt="${title}" class="news-card__img" />
+        div.innerHTML = `<img src="./images/db/${img}" alt="${title}" class="news-card__img" />
     <div class="news-card-content">
       <h4 class="news-card__heading">
         ${title}
@@ -841,11 +842,12 @@ const news = () => {
       </p>
       </div>`;
 
-      div.addEventListener("click", () => {
-        window.location.href = div.dataset.href;
-      });
+        div.addEventListener("click", () => {
+          window.location.href = div.dataset.href;
+        });
 
-      newsBlock.append(div);
+        newsBlock.append(div);
+      }
     });
   };
 
@@ -1168,7 +1170,7 @@ const discount = () => {
       btn.addEventListener("click", () => (discountBlock.innerHTML = ""));
     });
 
-    data.forEach((item) => {
+    data.forEach((item, index) => {
       const {
         id,
         img,
@@ -1188,81 +1190,83 @@ const discount = () => {
         raiting,
       } = item;
 
-      if (discount) {
-        renderCard(
-          discountBlock,
-          discount,
-          choice,
-          neww,
-          img,
-          availibility,
-          name,
-          raiting,
-          price,
-          discountPrice,
-          href
-        );
-      }
+      if (discountBlock.childNodes.length < 10) {
+        if (discount) {
+          renderCard(
+            discountBlock,
+            discount,
+            choice,
+            neww,
+            img,
+            availibility,
+            name,
+            raiting,
+            price,
+            discountPrice,
+            href
+          );
 
-      filterBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          filterBtns.forEach((btn) => btn.classList.remove(active_btn));
-          if (btn.dataset.filter === "new") {
-            btn.classList.add(active_btn);
-            if (discount && neww) {
-              renderCard(
-                discountBlock,
-                discount,
-                choice,
-                neww,
-                img,
-                availibility,
-                name,
-                raiting,
-                price,
-                discountPrice,
-                href
-              );
-            }
-          }
-          if (btn.dataset.filter === "recommendation") {
-            btn.classList.add(active_btn);
-            if (discount && choice) {
-              renderCard(
-                discountBlock,
-                discount,
-                choice,
-                neww,
-                img,
-                availibility,
-                name,
-                raiting,
-                price,
-                discountPrice,
-                href
-              );
-            }
-          }
-          if (btn.dataset.filter === "all") {
-            btn.classList.add(active_btn);
-            if (discount) {
-              renderCard(
-                discountBlock,
-                discount,
-                choice,
-                neww,
-                img,
-                availibility,
-                name,
-                raiting,
-                price,
-                discountPrice,
-                href
-              );
-            }
-          }
-        });
-      });
+          filterBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              filterBtns.forEach((btn) => btn.classList.remove(active_btn));
+              if (btn.dataset.filter === "new") {
+                btn.classList.add(active_btn);
+                if (discount && neww) {
+                  renderCard(
+                    discountBlock,
+                    discount,
+                    choice,
+                    neww,
+                    img,
+                    availibility,
+                    name,
+                    raiting,
+                    price,
+                    discountPrice,
+                    href
+                  );
+                }
+              }
+              if (btn.dataset.filter === "recommendation") {
+                btn.classList.add(active_btn);
+                if (discount && choice) {
+                  renderCard(
+                    discountBlock,
+                    discount,
+                    choice,
+                    neww,
+                    img,
+                    availibility,
+                    name,
+                    raiting,
+                    price,
+                    discountPrice,
+                    href
+                  );
+                }
+              }
+              if (btn.dataset.filter === "all") {
+                btn.classList.add(active_btn);
+                if (discount) {
+                  renderCard(
+                    discountBlock,
+                    discount,
+                    choice,
+                    neww,
+                    img,
+                    availibility,
+                    name,
+                    raiting,
+                    price,
+                    discountPrice,
+                    href
+                  );
+                }
+              }
+            });
+          });
+        }
+      }
     });
   };
 
@@ -1274,3 +1278,120 @@ const discount = () => {
 };
 
 discount();
+
+const sliderCommon = (slidesWrapper, prevBtn, nextBtn, elNumber) => {
+  const hide = "hide";
+
+  let count = 0;
+  let width = 400;
+
+  if (screen.width < 430) {
+    if (elNumber === 10) {
+      width = screen.width / 2 + 25;
+    } else {
+      width = screen.width / 2 + 40;
+    }
+  } else if (screen.width < 960) {
+    width = screen.width / 2 - 50;
+  } else if (screen.width < 1280) {
+    width = 300;
+  }
+
+  const rollSlider = (count) => {
+    slidesWrapper.style.transform = `translate(-${count * width}px)`;
+  };
+
+  nextBtn.addEventListener("click", () => {
+    count++;
+    if (elNumber === 6) {
+      if (
+        (screen.width > 970 && count === 2) ||
+        (screen.width > 559 && screen.width < 970 && count === 3) ||
+        (screen.width <= 559 && count === 6)
+      ) {
+        nextBtn.classList.add(hide);
+      }
+
+      if (
+        (screen.width > 970 && count === 3) ||
+        (screen.width > 559 && screen.width < 970 && count === 4) ||
+        (screen.width <= 559 && count === 7)
+      ) {
+        count = 0;
+      }
+    } else if (elNumber === 10) {
+      if (
+        (screen.width > 1300 && count === 5) ||
+        (screen.width > 970 && screen.width < 1300 && count === 7) ||
+        (screen.width > 559 && screen.width < 970 && count === 5) ||
+        (screen.width <= 559 && count === 10) ||
+        (screen.width === 320 && count === 11)
+      ) {
+        nextBtn.classList.add(hide);
+      }
+
+      if (
+        (screen.width > 1300 && count === 6) ||
+        (screen.width > 970 && screen.width < 1300 && count === 8) ||
+        (screen.width > 559 && screen.width < 970 && count === 6) ||
+        (screen.width <= 559 && count === 11) ||
+        (screen.width === 320 && count === 12)
+      ) {
+        count = 0;
+      }
+    }
+
+    rollSlider(count);
+    if (count > 0) {
+      prevBtn.classList.remove(hide);
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    count--;
+
+    rollSlider(count);
+    if (count === 0) {
+      prevBtn.classList.add("hide");
+    }
+
+    if (elNumber === 6) {
+      if (
+        (screen.width > 970 && count < 2) ||
+        (screen.width > 559 && screen.width < 970 && count < 3) ||
+        (screen.width <= 559 && count < 7)
+      ) {
+        nextBtn.classList.remove(hide);
+      }
+    } else if (elNumber === 10) {
+      if (
+        (screen.width > 1300 && count === 6) ||
+        (screen.width > 970 && screen.width < 1300 && count < 7) ||
+        (screen.width > 559 && screen.width < 970 && count < 6) ||
+        (screen.width <= 559 && count < 11) ||
+        (screen.width === 320 && count === 12)
+      ) {
+        nextBtn.classList.remove(hide);
+      }
+    }
+  });
+};
+
+const sliderDiscount = () => {
+  const slidesWrapper = document.querySelector(".discount-cards");
+  const prevBtn = document.querySelector(".discount-controls__item_prev");
+  const nextBtn = document.querySelector(".discount-controls__item_next");
+  sliderCommon(slidesWrapper, prevBtn, nextBtn, 10);
+};
+
+sliderDiscount();
+
+const sliderNews = () => {
+  const slidesWrapper = document.querySelector(".news-cards");
+  const prevBtn = document.querySelector(".news-controls__item_prev");
+  const nextBtn = document.querySelector(".news-controls__item_next");
+  sliderCommon(slidesWrapper, prevBtn, nextBtn, 6);
+};
+
+sliderNews();
+
