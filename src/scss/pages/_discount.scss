@@ -42,6 +42,7 @@
     display: flex;
     grid-gap: 30px;
     margin-bottom: 30px;
+    overflow: hidden;
     @include screen-max($medium) {
       margin-bottom: 20px;
     }

@@ -613,8 +613,7 @@ a:hover {
 }
 
 .good-card {
-  max-width: 300px;
-  width: 100%;
+  width: 300px;
   background-color: #ffffff;
   border-radius: 6px;
   position: relative;
@@ -728,9 +727,7 @@ a:hover {
 }
 
 .good-card__image {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
+  width: 300px;
   border-radius: 6px 6px 0 0;
 }
 
@@ -749,6 +746,11 @@ a:hover {
 
 .good-card-availibility_available {
   color: #2fc509;
+  margin-right: 6px;
+}
+
+.good-card-availibility_not-available {
+  color: #f53b49;
   margin-right: 6px;
 }
 
@@ -2469,6 +2471,7 @@ a:hover {
   display: flex;
   grid-gap: 30px;
   margin-bottom: 30px;
+  overflow: hidden;
 }
 
 .clubs {
@@ -2874,11 +2877,11 @@ a:hover {
   }
 
   .good-card {
-    max-width: 270px;
+    width: 270px;
   }
 
   .good-card__image {
-    max-width: 270px;
+    width: 270px;
   }
 
   .news-card {
@@ -3433,7 +3436,7 @@ a:hover {
   }
 
   .good-card {
-    max-width: 220px;
+    width: 220px;
   }
 
   .good-card_search {
@@ -3481,7 +3484,7 @@ a:hover {
   }
 
   .good-card__image {
-    max-width: 220px;
+    width: 220px;
   }
 
   .good-card__image_search {

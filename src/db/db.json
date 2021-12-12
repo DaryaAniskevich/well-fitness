@@ -830,7 +830,7 @@
         "href": "#",
         "discount": true,
         "choice": true,
-        "new": true,
+        "neww": true,
         "availibility": true,
         "raiting": "4.5"
       },
@@ -861,7 +861,7 @@
         "href": "#",
         "discount": true,
         "choice": true,
-        "new": true,
+        "neww": true,
         "availibility": true,
         "raiting": "4.1"
       },
@@ -886,7 +886,7 @@
         "href": "#",
         "discount": false,
         "choice": true,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "4.8"
       },
@@ -904,7 +904,7 @@
         "href": "#",
         "discount": true,
         "choice": true,
-        "new": true,
+        "neww": true,
         "availibility": false,
         "raiting": "4.0"
       },
@@ -934,7 +934,7 @@
         "href": "#",
         "discount": true,
         "choice": true,
-        "new": true,
+        "neww": true,
         "availibility": true,
         "raiting": "4.7"
       },
@@ -964,7 +964,7 @@
         "href": "#",
         "discount": false,
         "choice": false,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "3.5"
       },
@@ -994,7 +994,7 @@
         "href": "#",
         "discount": false,
         "choice": false,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "4.5"
       },
@@ -1021,7 +1021,7 @@
         "href": "#",
         "discount": false,
         "choice": false,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "4.2"
       },
@@ -1051,7 +1051,7 @@
         "href": "#",
         "discount": true,
         "choice": true,
-        "new": true,
+        "neww": true,
         "availibility": false,
         "raiting": "4.4"
       },
@@ -1081,7 +1081,7 @@
         "href": "#",
         "discount": true,
         "choice": true,
-        "new": true,
+        "neww": true,
         "availibility": true,
         "raiting": "4.4"
       },
@@ -1114,7 +1114,7 @@
         "href": "#",
         "discount": true,
         "choice": true,
-        "new": true,
+        "neww": true,
         "availibility": true,
         "raiting": "4.9"
       },
@@ -1147,7 +1147,7 @@
         "href": "#",
         "discount": true,
         "choice": true,
-        "new": true,
+        "neww": true,
         "availibility": true,
         "raiting": "4.5"
       },
@@ -1180,7 +1180,7 @@
         "href": "#",
         "discount": false,
         "choice": true,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "4.7"
       },
@@ -1213,7 +1213,7 @@
         "href": "#",
         "discount": false,
         "choice": false,
-        "new": true,
+        "neww": true,
         "availibility": true,
         "raiting": "4.2"
       },
@@ -1246,7 +1246,7 @@
         "href": "#",
         "discount": true,
         "choice": true,
-        "new": true,
+        "neww": true,
         "availibility": true,
         "raiting": "4.6"
       },
@@ -1279,7 +1279,7 @@
         "href": "#",
         "discount": false,
         "choice": false,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "4.3"
       },
@@ -1312,7 +1312,7 @@
         "href": "#",
         "discount": true,
         "choice": true,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "4.9"
       },
@@ -1345,7 +1345,7 @@
         "href": "#",
         "discount": false,
         "choice": false,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "4.2"
       },
@@ -1378,7 +1378,7 @@
         "href": "#",
         "discount": false,
         "choice": false,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "3.4"
       },
@@ -1411,7 +1411,7 @@
         "href": "#",
         "discount": false,
         "choice": true,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "4.7"
       },
@@ -1444,7 +1444,7 @@
         "href": "#",
         "discount": false,
         "choice": false,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "4.3"
       },
@@ -1477,7 +1477,7 @@
         "href": "#",
         "discount": true,
         "choice": true,
-        "new": true,
+        "neww": true,
         "availibility": true,
         "raiting": "4.2"
       },
@@ -1510,7 +1510,7 @@
         "href": "#",
         "discount": true,
         "choice": true,
-        "new": true,
+        "neww": true,
         "availibility": true,
         "raiting": "4.2"
       },
@@ -1543,7 +1543,7 @@
         "href": "#",
         "discount": false,
         "choice": false,
-        "new": false,
+        "neww": false,
         "availibility": false,
         "raiting": "3.4"
       },
@@ -1576,7 +1576,7 @@
         "href": "#",
         "discount": false,
         "choice": true,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "4.2"
       },
@@ -1609,7 +1609,7 @@
         "href": "#",
         "discount": false,
         "choice": false,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "4.5"
       },
@@ -1642,7 +1642,7 @@
         "href": "#",
         "discount": false,
         "choice": false,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "4.1"
       },
@@ -1675,7 +1675,7 @@
         "href": "#",
         "discount": false,
         "choice": true,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "4.7"
       },
@@ -1708,7 +1708,7 @@
         "href": "#",
         "discount": false,
         "choice": false,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "4.7"
       },
@@ -1741,7 +1741,7 @@
         "href": "#",
         "discount": true,
         "choice": true,
-        "new": true,
+        "neww": true,
         "availibility": true,
         "raiting": "4.5"
       },
@@ -1773,7 +1773,7 @@
         "href": "#",
         "discount": false,
         "choice": false,
-        "new": false,
+        "neww": false,
         "availibility": true,
         "raiting": "3.3"
       }

@@ -10,7 +10,6 @@ const phoneModal = () => {
 
   selectedPhone.forEach((item) => {
     item.addEventListener("click", () => {
-      console.log();
       allPhonesBlock.classList.add(HIDE);
       choosePhoneBtn.querySelector(
         ".header-phone-choosen__item"

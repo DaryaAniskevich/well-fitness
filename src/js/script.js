@@ -18,3 +18,4 @@
 @@include("catalogRender.js")
 @@include("catalogHome.js")
 @@include("catalogClubs.js")
+@@include("discount.js")

@@ -69,7 +69,6 @@ const catalogRender = (data, container) => {
     const categoryName = container.querySelectorAll(
       ".modal-catalog-category-name__item"
     );
-    console.log(categoryName);
     categoryName.forEach((item) => {
       item.addEventListener("click", () => {
         container.querySelector(
