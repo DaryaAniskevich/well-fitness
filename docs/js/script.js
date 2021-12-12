@@ -1002,11 +1002,15 @@ const catalogClubs = () => {
 catalogClubs();
 
 const discount = () => {
+  const active_btn = "discount-heading-buttons__item_active";
   const discountBlock = document.querySelector(".discount-cards");
+  const filterBtns = document.querySelectorAll(
+    ".discount-heading-buttons__item"
+  );
 
   const renderBlock = (data) => {
     const renderCard = (
-      div,
+      block,
       discount,
       choice,
       neww,
@@ -1015,8 +1019,12 @@ const discount = () => {
       name,
       raiting,
       price,
-      discountprice
+      discountprice,
+      href
     ) => {
+      const div = document.createElement("div");
+      div.classList.add("discount-cards-item", "good-card");
+
       div.innerHTML = `
         <div class="good-card-icons">
           <div class="good-card-icons-left">
@@ -1148,7 +1156,18 @@ const discount = () => {
           </div>
         </div>
         `;
+
+      div.setAttribute("data-href", href);
+      div.addEventListener("click", () => {
+        window.location.href = div.dataset.href;
+      });
+      block.append(div);
     };
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => (discountBlock.innerHTML = ""));
+    });
+
     data.forEach((item) => {
       const {
         id,
@@ -1169,12 +1188,9 @@ const discount = () => {
         raiting,
       } = item;
 
-      if (item.discount) {
-        const div = document.createElement("div");
-        div.classList.add("discount-cards-item", "good-card");
-
+      if (discount) {
         renderCard(
-          div,
+          discountBlock,
           discount,
           choice,
           neww,
@@ -1183,15 +1199,70 @@ const discount = () => {
           name,
           raiting,
           price,
-          discountPrice
+          discountPrice,
+          href
         );
-
-        div.setAttribute("data-href", href);
-        div.addEventListener("click", () => {
-          window.location.href = div.dataset.href;
-        });
-        discountBlock.append(div);
       }
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((btn) => btn.classList.remove(active_btn));
+          if (btn.dataset.filter === "new") {
+            btn.classList.add(active_btn);
+            if (discount && neww) {
+              renderCard(
+                discountBlock,
+                discount,
+                choice,
+                neww,
+                img,
+                availibility,
+                name,
+                raiting,
+                price,
+                discountPrice,
+                href
+              );
+            }
+          }
+          if (btn.dataset.filter === "recommendation") {
+            btn.classList.add(active_btn);
+            if (discount && choice) {
+              renderCard(
+                discountBlock,
+                discount,
+                choice,
+                neww,
+                img,
+                availibility,
+                name,
+                raiting,
+                price,
+                discountPrice,
+                href
+              );
+            }
+          }
+          if (btn.dataset.filter === "all") {
+            btn.classList.add(active_btn);
+            if (discount) {
+              renderCard(
+                discountBlock,
+                discount,
+                choice,
+                neww,
+                img,
+                availibility,
+                name,
+                raiting,
+                price,
+                discountPrice,
+                href
+              );
+            }
+          }
+        });
+      });
     });
   };
 

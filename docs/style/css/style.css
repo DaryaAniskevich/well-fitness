@@ -2465,6 +2465,10 @@ a:hover {
   margin-right: 30px;
 }
 
+.discount-heading-buttons__item_active {
+  border-bottom: 1px solid #828282;
+}
+
 .discount-cards {
   display: -webkit-box;
   display: -ms-flexbox;
