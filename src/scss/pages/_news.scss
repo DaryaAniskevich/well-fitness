@@ -1,4 +1,5 @@
 .news {
+  margin: 0 auto;
   &-container {
     padding: 120px 0 60px;
     @include screen-max($medium) {

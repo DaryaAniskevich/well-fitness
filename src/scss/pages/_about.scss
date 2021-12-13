@@ -11,9 +11,11 @@
     position: relative;
     padding: 25px 0;
     z-index: 4;
-    max-width: 470px;
     @include screen-max($medium) {
       padding: 0;
+    }
+    @include screen-max($small) {
+      max-width: 470px;
     }
   }
   &__heading {
@@ -91,7 +93,7 @@
       bottom: 30px;
     }
     @include screen-max($small) {
-      width: 345px;
+      width: 385px;
       height: 254px;
       bottom: 20px;
       left: 50%;

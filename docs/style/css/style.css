@@ -988,7 +988,7 @@ a:hover {
 
 .slider {
   overflow: hidden;
-  width: 100%;
+  width: 90%;
   position: relative;
 }
 
@@ -2463,6 +2463,10 @@ a:hover {
   grid-row-end: 3;
 }
 
+.discount {
+  margin: 0 auto;
+}
+
 .discount-container {
   padding: 124px 0 103px;
 }
@@ -2725,7 +2729,6 @@ a:hover {
   position: relative;
   padding: 25px 0;
   z-index: 4;
-  max-width: 470px;
 }
 
 .about__heading {
@@ -2816,6 +2819,10 @@ a:hover {
 
 .partner-content__title_red {
   color: #f53b49;
+}
+
+.news {
+  margin: 0 auto;
 }
 
 .news-container {
@@ -4118,7 +4125,7 @@ a:hover {
   }
 
   .ideas-container {
-    padding: 80px 5px 60px;
+    padding: 80px 10px 60px;
   }
 
   .ideas-block {
@@ -4201,6 +4208,10 @@ a:hover {
     padding: 26px 5px 220px;
   }
 
+  .about-container {
+    max-width: 470px;
+  }
+
   .about-content {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -4222,7 +4233,7 @@ a:hover {
   }
 
   .about__map {
-    width: 345px;
+    width: 385px;
     height: 254px;
     bottom: 20px;
     left: 50%;
