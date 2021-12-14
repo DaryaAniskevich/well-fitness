@@ -4,10 +4,21 @@ const discount = () => {
   const filterBtns = document.querySelectorAll(
     ".discount-heading-buttons__item"
   );
+  const openCartBtn = document.querySelector(
+    ".header-navigation-buttons-item_cart"
+  );
+  const numberInCart = openCartBtn.querySelector(
+    ".header-navigation-buttons-item__span"
+  );
+
+  const positionsArray = localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart"))
+    : [];
 
   const renderBlock = (data) => {
     const renderCard = (
       block,
+      id,
       discount,
       choice,
       neww,
@@ -124,7 +135,7 @@ const discount = () => {
             </button>
           </div>
         </div>
-        <img src="./images/db/${img}" alt=${name} class="good-card__image" />
+        <img src="./images/db/${img}" alt=${name} class="good-card__image good-card__link" data-href="${href}" />
         <div class="good-card-description">
           <div class="good-card-availibility">
           ${
@@ -134,7 +145,7 @@ const discount = () => {
           }
             
           </div>
-          <h4 class="good-card__heading">${name}</h4>
+          <h4 class="good-card__heading good-card__link" data-href=${href}>${name}</h4>
           <div class="good-card-rating">Рейтинг ${'<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 0.5L7.91148 3.86908L11.7063 4.6459L9.09284 7.50492L9.52671 11.3541L6 9.752L2.47329 11.3541L2.90716 7.50492L0.293661 4.6459L4.08852 3.86908L6 0.5Z" fill="#F99808"/></svg>'.repeat(
             Math.round(raiting)
           )}</div>
@@ -147,25 +158,67 @@ const discount = () => {
                 discount ? price : ""
               } ₽</div>
             </div>
-            <button class="good-card__button button button_catalog button_buy">
-              Купить
-            </button>
+            ${
+              availibile
+                ? ' <button class="good-card__button button button_catalog button_buy">Купить</button>'
+                : ""
+            }
           </div>
         </div>
         `;
 
-      div.setAttribute("data-href", href);
-      div.addEventListener("click", () => {
-        window.location.href = div.dataset.href;
+      const linksToGood = div.querySelectorAll(".good-card__link");
+      linksToGood.forEach((link) => {
+        link.addEventListener("click", () => {
+          window.location.href = link.dataset.href;
+        });
       });
+
       block.append(div);
+
+      const addToCartBtn = div.querySelector(".good-card__button");
+
+      if (addToCartBtn) {
+        const addToCart = (cartItem) => {
+          if (positionsArray.some((item) => item.id === cartItem.id)) {
+            positionsArray.map((item) => {
+              if (item.id === cartItem.id) {
+                item.count++;
+              }
+              return item;
+            });
+          } else {
+            positionsArray.push(cartItem);
+          }
+
+          localStorage.setItem("cart", JSON.stringify(positionsArray));
+        };
+
+        addToCartBtn.addEventListener("click", () => {
+          const cartItem = {
+            name,
+            price: discountprice,
+            id,
+            img,
+            count: 1,
+          };
+
+          addToCart(cartItem);
+
+          numberInCart.innerHTML = JSON.parse(
+            localStorage.getItem("cart")
+          ).length;
+          renderCartItems(JSON.parse(localStorage.getItem("cart")));
+          renderCartFooter();
+        });
+      }
     };
 
     filterBtns.forEach((btn) => {
       btn.addEventListener("click", () => (discountBlock.innerHTML = ""));
     });
 
-    data.forEach((item, index) => {
+    data.forEach((item) => {
       const {
         id,
         img,
@@ -189,6 +242,7 @@ const discount = () => {
         if (discount) {
           renderCard(
             discountBlock,
+            id,
             discount,
             choice,
             neww,
@@ -209,6 +263,7 @@ const discount = () => {
                 if (discount && neww) {
                   renderCard(
                     discountBlock,
+                    id,
                     discount,
                     choice,
                     neww,
@@ -227,6 +282,7 @@ const discount = () => {
                 if (discount && choice) {
                   renderCard(
                     discountBlock,
+                    id,
                     discount,
                     choice,
                     neww,
@@ -245,6 +301,7 @@ const discount = () => {
                 if (discount) {
                   renderCard(
                     discountBlock,
+                    id,
                     discount,
                     choice,
                     neww,

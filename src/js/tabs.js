@@ -1,5 +1,6 @@
 const tabs = () => {
   const modal_active = "modal_active";
+  const button_active = "header-navigation-buttons-item__img_active";
 
   const openCart = document.querySelector(
     ".header-navigation-buttons-item_cart"
@@ -26,21 +27,17 @@ const tabs = () => {
   const favorite = document.querySelector(".modal-favorite");
 
   openCart.addEventListener("click", () => {
-    openCartSvg.classList.toggle("header-navigation-buttons-item__img_active");
+    openCartSvg.classList.toggle(button_active);
     cart.classList.toggle(modal_active);
   });
 
   openComparison.addEventListener("click", () => {
-    openComparisonSvg.classList.toggle(
-      "header-navigation-buttons-item__img_active"
-    );
+    openComparisonSvg.classList.toggle(button_active);
     comparison.classList.toggle(modal_active);
   });
 
   openFavorite.addEventListener("click", () => {
-    openFavoriteSvg.classList.toggle(
-      "header-navigation-buttons-item__img_active"
-    );
+    openFavoriteSvg.classList.toggle(button_active);
     favorite.classList.toggle(modal_active);
   });
 
@@ -55,9 +52,7 @@ const tabs = () => {
           document
             .querySelectorAll(".header-navigation-buttons-item__img_active")
             .forEach((button) => {
-              button.classList.remove(
-                "header-navigation-buttons-item__img_active"
-              );
+              button.classList.remove(button_active);
             });
         }
       });

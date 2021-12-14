@@ -912,6 +912,11 @@ a:hover {
   margin-top: 150px;
 }
 
+.tab__message {
+  text-align: center;
+  vertical-align: middle;
+}
+
 .tab-goods {
   margin-bottom: 18px;
 }
@@ -938,14 +943,47 @@ a:hover {
   grid-area: title;
 }
 
-.tab-goods-item__price {
+.tab-goods-item-count {
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
   color: #384255;
-  margin-right: 34px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 15px;
+  margin-left: auto;
+  grid-area: count;
+}
+
+.tab-goods-item-count-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5px;
+}
+
+.tab-goods-item-count-buttons__item {
+  width: 30px;
+  height: 30px;
+}
+
+.tab-goods-item-count__number {
+  margin: 0 10px;
+}
+
+.tab-goods-item__price {
   white-space: nowrap;
-  grid-area: price;
 }
 
 .tab-goods-item-button {
@@ -968,9 +1006,7 @@ a:hover {
 }
 
 .tab-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -988,7 +1024,7 @@ a:hover {
 
 .slider {
   overflow: hidden;
-  width: 90%;
+  width: 100%;
   position: relative;
 }
 
@@ -1890,11 +1926,10 @@ a:hover {
           align-items: center;
   max-width: 330px;
   width: 100%;
-  border: 1px dotted #ffffff;
 }
 
 .modal-catalog-category-subcategory-item:hover {
-  border-color: #1a1a25;
+  font-style: italic;
 }
 
 .modal-catalog-category-subcategory-item__img {
@@ -2947,6 +2982,10 @@ a:hover {
     margin-top: 60px;
   }
 
+  .slider {
+    width: 90%;
+  }
+
   .header-top {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -3637,16 +3676,32 @@ a:hover {
 
   .tab-goods-item {
     display: grid;
-    grid-template-areas: "img title title del" ". . price price";
-  }
-
-  .tab-goods-item__img {
-    width: 58px;
-    height: 58px;
+    grid-template-areas: "img title title del" "count count . . ";
   }
 
   .tab-goods-item__name {
     font-size: 14px;
+  }
+
+  .tab-goods-item-count {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+    margin-left: 0;
+  }
+
+  .tab-goods-item-count-buttons {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+
+  .tab-goods-item-count-buttons__item {
+    width: 25px;
+    height: 25px;
   }
 
   .tab-goods-item__price {

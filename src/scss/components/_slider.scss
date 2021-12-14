@@ -1,7 +1,10 @@
 .slider {
   overflow: hidden;
-  width: 90%;
+  width: 100%;
   position: relative;
+  @include screen-max($medium) {
+    width: 90%;
+  }
   &-wrapper {
     display: flex;
     transition: all ease 0.5s;

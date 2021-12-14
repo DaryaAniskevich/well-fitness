@@ -265,6 +265,7 @@ search();
 
 const tabs = () => {
   const modal_active = "modal_active";
+  const button_active = "header-navigation-buttons-item__img_active";
 
   const openCart = document.querySelector(
     ".header-navigation-buttons-item_cart"
@@ -291,21 +292,17 @@ const tabs = () => {
   const favorite = document.querySelector(".modal-favorite");
 
   openCart.addEventListener("click", () => {
-    openCartSvg.classList.toggle("header-navigation-buttons-item__img_active");
+    openCartSvg.classList.toggle(button_active);
     cart.classList.toggle(modal_active);
   });
 
   openComparison.addEventListener("click", () => {
-    openComparisonSvg.classList.toggle(
-      "header-navigation-buttons-item__img_active"
-    );
+    openComparisonSvg.classList.toggle(button_active);
     comparison.classList.toggle(modal_active);
   });
 
   openFavorite.addEventListener("click", () => {
-    openFavoriteSvg.classList.toggle(
-      "header-navigation-buttons-item__img_active"
-    );
+    openFavoriteSvg.classList.toggle(button_active);
     favorite.classList.toggle(modal_active);
   });
 
@@ -320,9 +317,7 @@ const tabs = () => {
           document
             .querySelectorAll(".header-navigation-buttons-item__img_active")
             .forEach((button) => {
-              button.classList.remove(
-                "header-navigation-buttons-item__img_active"
-              );
+              button.classList.remove(button_active);
             });
         }
       });
@@ -332,10 +327,6 @@ const tabs = () => {
 };
 
 tabs();
-
-const cart = () => {};
-
-cart();
 
 const comparison = () => {};
 
@@ -999,16 +990,127 @@ const catalogClubs = () => {
 
 catalogClubs();
 
+const renderCartItems = (data) => {
+  const hide = "hide";
+
+  const modalCart = document.querySelector(".modal-cart");
+  const cart = modalCart.querySelector(".tab-goods");
+  const message = modalCart.querySelector(".modal-card__message");
+
+  cart.innerHTML = "";
+
+  data.forEach(({ name, price, id, img, count }) => {
+    message.classList.add(hide);
+    const cartElem = document.createElement("div");
+    cartElem.classList.add("tab-goods-item");
+    cartElem.innerHTML = `
+    <img src="./images/db/${img}" class="tab-goods-item__img" alt="${name}" />
+        <div class="tab-goods-item__name">
+          ${name}
+        </div>
+        <div class="tab-goods-item-count">
+          <div class="tab-goods-item-count-buttons">
+            <button
+              class="
+                tab-goods-item-count-buttons__item
+                tab-goods-item-count-buttons__item_dec
+                button button_round button_red
+              " data-index=${id}
+            > - </button>
+            <span class="tab-goods-item-count__number">${count}</span>
+            <button
+              class="
+                tab-goods-item-count-buttons__item
+                tab-goods-item-count-buttons__item_inc
+                button button_round button_red
+              " data-index=${id}
+            > + </button>
+          </div>
+          <div class="tab-goods-item__price">${price * count} ₽</div>
+        </div>
+
+        <button class="tab-goods-item-button button button_unbordered" data-index=${id}>
+          <svg
+            width="8"
+            height="8"
+            viewBox="0 0 8 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg" data-index=${id} class="tab-goods-item-button__svg"
+          >
+            <path
+              d="M7.72959 1.57572L5.30563 3.99992L7.72959 6.42402C8.09014 6.78471 8.09014 7.36897 7.72959 7.72966C7.54944 7.90981 7.31325 7.99996 7.07718 7.99996C6.84071 7.99996 6.6045 7.90995 6.42449 7.72966L4.00001 5.30529L1.57571 7.72964C1.39559 7.90979 1.15938 7.99993 0.923098 7.99993C0.686888 7.99993 0.450838 7.90993 0.270551 7.72964C-0.09 7.36911 -0.09 6.78482 0.270551 6.424L2.69444 3.9999L0.270413 1.57572C-0.0901378 1.21516 -0.0901378 0.630758 0.270413 0.270207C0.630895 -0.090069 1.21496 -0.090069 1.57558 0.270207L3.99999 2.69442L6.42422 0.270207C6.78491 -0.090069 7.36904 -0.090069 7.72945 0.270207C8.09014 0.630758 8.09014 1.21516 7.72959 1.57572Z"
+              fill="#858FA4"
+              class="modal-cart-goods-item-button__svg tab-goods-item-button__path" data-index=${id}
+            />
+          </svg>
+        </button>
+    `;
+    cart.append(cartElem);
+  });
+};
+
+const renderCartFooter = () => {
+  const modalCart = document.querySelector(".modal-cart");
+  const cartFooter = modalCart.querySelector(".cart-footer");
+
+  const getSum = () => {
+    const cartArray = JSON.parse(localStorage.getItem("cart"));
+    const sum = cartArray.reduce(
+      (sum, item) => sum + item.price * item.count,
+      0
+    );
+    return sum;
+  };
+  const renderFooter = () => {
+    cartFooter.style.display = "flex";
+    cartFooter.innerHTML = "";
+    cartFooter.innerHTML = `
+    <button class="tab-footer__button button button_full-red">
+          Оформить заказ
+        </button>
+        <div class="tab-footer-price">
+          Итого <span class="tab-footer-price__sum">${getSum()} ₽</span>
+      </div>
+    `;
+
+    const buttonSend = modalCart.querySelector(".tab-footer__button");
+    buttonSend.addEventListener("click", () => {
+      fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        data: localStorage.getItem("cart"),
+      })
+        .then((response) => {
+          if (response.ok) {
+            resetCart();
+          }
+        })
+        .catch((e) => console.error(e));
+    });
+  };
+  renderFooter();
+};
+
 const discount = () => {
   const active_btn = "discount-heading-buttons__item_active";
   const discountBlock = document.querySelector(".discount-cards");
   const filterBtns = document.querySelectorAll(
     ".discount-heading-buttons__item"
   );
+  const openCartBtn = document.querySelector(
+    ".header-navigation-buttons-item_cart"
+  );
+  const numberInCart = openCartBtn.querySelector(
+    ".header-navigation-buttons-item__span"
+  );
+
+  const positionsArray = localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart"))
+    : [];
 
   const renderBlock = (data) => {
     const renderCard = (
       block,
+      id,
       discount,
       choice,
       neww,
@@ -1125,7 +1227,7 @@ const discount = () => {
             </button>
           </div>
         </div>
-        <img src="./images/db/${img}" alt=${name} class="good-card__image" />
+        <img src="./images/db/${img}" alt=${name} class="good-card__image good-card__link" data-href="${href}" />
         <div class="good-card-description">
           <div class="good-card-availibility">
           ${
@@ -1135,7 +1237,7 @@ const discount = () => {
           }
             
           </div>
-          <h4 class="good-card__heading">${name}</h4>
+          <h4 class="good-card__heading good-card__link" data-href=${href}>${name}</h4>
           <div class="good-card-rating">Рейтинг ${'<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 0.5L7.91148 3.86908L11.7063 4.6459L9.09284 7.50492L9.52671 11.3541L6 9.752L2.47329 11.3541L2.90716 7.50492L0.293661 4.6459L4.08852 3.86908L6 0.5Z" fill="#F99808"/></svg>'.repeat(
             Math.round(raiting)
           )}</div>
@@ -1148,25 +1250,67 @@ const discount = () => {
                 discount ? price : ""
               } ₽</div>
             </div>
-            <button class="good-card__button button button_catalog button_buy">
-              Купить
-            </button>
+            ${
+              availibile
+                ? ' <button class="good-card__button button button_catalog button_buy">Купить</button>'
+                : ""
+            }
           </div>
         </div>
         `;
 
-      div.setAttribute("data-href", href);
-      div.addEventListener("click", () => {
-        window.location.href = div.dataset.href;
+      const linksToGood = div.querySelectorAll(".good-card__link");
+      linksToGood.forEach((link) => {
+        link.addEventListener("click", () => {
+          window.location.href = link.dataset.href;
+        });
       });
+
       block.append(div);
+
+      const addToCartBtn = div.querySelector(".good-card__button");
+
+      if (addToCartBtn) {
+        const addToCart = (cartItem) => {
+          if (positionsArray.some((item) => item.id === cartItem.id)) {
+            positionsArray.map((item) => {
+              if (item.id === cartItem.id) {
+                item.count++;
+              }
+              return item;
+            });
+          } else {
+            positionsArray.push(cartItem);
+          }
+
+          localStorage.setItem("cart", JSON.stringify(positionsArray));
+        };
+
+        addToCartBtn.addEventListener("click", () => {
+          const cartItem = {
+            name,
+            price: discountprice,
+            id,
+            img,
+            count: 1,
+          };
+
+          addToCart(cartItem);
+
+          numberInCart.innerHTML = JSON.parse(
+            localStorage.getItem("cart")
+          ).length;
+          renderCartItems(JSON.parse(localStorage.getItem("cart")));
+          renderCartFooter();
+        });
+      }
     };
 
     filterBtns.forEach((btn) => {
       btn.addEventListener("click", () => (discountBlock.innerHTML = ""));
     });
 
-    data.forEach((item, index) => {
+    data.forEach((item) => {
       const {
         id,
         img,
@@ -1190,6 +1334,7 @@ const discount = () => {
         if (discount) {
           renderCard(
             discountBlock,
+            id,
             discount,
             choice,
             neww,
@@ -1210,6 +1355,7 @@ const discount = () => {
                 if (discount && neww) {
                   renderCard(
                     discountBlock,
+                    id,
                     discount,
                     choice,
                     neww,
@@ -1228,6 +1374,7 @@ const discount = () => {
                 if (discount && choice) {
                   renderCard(
                     discountBlock,
+                    id,
                     discount,
                     choice,
                     neww,
@@ -1246,6 +1393,7 @@ const discount = () => {
                 if (discount) {
                   renderCard(
                     discountBlock,
+                    id,
                     discount,
                     choice,
                     neww,
@@ -1391,3 +1539,99 @@ const sliderNews = () => {
 
 sliderNews();
 
+const fillCart = () => {
+  const hide = "hide";
+  const modal_active = "modal_active";
+  const modalCart = document.querySelector(".modal-cart");
+  const cart = modalCart.querySelector(".tab-goods");
+  const cartFooter = modalCart.querySelector(".cart-footer");
+  const message = modalCart.querySelector(".modal-card__message");
+  const openCartBtn = document.querySelector(
+    ".header-navigation-buttons-item_cart"
+  );
+  const numberInCart = openCartBtn.querySelector(
+    ".header-navigation-buttons-item__span"
+  );
+
+  if (JSON.parse(localStorage.getItem("cart")).length === 0) {
+    cartFooter.style.display = "none";
+  }
+
+  const incrementCount = (id) => {
+    const cartArray = JSON.parse(localStorage.getItem("cart"));
+
+    cartArray.map((item) => {
+      if (item.id === id) {
+        item.count++;
+      }
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cartArray));
+
+    renderCartItems(JSON.parse(localStorage.getItem("cart")));
+  };
+
+  const decrementCount = (id) => {
+    const cartArray = JSON.parse(localStorage.getItem("cart"));
+    cartArray.map((item, index) => {
+      if (item.id === id) {
+        item.count--;
+        if (item.count === 0) {
+          cartArray.splice(index, 1);
+          numberInCart.innerHTML = cartArray.length;
+        }
+      }
+    });
+    localStorage.removeItem("cart");
+    localStorage.setItem("cart", JSON.stringify(cartArray));
+    renderCartItems(JSON.parse(localStorage.getItem("cart")));
+  };
+
+  cart.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (e.target.classList.contains("tab-goods-item-count-buttons__item_dec")) {
+      decrementCount(e.target.dataset.index);
+      renderCartFooter();
+    } else if (
+      e.target.classList.contains("tab-goods-item-count-buttons__item_inc")
+    ) {
+      incrementCount(e.target.dataset.index);
+      renderCartFooter();
+    }
+  });
+
+  const deleteItem = (id) => {
+    const cartArray = JSON.parse(localStorage.getItem("cart"));
+    cartArray.map((item, index) => {
+      if (item.id === id) {
+        cartArray.splice(index, 1);
+        localStorage.removeItem("cart");
+        localStorage.setItem("cart", JSON.stringify(cartArray));
+        numberInCart.innerHTML = cartArray.length;
+      }
+    });
+    renderCartItems(JSON.parse(localStorage.getItem("cart")));
+  };
+
+  cart.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("tab-goods-item-button") ||
+      e.target.classList.contains("tab-goods-item-button__svg") ||
+      e.target.classList.contains("tab-goods-item-button__path")
+    ) {
+      deleteItem(e.target.dataset.index);
+      renderCartFooter();
+    }
+  });
+
+  if (JSON.parse(localStorage.getItem("cart"))) {
+    renderCartItems(JSON.parse(localStorage.getItem("cart")));
+    if (JSON.parse(localStorage.getItem("cart")).length > 0) {
+      renderCartFooter();
+    }
+  }
+
+  numberInCart.innerHTML = JSON.parse(localStorage.getItem("cart")).length;
+};
+
+fillCart();

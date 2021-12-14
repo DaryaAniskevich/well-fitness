@@ -17,6 +17,10 @@
       margin-top: 50px;
     }
   }
+  &__message {
+    text-align: center;
+    vertical-align: middle;
+  }
   &-goods {
     margin-bottom: 18px;
     &-item {
@@ -25,17 +29,13 @@
       border-bottom: 1px solid rgba(133, 143, 164, 0.15);
       @include screen-max($small) {
         display: grid;
-        grid-template-areas: "img title title del" ". . price price";
+        grid-template-areas: "img title title del" "count count . . ";
       }
       &__img {
         width: 68px;
         height: 68px;
         margin-right: 12px;
         grid-area: img;
-        @include screen-max($small) {
-          width: 58px;
-          height: 58px;
-        }
       }
       &__name {
         font-size: 16px;
@@ -46,14 +46,45 @@
           font-size: 14px;
         }
       }
-      &__price {
+      &-count {
         font-weight: 700;
         font-size: 14px;
         line-height: 17px;
         color: $button-gray;
-        margin-right: 34px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 15px;
+        margin-left: auto;
+        grid-area: count;
+        @include screen-max($small) {
+          flex-direction: row;
+          align-items: baseline;
+          margin-left: 0;
+        }
+        &-buttons {
+          display: flex;
+          align-items: center;
+          margin-bottom: 5px;
+          @include screen-max($small) {
+            margin-bottom: 0;
+            margin-right: 10px;
+          }
+          &__item {
+            width: 30px;
+            height: 30px;
+            @include screen-max($small) {
+              width: 25px;
+              height: 25px;
+            }
+          }
+        }
+        &__number {
+          margin: 0 10px;
+        }
+      }
+      &__price {
         white-space: nowrap;
-        grid-area: price;
         @include screen-max($small) {
           margin-top: 8px;
         }
@@ -74,7 +105,7 @@
     }
   }
   &-footer {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-evenly;
     @include screen-max($small) {

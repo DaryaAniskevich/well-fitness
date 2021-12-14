@@ -120,12 +120,11 @@
         align-items: center;
         max-width: 330px;
         width: 100%;
-        border: 1px dotted $white;
         @include screen-max($small) {
           max-width: 150px;
         }
         &:hover {
-          border-color: $main-dark-gray;
+          font-style: italic;
         }
         &__img {
           width: 90px;
