@@ -1050,8 +1050,13 @@ const renderCartItems = (data) => {
 };
 
 const renderCartFooter = () => {
+  const hide = "hide";
+  const modal_active = "modal_active";
+
   const modalCart = document.querySelector(".modal-cart");
   const cartFooter = modalCart.querySelector(".cart-footer");
+  const cart = modalCart.querySelector(".tab-goods");
+  const message = modalCart.querySelector(".modal-card__message");
 
   const getSum = () => {
     const cartArray = JSON.parse(localStorage.getItem("cart"));
@@ -1061,30 +1066,33 @@ const renderCartFooter = () => {
     );
     return sum;
   };
+
+  const resetCart = () => {
+    setTimeout(() => {
+      modalCart.classList.remove(modal_active);
+    }, 5000);
+    message.innerHTML =
+      "На данный момент страница оформления заказа находится в разработке. Для оформления заказа позвоните по телефону вашего региона или закажите звонок на сайте.";
+    cartFooter.style.display = "none";
+    message.classList.remove(hide);
+  };
+
   const renderFooter = () => {
     cartFooter.style.display = "flex";
     cartFooter.innerHTML = "";
     cartFooter.innerHTML = `
-    <button class="tab-footer__button button button_full-red">
-          Оформить заказ
-        </button>
-        <div class="tab-footer-price">
-          Итого <span class="tab-footer-price__sum">${getSum()} ₽</span>
+      <a class="tab-footer__button button button_full-red" href="#">
+        Оформить заказ
+      </a>
+      <div class="tab-footer-price">
+        Итого <span class="tab-footer-price__sum">${getSum()} ₽</span>
       </div>
     `;
 
     const buttonSend = modalCart.querySelector(".tab-footer__button");
-    buttonSend.addEventListener("click", () => {
-      fetch("https://jsonplaceholder.typicode.com/posts", {
-        method: "POST",
-        data: localStorage.getItem("cart"),
-      })
-        .then((response) => {
-          if (response.ok) {
-            resetCart();
-          }
-        })
-        .catch((e) => console.error(e));
+    buttonSend.addEventListener("click", (e) => {
+      e.preventDefault();
+      resetCart();
     });
   };
   renderFooter();
@@ -1102,10 +1110,6 @@ const discount = () => {
   const numberInCart = openCartBtn.querySelector(
     ".header-navigation-buttons-item__span"
   );
-
-  const positionsArray = localStorage.getItem("cart")
-    ? JSON.parse(localStorage.getItem("cart"))
-    : [];
 
   const renderBlock = (data) => {
     const renderCard = (
@@ -1252,7 +1256,7 @@ const discount = () => {
             </div>
             ${
               availibile
-                ? ' <button class="good-card__button button button_catalog button_buy">Купить</button>'
+                ? ` <button class="good-card__button button button_catalog button_buy" data-index="${id}">Купить</button>`
                 : ""
             }
           </div>
@@ -1268,25 +1272,28 @@ const discount = () => {
 
       block.append(div);
 
+      const addToCart = (cartItem) => {
+        const positionsArray = localStorage.getItem("cart")
+          ? JSON.parse(localStorage.getItem("cart"))
+          : [];
+        if (positionsArray.some((item) => item.id === cartItem.id)) {
+          positionsArray.map((item) => {
+            if (item.id === cartItem.id) {
+              item.count++;
+            }
+            return item;
+          });
+        } else {
+          positionsArray.push(cartItem);
+        }
+        localStorage.removeItem("cart");
+        localStorage.setItem("cart", JSON.stringify(positionsArray));
+      };
+
       const addToCartBtn = div.querySelector(".good-card__button");
 
       if (addToCartBtn) {
-        const addToCart = (cartItem) => {
-          if (positionsArray.some((item) => item.id === cartItem.id)) {
-            positionsArray.map((item) => {
-              if (item.id === cartItem.id) {
-                item.count++;
-              }
-              return item;
-            });
-          } else {
-            positionsArray.push(cartItem);
-          }
-
-          localStorage.setItem("cart", JSON.stringify(positionsArray));
-        };
-
-        addToCartBtn.addEventListener("click", () => {
+        addToCartBtn.addEventListener("click", (e) => {
           const cartItem = {
             name,
             price: discountprice,
@@ -1302,6 +1309,7 @@ const discount = () => {
           ).length;
           renderCartItems(JSON.parse(localStorage.getItem("cart")));
           renderCartFooter();
+          e.target.innerHTML = `&#10004; В корзине`;
         });
       }
     };
@@ -1545,29 +1553,37 @@ const fillCart = () => {
   const modalCart = document.querySelector(".modal-cart");
   const cart = modalCart.querySelector(".tab-goods");
   const cartFooter = modalCart.querySelector(".cart-footer");
-  const message = modalCart.querySelector(".modal-card__message");
   const openCartBtn = document.querySelector(
     ".header-navigation-buttons-item_cart"
   );
   const numberInCart = openCartBtn.querySelector(
     ".header-navigation-buttons-item__span"
   );
+  const message = modalCart.querySelector(".modal-card__message");
 
-  if (JSON.parse(localStorage.getItem("cart")).length === 0) {
+  const emptyCart = () => {
     cartFooter.style.display = "none";
-  }
+    message.innerHTML = "Корзина пуста";
+    message.classList.remove(hide);
+  };
+
+  const changeBuyButton = (id) => {
+    const buttons = document.querySelectorAll(".good-card__button");
+    buttons.forEach((button) => {
+      if (button.dataset.index === id) {
+        button.innerHTML = `Купить`;
+      }
+    });
+  };
 
   const incrementCount = (id) => {
     const cartArray = JSON.parse(localStorage.getItem("cart"));
-
     cartArray.map((item) => {
       if (item.id === id) {
         item.count++;
       }
     });
-
     localStorage.setItem("cart", JSON.stringify(cartArray));
-
     renderCartItems(JSON.parse(localStorage.getItem("cart")));
   };
 
@@ -1579,10 +1595,10 @@ const fillCart = () => {
         if (item.count === 0) {
           cartArray.splice(index, 1);
           numberInCart.innerHTML = cartArray.length;
+          changeBuyButton(id);
         }
       }
     });
-    localStorage.removeItem("cart");
     localStorage.setItem("cart", JSON.stringify(cartArray));
     renderCartItems(JSON.parse(localStorage.getItem("cart")));
   };
@@ -1610,10 +1626,14 @@ const fillCart = () => {
         numberInCart.innerHTML = cartArray.length;
       }
     });
+    changeBuyButton(id);
     renderCartItems(JSON.parse(localStorage.getItem("cart")));
   };
 
   cart.addEventListener("click", (e) => {
+    if (JSON.parse(localStorage.getItem("cart")).length === 0) {
+      emptyCart();
+    }
     if (
       e.target.classList.contains("tab-goods-item-button") ||
       e.target.classList.contains("tab-goods-item-button__svg") ||
@@ -1621,6 +1641,9 @@ const fillCart = () => {
     ) {
       deleteItem(e.target.dataset.index);
       renderCartFooter();
+      if (JSON.parse(localStorage.getItem("cart")).length === 0) {
+        emptyCart();
+      }
     }
   });
 

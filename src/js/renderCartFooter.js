@@ -1,6 +1,11 @@
 const renderCartFooter = () => {
+  const hide = "hide";
+  const modal_active = "modal_active";
+
   const modalCart = document.querySelector(".modal-cart");
   const cartFooter = modalCart.querySelector(".cart-footer");
+  const cart = modalCart.querySelector(".tab-goods");
+  const message = modalCart.querySelector(".modal-card__message");
 
   const getSum = () => {
     const cartArray = JSON.parse(localStorage.getItem("cart"));
@@ -10,30 +15,33 @@ const renderCartFooter = () => {
     );
     return sum;
   };
+
+  const resetCart = () => {
+    setTimeout(() => {
+      modalCart.classList.remove(modal_active);
+    }, 5000);
+    message.innerHTML =
+      "На данный момент страница оформления заказа находится в разработке. Для оформления заказа позвоните по телефону вашего региона или закажите звонок на сайте.";
+    cartFooter.style.display = "none";
+    message.classList.remove(hide);
+  };
+
   const renderFooter = () => {
     cartFooter.style.display = "flex";
     cartFooter.innerHTML = "";
     cartFooter.innerHTML = `
-    <button class="tab-footer__button button button_full-red">
-          Оформить заказ
-        </button>
-        <div class="tab-footer-price">
-          Итого <span class="tab-footer-price__sum">${getSum()} ₽</span>
+      <a class="tab-footer__button button button_full-red" href="#">
+        Оформить заказ
+      </a>
+      <div class="tab-footer-price">
+        Итого <span class="tab-footer-price__sum">${getSum()} ₽</span>
       </div>
     `;
 
     const buttonSend = modalCart.querySelector(".tab-footer__button");
-    buttonSend.addEventListener("click", () => {
-      fetch("https://jsonplaceholder.typicode.com/posts", {
-        method: "POST",
-        data: localStorage.getItem("cart"),
-      })
-        .then((response) => {
-          if (response.ok) {
-            resetCart();
-          }
-        })
-        .catch((e) => console.error(e));
+    buttonSend.addEventListener("click", (e) => {
+      e.preventDefault();
+      resetCart();
     });
   };
   renderFooter();

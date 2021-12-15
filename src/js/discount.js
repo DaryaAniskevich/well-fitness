@@ -11,10 +11,6 @@ const discount = () => {
     ".header-navigation-buttons-item__span"
   );
 
-  const positionsArray = localStorage.getItem("cart")
-    ? JSON.parse(localStorage.getItem("cart"))
-    : [];
-
   const renderBlock = (data) => {
     const renderCard = (
       block,
@@ -160,7 +156,7 @@ const discount = () => {
             </div>
             ${
               availibile
-                ? ' <button class="good-card__button button button_catalog button_buy">Купить</button>'
+                ? ` <button class="good-card__button button button_catalog button_buy" data-index="${id}">Купить</button>`
                 : ""
             }
           </div>
@@ -176,25 +172,28 @@ const discount = () => {
 
       block.append(div);
 
+      const addToCart = (cartItem) => {
+        const positionsArray = localStorage.getItem("cart")
+          ? JSON.parse(localStorage.getItem("cart"))
+          : [];
+        if (positionsArray.some((item) => item.id === cartItem.id)) {
+          positionsArray.map((item) => {
+            if (item.id === cartItem.id) {
+              item.count++;
+            }
+            return item;
+          });
+        } else {
+          positionsArray.push(cartItem);
+        }
+        localStorage.removeItem("cart");
+        localStorage.setItem("cart", JSON.stringify(positionsArray));
+      };
+
       const addToCartBtn = div.querySelector(".good-card__button");
 
       if (addToCartBtn) {
-        const addToCart = (cartItem) => {
-          if (positionsArray.some((item) => item.id === cartItem.id)) {
-            positionsArray.map((item) => {
-              if (item.id === cartItem.id) {
-                item.count++;
-              }
-              return item;
-            });
-          } else {
-            positionsArray.push(cartItem);
-          }
-
-          localStorage.setItem("cart", JSON.stringify(positionsArray));
-        };
-
-        addToCartBtn.addEventListener("click", () => {
+        addToCartBtn.addEventListener("click", (e) => {
           const cartItem = {
             name,
             price: discountprice,
@@ -210,6 +209,7 @@ const discount = () => {
           ).length;
           renderCartItems(JSON.parse(localStorage.getItem("cart")));
           renderCartFooter();
+          e.target.innerHTML = `&#10004; В корзине`;
         });
       }
     };
