@@ -37,7 +37,6 @@
   &-main {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 24px 0 28px;
     @include screen-max($medium) {
       padding: 27px 0;
@@ -153,11 +152,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 230px;
-      width: 100%;
       margin-right: 48px;
       @include screen-max($medium) {
         margin-right: 32px;
+        margin-left: auto;
       }
       @include screen-max($small) {
         margin-right: 18px;
@@ -215,9 +213,12 @@
       display: flex;
       justify-content: space-between;
       position: relative;
-      margin-left: auto;
+      margin-left: 35px;
       max-width: 170px;
       width: 100%;
+      @include screen-max($small) {
+        margin-left: 0px;
+      }
       &-item {
         position: relative;
         font-size: 10px;
