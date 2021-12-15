@@ -40,7 +40,7 @@
       &__name {
         font-size: 16px;
         line-height: 150%;
-        margin-right: 12px;
+        margin-right: auto;
         grid-area: title;
         @include screen-max($small) {
           font-size: 14px;
@@ -96,8 +96,9 @@
         justify-content: center;
         align-items: center;
         grid-area: del;
+        margin-left: 5px;
         &:hover {
-          .modal-cart-goods-item-button__svg {
+          .tab-goods-item-button__path {
             fill: $minor-gray;
           }
         }

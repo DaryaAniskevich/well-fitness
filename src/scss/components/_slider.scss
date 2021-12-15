@@ -2,8 +2,8 @@
   overflow: hidden;
   width: 100%;
   position: relative;
-  @include screen-max($medium) {
-    width: 90%;
+  @include screen-max($small) {
+    width: 95%;
   }
   &-wrapper {
     display: flex;

@@ -686,12 +686,12 @@ a:hover {
 
 .good-card-icons-item_comparison {
   background-color: transparent;
-  right: 30px;
+  right: 35px;
 }
 
 .good-card-icons-item_favorite {
   background-color: transparent;
-  right: -6px;
+  right: 0px;
 }
 
 .good-card-icons-item__img_discount {
@@ -939,7 +939,7 @@ a:hover {
 .tab-goods-item__name {
   font-size: 16px;
   line-height: 150%;
-  margin-right: 12px;
+  margin-right: auto;
   grid-area: title;
 }
 
@@ -999,9 +999,10 @@ a:hover {
       -ms-flex-align: center;
           align-items: center;
   grid-area: del;
+  margin-left: 5px;
 }
 
-.tab-goods-item-button:hover .modal-cart-goods-item-button__svg {
+.tab-goods-item-button:hover .tab-goods-item-button__path {
   fill: #2a2c38;
 }
 
@@ -2569,7 +2570,6 @@ a:hover {
 }
 
 .ideas-container {
-  width: 100vw;
   padding: 119px 0 102px;
 }
 
@@ -2581,9 +2581,9 @@ a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2975,10 +2975,6 @@ a:hover {
 
   .tab-content {
     margin-top: 60px;
-  }
-
-  .slider {
-    width: 90%;
   }
 
   .header-top {
@@ -3713,6 +3709,10 @@ a:hover {
 
   .tab-footer-price {
     margin-bottom: 12px;
+  }
+
+  .slider {
+    width: 95%;
   }
 
   .slider-controls {

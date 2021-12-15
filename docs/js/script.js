@@ -995,7 +995,7 @@ const renderCartItems = (data) => {
 
   const modalCart = document.querySelector(".modal-cart");
   const cart = modalCart.querySelector(".tab-goods");
-  const message = modalCart.querySelector(".modal-card__message");
+  const message = modalCart.querySelector(".modal-cart__message");
 
   cart.innerHTML = "";
 
@@ -1015,7 +1015,7 @@ const renderCartItems = (data) => {
                 tab-goods-item-count-buttons__item
                 tab-goods-item-count-buttons__item_dec
                 button button_round button_red
-              " data-index=${id}
+              " data-index="${id}"
             > - </button>
             <span class="tab-goods-item-count__number">${count}</span>
             <button
@@ -1023,24 +1023,24 @@ const renderCartItems = (data) => {
                 tab-goods-item-count-buttons__item
                 tab-goods-item-count-buttons__item_inc
                 button button_round button_red
-              " data-index=${id}
+              " data-index="${id}"
             > + </button>
           </div>
           <div class="tab-goods-item__price">${price * count} ₽</div>
         </div>
 
-        <button class="tab-goods-item-button button button_unbordered" data-index=${id}>
+        <button class="tab-goods-item-button button button_unbordered" data-index="${id}">
           <svg
             width="8"
             height="8"
             viewBox="0 0 8 8"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg" data-index=${id} class="tab-goods-item-button__svg"
+            xmlns="http://www.w3.org/2000/svg" data-index="${id}" class="tab-goods-item-button__svg"
           >
             <path
               d="M7.72959 1.57572L5.30563 3.99992L7.72959 6.42402C8.09014 6.78471 8.09014 7.36897 7.72959 7.72966C7.54944 7.90981 7.31325 7.99996 7.07718 7.99996C6.84071 7.99996 6.6045 7.90995 6.42449 7.72966L4.00001 5.30529L1.57571 7.72964C1.39559 7.90979 1.15938 7.99993 0.923098 7.99993C0.686888 7.99993 0.450838 7.90993 0.270551 7.72964C-0.09 7.36911 -0.09 6.78482 0.270551 6.424L2.69444 3.9999L0.270413 1.57572C-0.0901378 1.21516 -0.0901378 0.630758 0.270413 0.270207C0.630895 -0.090069 1.21496 -0.090069 1.57558 0.270207L3.99999 2.69442L6.42422 0.270207C6.78491 -0.090069 7.36904 -0.090069 7.72945 0.270207C8.09014 0.630758 8.09014 1.21516 7.72959 1.57572Z"
               fill="#858FA4"
-              class="modal-cart-goods-item-button__svg tab-goods-item-button__path" data-index=${id}
+              class="modal-cart-goods-item-button__svg tab-goods-item-button__path" data-index="${id}"
             />
           </svg>
         </button>
@@ -1054,9 +1054,8 @@ const renderCartFooter = () => {
   const modal_active = "modal_active";
 
   const modalCart = document.querySelector(".modal-cart");
-  const cartFooter = modalCart.querySelector(".cart-footer");
-  const cart = modalCart.querySelector(".tab-goods");
-  const message = modalCart.querySelector(".modal-card__message");
+  const cartFooter = modalCart.querySelector(".modal-cart-footer");
+  const message = modalCart.querySelector(".modal-cart__message");
 
   const getSum = () => {
     const cartArray = JSON.parse(localStorage.getItem("cart"));
@@ -1070,7 +1069,7 @@ const renderCartFooter = () => {
   const resetCart = () => {
     setTimeout(() => {
       modalCart.classList.remove(modal_active);
-    }, 5000);
+    }, 7000);
     message.innerHTML =
       "На данный момент страница оформления заказа находится в разработке. Для оформления заказа позвоните по телефону вашего региона или закажите звонок на сайте.";
     cartFooter.style.display = "none";
@@ -1098,6 +1097,73 @@ const renderCartFooter = () => {
   renderFooter();
 };
 
+const addToCart = (cartItem) => {
+  const positionsArray = localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart"))
+    : [];
+  if (positionsArray.some((item) => item.id === cartItem.id)) {
+    positionsArray.map((item) => {
+      if (item.id === cartItem.id) {
+        item.count++;
+      }
+      return item;
+    });
+  } else {
+    positionsArray.push(cartItem);
+  }
+  localStorage.removeItem("cart");
+  localStorage.setItem("cart", JSON.stringify(positionsArray));
+};
+
+const addToTabs = (tabItem, localStorageItem) => {
+  const positionsArray = localStorage.getItem(localStorageItem)
+    ? JSON.parse(localStorage.getItem(localStorageItem))
+    : [];
+  if (!positionsArray.some((item) => item.id === tabItem.id)) {
+    positionsArray.push(tabItem);
+  }
+  localStorage.removeItem(localStorageItem);
+  localStorage.setItem(localStorageItem, JSON.stringify(positionsArray));
+};
+
+const renderTabsItems = (data, block) => {
+  const hide = "hide";
+
+  const items = block.querySelector(".tab-goods");
+  const message = block.querySelector(".tab__message");
+
+  items.innerHTML = "";
+
+  data.forEach(({ name, price, id, img }) => {
+    message.classList.add(hide);
+    const element = document.createElement("div");
+    element.classList.add("tab-goods-item");
+    element.innerHTML = `
+    <img src="./images/db/${img}" class="tab-goods-item__img" alt="${name}" />
+    <div class="tab-goods-item__name">
+    ${name}
+    </div>
+    <div class="tab-goods-item__price">${price} ₽</div>
+    <button class="tab-goods-item-button button button_unbordered data-index="${id}">
+      <svg
+        width="8"
+        height="8"
+        viewBox="0 0 8 8"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg" class="tab-goods-item-button__svg" data-index="${id}"
+      >
+        <path
+          d="M7.72959 1.57572L5.30563 3.99992L7.72959 6.42402C8.09014 6.78471 8.09014 7.36897 7.72959 7.72966C7.54944 7.90981 7.31325 7.99996 7.07718 7.99996C6.84071 7.99996 6.6045 7.90995 6.42449 7.72966L4.00001 5.30529L1.57571 7.72964C1.39559 7.90979 1.15938 7.99993 0.923098 7.99993C0.686888 7.99993 0.450838 7.90993 0.270551 7.72964C-0.09 7.36911 -0.09 6.78482 0.270551 6.424L2.69444 3.9999L0.270413 1.57572C-0.0901378 1.21516 -0.0901378 0.630758 0.270413 0.270207C0.630895 -0.090069 1.21496 -0.090069 1.57558 0.270207L3.99999 2.69442L6.42422 0.270207C6.78491 -0.090069 7.36904 -0.090069 7.72945 0.270207C8.09014 0.630758 8.09014 1.21516 7.72959 1.57572Z"
+          fill="#858FA4"
+          class="tab-goods-item-button__path" data-index="${id}"
+        />
+      </svg>
+    </button>
+    `;
+    items.append(element);
+  });
+};
+
 const discount = () => {
   const active_btn = "discount-heading-buttons__item_active";
   const discountBlock = document.querySelector(".discount-cards");
@@ -1108,6 +1174,24 @@ const discount = () => {
     ".header-navigation-buttons-item_cart"
   );
   const numberInCart = openCartBtn.querySelector(
+    ".header-navigation-buttons-item__span"
+  );
+  const openFavoriteBtn = document.querySelector(
+    ".header-navigation-buttons-item_favorite"
+  );
+  const numberInFavorite = openFavoriteBtn.querySelector(
+    ".header-navigation-buttons-item__span"
+  );
+  const modalFavorite = document.querySelector(".modal-favorite");
+  const favoriteFooter = modalFavorite.querySelector(".modal-favorite-footer");
+  const modalComparison = document.querySelector(".modal-comparison");
+  const comparisonFooter = modalComparison.querySelector(
+    ".modal-comparison-footer"
+  );
+  const openComparisonBtn = document.querySelector(
+    ".header-navigation-buttons-item_comparison"
+  );
+  const numberInComparison = openComparisonBtn.querySelector(
     ".header-navigation-buttons-item__span"
   );
 
@@ -1126,6 +1210,32 @@ const discount = () => {
       discountprice,
       href
     ) => {
+      let inFavorite = false;
+      let inCart = false;
+      let inComparison = false;
+
+      const storageArray = (...args) => {
+        args.forEach((arg) => {
+          const array = JSON.parse(localStorage.getItem(arg))
+            ? JSON.parse(localStorage.getItem(arg))
+            : [];
+
+          array.map((item) => {
+            if (item.id === id) {
+              if (arg === "favorite") {
+                inFavorite = true;
+              } else if (arg === "cart") {
+                inCart = true;
+              } else if (arg === "comparison") {
+                inComparison = true;
+              }
+            }
+          });
+        });
+      };
+
+      storageArray("favorite", "cart", "comparison");
+
       const div = document.createElement("div");
       div.classList.add("discount-cards-item", "good-card");
 
@@ -1153,81 +1263,22 @@ const discount = () => {
               class="
                 good-card-icons-item good-card-icons-item_comparison
                 button
-              "
+              " data-index="${id}"
             >
-              <svg
-                width="17"
-                height="17"
-                viewBox="0 0 17 17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect
-                  y="7"
-                  width="2"
-                  height="10"
-                  rx="1"
-                  fill="#858FA4"
-                  class="
-                    good-card-icons-item__img
-                    good-card-icons-item__img_comparison
-                  "
-                />
-                <rect
-                  x="5"
-                  width="2"
-                  height="17"
-                  rx="1"
-                  fill="#858FA4"
-                  class="
-                    good-card-icons-item__img
-                    good-card-icons-item__img_comparison
-                  "
-                />
-                <rect
-                  x="10"
-                  y="7"
-                  width="2"
-                  height="10"
-                  rx="1"
-                  fill="#858FA4"
-                  class="
-                    good-card-icons-item__img
-                    good-card-icons-item__img_comparison
-                  "
-                />
-                <rect
-                  x="15"
-                  y="4"
-                  width="2"
-                  height="13"
-                  rx="1"
-                  fill="#858FA4"
-                  class="
-                    good-card-icons-item__img
-                    good-card-icons-item__img_comparison
-                  "
-                />
-              </svg>
+            ${
+              inComparison
+                ? `<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" data-index="${id}"> <rect y="7" width="2" height="10" rx="1" fill="#f53b49" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}" /> <rect x="5" width="2" height="17" rx="1" fill="#f53b49" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}"/> <rect x="10" y="7" width="2" height="10"  rx="1" fill="#f53b49" class=" good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}" /> <rect x="15" y="4" width="2" height="13" rx="1" fill="#f53b49" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}"/></svg>`
+                : `<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" data-index="${id}"> <rect y="7" width="2" height="10" rx="1" fill="#858FA4" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}" /> <rect x="5" width="2" height="17" rx="1" fill="#858FA4" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}"/> <rect x="10" y="7" width="2" height="10"  rx="1" fill="#858FA4" class=" good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}" /> <rect x="15" y="4" width="2" height="13" rx="1" fill="#858FA4" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}"/></svg>`
+            }
             </button>
             <button
-              class="good-card-icons-item good-card-icons-item_favorite button"
-            >
-              <svg
-                width="21"
-                height="17"
-                viewBox="0 0 21 17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M18.757 1.66341C16.5388 -0.55417 12.9303 -0.55417 10.7127 1.66341L10.1976 2.17818L9.68282 1.66341C7.46524 -0.55447 3.85642 -0.55447 1.63884 1.66341C-0.533711 3.83597 -0.547819 7.2797 1.60613 9.67407C3.57067 11.8571 9.36465 16.5735 9.61049 16.7731C9.77737 16.9088 9.97818 16.9749 10.1778 16.9749C10.1844 16.9749 10.191 16.9749 10.1973 16.9746C10.4038 16.9842 10.6118 16.9133 10.7841 16.7731C11.0299 16.5735 16.8245 11.8571 18.7897 9.67377C20.9433 7.2797 20.9292 3.83597 18.757 1.66341ZM17.451 8.46923C15.9192 10.1708 11.7089 13.6803 10.1973 14.9257C8.68569 13.6806 4.47625 10.1714 2.94484 8.46953C1.44224 6.79944 1.42813 4.42098 2.91212 2.93699C3.67002 2.17938 4.66535 1.80028 5.66068 1.80028C6.65601 1.80028 7.65134 2.17908 8.40925 2.93699L9.54145 4.06919C9.67622 4.20396 9.84611 4.2844 10.0244 4.31262C10.3138 4.37475 10.6277 4.29401 10.8528 4.06949L11.9856 2.93699C13.5018 1.42148 15.9679 1.42178 17.4831 2.93699C18.9671 4.42098 18.953 6.79944 17.451 8.46923Z"
-                  fill="#858FA4"
-                  class="
-                    good-card-icons-item__img good-card-icons-item__img_favorite
-                  "
-                />
-              </svg>
+              class="good-card-icons-item good-card-icons-item_favorite button" data-index="${id}"
+            >${
+              inFavorite
+                ? `<svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg" data-index="${id}"> <path d="M22.0718 1.95979C19.4616 -0.652909 15.2154 -0.652909 12.6059 1.95979L11.9998 2.56628L11.394 1.95979C8.78455 -0.653262 4.53795 -0.653262 1.92847 1.95979C-0.628032 4.51944 -0.644633 8.57675 1.88997 11.3977C4.2017 13.9698 11.0196 19.5265 11.3089 19.7617C11.5053 19.9215 11.7416 19.9993 11.9765 19.9993C11.9842 19.9993 11.992 19.9993 11.9994 19.999C12.2424 20.0103 12.4872 19.9268 12.6899 19.7617C12.9792 19.5265 19.7979 13.9698 22.1103 11.3974C24.6445 8.57675 24.6279 4.51944 22.0718 1.95979Z" fill="#F53B49" data-index="${id}"/></svg>`
+                : `<svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg" data-index="${id}"> <path d="M18.757 1.66341C16.5388 -0.55417 12.9303 -0.55417 10.7127 1.66341L10.1976 2.17818L9.68282 1.66341C7.46524 -0.55447 3.85642 -0.55447 1.63884 1.66341C-0.533711 3.83597 -0.547819 7.2797 1.60613 9.67407C3.57067 11.8571 9.36465 16.5735 9.61049 16.7731C9.77737 16.9088 9.97818 16.9749 10.1778 16.9749C10.1844 16.9749 10.191 16.9749 10.1973 16.9746C10.4038 16.9842 10.6118 16.9133 10.7841 16.7731C11.0299 16.5735 16.8245 11.8571 18.7897 9.67377C20.9433 7.2797 20.9292 3.83597 18.757 1.66341ZM17.451 8.46923C15.9192 10.1708 11.7089 13.6803 10.1973 14.9257C8.68569 13.6806 4.47625 10.1714 2.94484 8.46953C1.44224 6.79944 1.42813 4.42098 2.91212 2.93699C3.67002 2.17938 4.66535 1.80028 5.66068 1.80028C6.65601 1.80028 7.65134 2.17908 8.40925 2.93699L9.54145 4.06919C9.67622 4.20396 9.84611 4.2844 10.0244 4.31262C10.3138 4.37475 10.6277 4.29401 10.8528 4.06949L11.9856 2.93699C13.5018 1.42148 15.9679 1.42178 17.4831 2.93699C18.9671 4.42098 18.953 6.79944 17.451 8.46923Z" fill="#858FA4" class="good-card-icons-item__img good-card-icons-item__img_favorite" data-index="${id}"/></svg>`
+            }
+              
             </button>
           </div>
         </div>
@@ -1256,7 +1307,9 @@ const discount = () => {
             </div>
             ${
               availibile
-                ? ` <button class="good-card__button button button_catalog button_buy" data-index="${id}">Купить</button>`
+                ? ` <button class="good-card__button button button_catalog button_buy" data-index="${id}">${
+                    inCart ? "&#10004; В корзине" : "Купить"
+                  }</button>`
                 : ""
             }
           </div>
@@ -1271,24 +1324,6 @@ const discount = () => {
       });
 
       block.append(div);
-
-      const addToCart = (cartItem) => {
-        const positionsArray = localStorage.getItem("cart")
-          ? JSON.parse(localStorage.getItem("cart"))
-          : [];
-        if (positionsArray.some((item) => item.id === cartItem.id)) {
-          positionsArray.map((item) => {
-            if (item.id === cartItem.id) {
-              item.count++;
-            }
-            return item;
-          });
-        } else {
-          positionsArray.push(cartItem);
-        }
-        localStorage.removeItem("cart");
-        localStorage.setItem("cart", JSON.stringify(positionsArray));
-      };
 
       const addToCartBtn = div.querySelector(".good-card__button");
 
@@ -1312,6 +1347,64 @@ const discount = () => {
           e.target.innerHTML = `&#10004; В корзине`;
         });
       }
+
+      const createTabItem = (
+        localStorageItem,
+        countBlock,
+        modal,
+        blockFooter
+      ) => {
+        const tabItem = {
+          name,
+          price: discountprice,
+          id,
+          img,
+        };
+
+        addToTabs(tabItem, localStorageItem);
+        const cartArray = JSON.parse(localStorage.getItem(localStorageItem))
+          ? JSON.parse(localStorage.getItem(localStorageItem))
+          : [];
+        countBlock.innerHTML = cartArray.length;
+        renderTabsItems(cartArray, modal);
+        blockFooter.style.display = "flex";
+      };
+
+      const addToFavoriteBtn = div.querySelector(
+        ".good-card-icons-item_favorite"
+      );
+      addToFavoriteBtn.addEventListener("click", (e) => {
+        createTabItem(
+          "favorite",
+          numberInFavorite,
+          modalFavorite,
+          favoriteFooter
+        );
+        if (e.target.classList.contains("good-card-icons-item")) {
+          e.target.innerHTML = `<svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg" data-index="${id}"> <path d="M22.0718 1.95979C19.4616 -0.652909 15.2154 -0.652909 12.6059 1.95979L11.9998 2.56628L11.394 1.95979C8.78455 -0.653262 4.53795 -0.653262 1.92847 1.95979C-0.628032 4.51944 -0.644633 8.57675 1.88997 11.3977C4.2017 13.9698 11.0196 19.5265 11.3089 19.7617C11.5053 19.9215 11.7416 19.9993 11.9765 19.9993C11.9842 19.9993 11.992 19.9993 11.9994 19.999C12.2424 20.0103 12.4872 19.9268 12.6899 19.7617C12.9792 19.5265 19.7979 13.9698 22.1103 11.3974C24.6445 8.57675 24.6279 4.51944 22.0718 1.95979Z" fill="#F53B49" data-index="${id}"/> </svg>`;
+        } else {
+          e.target.innerHTML = `
+          <path d="M22.0718 1.95979C19.4616 -0.652909 15.2154 -0.652909 12.6059 1.95979L11.9998 2.56628L11.394 1.95979C8.78455 -0.653262 4.53795 -0.653262 1.92847 1.95979C-0.628032 4.51944 -0.644633 8.57675 1.88997 11.3977C4.2017 13.9698 11.0196 19.5265 11.3089 19.7617C11.5053 19.9215 11.7416 19.9993 11.9765 19.9993C11.9842 19.9993 11.992 19.9993 11.9994 19.999C12.2424 20.0103 12.4872 19.9268 12.6899 19.7617C12.9792 19.5265 19.7979 13.9698 22.1103 11.3974C24.6445 8.57675 24.6279 4.51944 22.0718 1.95979Z" fill="#F53B49" data-index="${id}"/>
+          `;
+        }
+      });
+
+      const addToComparisonBtn = div.querySelector(
+        ".good-card-icons-item_comparison"
+      );
+      addToComparisonBtn.addEventListener("click", (e) => {
+        createTabItem(
+          "comparison",
+          numberInComparison,
+          modalComparison,
+          comparisonFooter
+        );
+        if (e.target.classList.contains("good-card-icons-item")) {
+          e.target.innerHTML = `<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" data-index="${id}"> <rect y="7" width="2" height="10" rx="1" fill="#f53b49" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}" /> <rect x="5" width="2" height="17" rx="1" fill="#f53b49" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}"/> <rect x="10" y="7" width="2" height="10"  rx="1" fill="#f53b49" class=" good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}" /> <rect x="15" y="4" width="2" height="13" rx="1" fill="#f53b49" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}"/></svg>`;
+        } else {
+          e.target.innerHTML = `<rect y="7" width="2" height="10" rx="1" fill="#f53b49" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}"/> <rect x="5" width="2" height="17" rx="1" fill="#f53b49" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}"/> <rect x="10" y="7" width="2" height="10"  rx="1" fill="#f53b49" class=" good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}" /> <rect x="15" y="4" width="2" height="13" rx="1" fill="#f53b49" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}"/>`;
+        }
+      });
     };
 
     filterBtns.forEach((btn) => {
@@ -1607,17 +1700,16 @@ sliderNews();
 
 const fillCart = () => {
   const hide = "hide";
-  const modal_active = "modal_active";
   const modalCart = document.querySelector(".modal-cart");
   const cart = modalCart.querySelector(".tab-goods");
-  const cartFooter = modalCart.querySelector(".cart-footer");
+  const cartFooter = modalCart.querySelector(".modal-cart-footer");
   const openCartBtn = document.querySelector(
     ".header-navigation-buttons-item_cart"
   );
   const numberInCart = openCartBtn.querySelector(
     ".header-navigation-buttons-item__span"
   );
-  const message = modalCart.querySelector(".modal-card__message");
+  const message = modalCart.querySelector(".modal-cart__message");
 
   const emptyCart = () => {
     cartFooter.style.display = "none";
@@ -1661,19 +1753,6 @@ const fillCart = () => {
     renderCartItems(JSON.parse(localStorage.getItem("cart")));
   };
 
-  cart.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (e.target.classList.contains("tab-goods-item-count-buttons__item_dec")) {
-      decrementCount(e.target.dataset.index);
-      renderCartFooter();
-    } else if (
-      e.target.classList.contains("tab-goods-item-count-buttons__item_inc")
-    ) {
-      incrementCount(e.target.dataset.index);
-      renderCartFooter();
-    }
-  });
-
   const deleteItem = (id) => {
     const cartArray = JSON.parse(localStorage.getItem("cart"));
     cartArray.map((item, index) => {
@@ -1682,24 +1761,40 @@ const fillCart = () => {
         localStorage.removeItem("cart");
         localStorage.setItem("cart", JSON.stringify(cartArray));
         numberInCart.innerHTML = cartArray.length;
+        changeBuyButton(id);
       }
     });
-    changeBuyButton(id);
+
     renderCartItems(JSON.parse(localStorage.getItem("cart")));
   };
 
   cart.addEventListener("click", (e) => {
-    if (JSON.parse(localStorage.getItem("cart")).length === 0) {
+    e.preventDefault();
+    const cartArray = JSON.parse(localStorage.getItem("cart"))
+      ? JSON.parse(localStorage.getItem("cart"))
+      : [];
+    if (cartArray.length === 0) {
       emptyCart();
     }
-    if (
+    if (e.target.classList.contains("tab-goods-item-count-buttons__item_dec")) {
+      decrementCount(e.target.dataset.index);
+      renderCartFooter();
+    } else if (
+      e.target.classList.contains("tab-goods-item-count-buttons__item_inc")
+    ) {
+      incrementCount(e.target.dataset.index);
+      renderCartFooter();
+    } else if (
       e.target.classList.contains("tab-goods-item-button") ||
       e.target.classList.contains("tab-goods-item-button__svg") ||
       e.target.classList.contains("tab-goods-item-button__path")
     ) {
       deleteItem(e.target.dataset.index);
       renderCartFooter();
-      if (JSON.parse(localStorage.getItem("cart")).length === 0) {
+      const cartArray = JSON.parse(localStorage.getItem("cart"))
+        ? JSON.parse(localStorage.getItem("cart"))
+        : [];
+      if (cartArray.length === 0) {
         emptyCart();
       }
     }
@@ -1707,12 +1802,108 @@ const fillCart = () => {
 
   if (JSON.parse(localStorage.getItem("cart"))) {
     renderCartItems(JSON.parse(localStorage.getItem("cart")));
-    if (JSON.parse(localStorage.getItem("cart")).length > 0) {
-      renderCartFooter();
-    }
+
+    renderCartFooter();
   }
 
-  numberInCart.innerHTML = JSON.parse(localStorage.getItem("cart")).length;
+  numberInCart.innerHTML = JSON.parse(localStorage.getItem("cart"))
+    ? JSON.parse(localStorage.getItem("cart")).length
+    : 0;
 };
 
 fillCart();
+
+const fillTabs = (modal, localStorageItem, tabMessage) => {
+  const hide = "hide";
+  const modalFooter = modal.querySelector(".tab-footer");
+  const openCartBtn = document.querySelector(
+    ".header-navigation-buttons-item_" + localStorageItem
+  );
+  const numberInTab = openCartBtn.querySelector(
+    ".header-navigation-buttons-item__span"
+  );
+  const message = modal.querySelector(".tab__message ");
+
+  const cartArray = JSON.parse(localStorage.getItem(localStorageItem))
+    ? JSON.parse(localStorage.getItem(localStorageItem))
+    : [];
+  if (cartArray.length > 0) {
+    modalFooter.style.display = "flex";
+  }
+
+  const emptyBlock = () => {
+    modalFooter.style.display = "none";
+    message.innerHTML = tabMessage;
+    message.classList.remove(hide);
+  };
+
+  const changeButton = (id) => {
+    const buttons = document.querySelectorAll(
+      ".good-card-icons-item_" + localStorageItem
+    );
+    buttons.forEach((button) => {
+      if (button.dataset.index === id) {
+        if (localStorageItem === "favorite") {
+          button.innerHTML = `<svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg" data-index="${id}"> <path d="M18.757 1.66341C16.5388 -0.55417 12.9303 -0.55417 10.7127 1.66341L10.1976 2.17818L9.68282 1.66341C7.46524 -0.55447 3.85642 -0.55447 1.63884 1.66341C-0.533711 3.83597 -0.547819 7.2797 1.60613 9.67407C3.57067 11.8571 9.36465 16.5735 9.61049 16.7731C9.77737 16.9088 9.97818 16.9749 10.1778 16.9749C10.1844 16.9749 10.191 16.9749 10.1973 16.9746C10.4038 16.9842 10.6118 16.9133 10.7841 16.7731C11.0299 16.5735 16.8245 11.8571 18.7897 9.67377C20.9433 7.2797 20.9292 3.83597 18.757 1.66341ZM17.451 8.46923C15.9192 10.1708 11.7089 13.6803 10.1973 14.9257C8.68569 13.6806 4.47625 10.1714 2.94484 8.46953C1.44224 6.79944 1.42813 4.42098 2.91212 2.93699C3.67002 2.17938 4.66535 1.80028 5.66068 1.80028C6.65601 1.80028 7.65134 2.17908 8.40925 2.93699L9.54145 4.06919C9.67622 4.20396 9.84611 4.2844 10.0244 4.31262C10.3138 4.37475 10.6277 4.29401 10.8528 4.06949L11.9856 2.93699C13.5018 1.42148 15.9679 1.42178 17.4831 2.93699C18.9671 4.42098 18.953 6.79944 17.451 8.46923Z" fill="#858FA4" class="good-card-icons-item__img good-card-icons-item__img_favorite" data-index="${id}"/></svg>`;
+        } else if (localStorageItem === "comparison") {
+          button.innerHTML = `<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" data-index="${id}"> <rect y="7" width="2" height="10" rx="1" fill="#858FA4" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}" /> <rect x="5" width="2" height="17" rx="1" fill="#858FA4" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}" /> <rect x="10" y="7" width="2" height="10"  rx="1" fill="#858FA4" class=" good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}" /> <rect x="15" y="4" width="2" height="13" rx="1" fill="#858FA4" class="good-card-icons-item__img good-card-icons-item__img_comparison" data-index="${id}"/></svg>`;
+        }
+      }
+    });
+  };
+
+  const deleteItem = (id) => {
+    const storageArray = JSON.parse(localStorage.getItem(localStorageItem));
+    storageArray.map((item, index) => {
+      if (item.id === id) {
+        storageArray.splice(index, 1);
+        localStorage.removeItem(localStorageItem);
+        localStorage.setItem(localStorageItem, JSON.stringify(storageArray));
+        numberInTab.innerHTML = storageArray.length;
+        changeButton(id);
+      }
+    });
+    renderTabsItems(JSON.parse(localStorage.getItem(localStorageItem)), modal);
+  };
+
+  modal.addEventListener("click", (e) => {
+    const cartArray = JSON.parse(localStorage.getItem(localStorageItem))
+      ? JSON.parse(localStorage.getItem(localStorageItem))
+      : [];
+    if (cartArray.length === 0) {
+      emptyBlock();
+    }
+    if (
+      e.target.classList.contains("tab-goods-item-button") ||
+      e.target.classList.contains("tab-goods-item-button__svg") ||
+      e.target.classList.contains("tab-goods-item-button__path")
+    ) {
+      deleteItem(e.target.dataset.index);
+      const cartArray = JSON.parse(localStorage.getItem(localStorageItem))
+        ? JSON.parse(localStorage.getItem(localStorageItem))
+        : [];
+      if (cartArray.length === 0) {
+        emptyBlock();
+      }
+    }
+  });
+
+  if (JSON.parse(localStorage.getItem(localStorageItem))) {
+    renderTabsItems(JSON.parse(localStorage.getItem(localStorageItem)), modal);
+  }
+
+  numberInTab.innerHTML = JSON.parse(localStorage.getItem(localStorageItem))
+    ? JSON.parse(localStorage.getItem(localStorageItem)).length
+    : 0;
+};
+
+fillTabs(
+  document.querySelector(".modal-favorite"),
+  "favorite",
+  "В избранных пока ничего нет..."
+);
+fillTabs(
+  document.querySelector(".modal-comparison"),
+  "comparison",
+  "Для сравнения пока ничего нет..."
+);

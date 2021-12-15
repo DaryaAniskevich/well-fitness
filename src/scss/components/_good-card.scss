@@ -62,7 +62,7 @@
       }
       &_comparison {
         background-color: transparent;
-        right: 30px;
+        right: 35px;
         @include screen-max($small) {
           width: 36px;
           height: 36px;
@@ -71,7 +71,7 @@
       }
       &_favorite {
         background-color: transparent;
-        right: -6px;
+        right: 0px;
         @include screen-max($small) {
           width: 36px;
           height: 36px;

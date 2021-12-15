@@ -3,9 +3,8 @@ const renderCartFooter = () => {
   const modal_active = "modal_active";
 
   const modalCart = document.querySelector(".modal-cart");
-  const cartFooter = modalCart.querySelector(".cart-footer");
-  const cart = modalCart.querySelector(".tab-goods");
-  const message = modalCart.querySelector(".modal-card__message");
+  const cartFooter = modalCart.querySelector(".modal-cart-footer");
+  const message = modalCart.querySelector(".modal-cart__message");
 
   const getSum = () => {
     const cartArray = JSON.parse(localStorage.getItem("cart"));
@@ -19,7 +18,7 @@ const renderCartFooter = () => {
   const resetCart = () => {
     setTimeout(() => {
       modalCart.classList.remove(modal_active);
-    }, 5000);
+    }, 7000);
     message.innerHTML =
       "На данный момент страница оформления заказа находится в разработке. Для оформления заказа позвоните по телефону вашего региона или закажите звонок на сайте.";
     cartFooter.style.display = "none";
