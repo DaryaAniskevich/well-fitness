@@ -14,6 +14,9 @@
     width: 100%;
     position: absolute;
     top: 25%;
+    @include screen-max($small) {
+      display: none;
+    }
     &__prev {
       position: absolute;
       left: 30px;

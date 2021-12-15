@@ -3719,6 +3719,10 @@ a:hover {
     margin-bottom: 12px;
   }
 
+  .slider-controls {
+    display: none;
+  }
+
   .slider-controls__prev {
     left: 15px;
   }

@@ -1527,6 +1527,64 @@ const sliderCommon = (slidesWrapper, prevBtn, nextBtn, elNumber) => {
       }
     }
   });
+
+  let x1 = null;
+  let y1 = null;
+
+  const handleTouchStart = (event) => {
+    const firstTouch = event.touches[0];
+    x1 = firstTouch.clientX;
+    y1 = firstTouch.clientY;
+  };
+
+  const handleTouchMove = (event) => {
+    if (!x1 || !y1) {
+      return false;
+    }
+    let x2 = event.touches[0].clientX;
+    let y2 = event.touches[0].clientY;
+
+    let xDiff = x2 - x1;
+    let yDiff = y2 - y1;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+      if (xDiff > 0) {
+        count--;
+        if (count <= 0) {
+          count = 0;
+        }
+      } else {
+        count++;
+        if (elNumber === 6) {
+          if (
+            (screen.width > 970 && count === 3) ||
+            (screen.width > 559 && screen.width < 970 && count === 4) ||
+            (screen.width <= 559 && count === 7)
+          ) {
+            count = 0;
+          }
+        } else if (elNumber === 10) {
+          if (
+            (screen.width > 1300 && count === 6) ||
+            (screen.width > 970 && screen.width < 1300 && count === 8) ||
+            (screen.width > 559 && screen.width < 970 && count === 6) ||
+            (screen.width <= 559 && count === 11) ||
+            (screen.width === 320 && count === 12)
+          ) {
+            count = 0;
+          }
+        }
+      }
+      rollSlider(count);
+    }
+    x1 = null;
+    y1 = null;
+
+    return;
+  };
+
+  slidesWrapper.addEventListener("touchstart", handleTouchStart, false);
+  slidesWrapper.addEventListener("touchmove", handleTouchMove, false);
 };
 
 const sliderDiscount = () => {
