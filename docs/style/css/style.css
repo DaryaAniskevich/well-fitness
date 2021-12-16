@@ -1123,6 +1123,7 @@ a:hover {
       -ms-flex-align: center;
           align-items: center;
   margin-right: 25px;
+  z-index: 2;
 }
 
 .header-phone-choosen {
@@ -2303,6 +2304,7 @@ a:hover {
           align-items: center;
   width: 460px;
   position: relative;
+  margin: 0 auto;
 }
 
 .sign-form__input {
@@ -2317,7 +2319,6 @@ a:hover {
 
 .sign-form__button {
   margin-bottom: 12px;
-  width: 180px;
 }
 
 .sign-form__button_password {
@@ -2819,7 +2820,10 @@ a:hover {
   background-image: url("../../images/map.png");
   background-repeat: no-repeat;
   background-size: cover;
-  right: 0px;
+  left: 70%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   top: 0px;
 }
 
@@ -3408,6 +3412,11 @@ a:hover {
   .about__map {
     top: auto;
     bottom: 30px;
+    left: auto;
+    right: 0;
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
   }
 
   .partner-container {

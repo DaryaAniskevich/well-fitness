@@ -102,8 +102,9 @@ const fillCart = () => {
 
   if (JSON.parse(localStorage.getItem("cart"))) {
     renderCartItems(JSON.parse(localStorage.getItem("cart")));
-
-    renderCartFooter();
+    if (JSON.parse(localStorage.getItem("cart")).length > 0) {
+      renderCartFooter();
+    }
   }
 
   numberInCart.innerHTML = JSON.parse(localStorage.getItem("cart"))

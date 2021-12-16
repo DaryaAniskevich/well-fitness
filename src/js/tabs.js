@@ -1,5 +1,4 @@
 const tabs = () => {
-  const modal_active = "modal_active";
   const button_active = "header-navigation-buttons-item__img_active";
 
   const openCart = document.querySelector(

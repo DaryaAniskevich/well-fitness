@@ -12,9 +12,7 @@ const renderTabsItems = (data, block) => {
     element.classList.add("tab-goods-item");
     element.innerHTML = `
     <img src="./images/db/${img}" class="tab-goods-item__img" alt="${name}" />
-    <div class="tab-goods-item__name">
-    ${name}
-    </div>
+    <div class="tab-goods-item__name">${name}</div>
     <div class="tab-goods-item__price">${price} ₽</div>
     <button class="tab-goods-item-button button button_unbordered data-index="${id}">
       <svg

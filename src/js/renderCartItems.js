@@ -12,27 +12,13 @@ const renderCartItems = (data) => {
     const cartElem = document.createElement("div");
     cartElem.classList.add("tab-goods-item");
     cartElem.innerHTML = `
-    <img src="./images/db/${img}" class="tab-goods-item__img" alt="${name}" />
-        <div class="tab-goods-item__name">
-          ${name}
-        </div>
+        <img src="./images/db/${img}" class="tab-goods-item__img" alt="${name}" />
+        <div class="tab-goods-item__name">${name}</div>
         <div class="tab-goods-item-count">
           <div class="tab-goods-item-count-buttons">
-            <button
-              class="
-                tab-goods-item-count-buttons__item
-                tab-goods-item-count-buttons__item_dec
-                button button_round button_red
-              " data-index="${id}"
-            > - </button>
+            <button class="tab-goods-item-count-buttons__item tab-goods-item-count-buttons__item_dec button button_round button_red" data-index="${id}"> - </button>
             <span class="tab-goods-item-count__number">${count}</span>
-            <button
-              class="
-                tab-goods-item-count-buttons__item
-                tab-goods-item-count-buttons__item_inc
-                button button_round button_red
-              " data-index="${id}"
-            > + </button>
+            <button class="tab-goods-item-count-buttons__item tab-goods-item-count-buttons__item_inc button button_round button_red" data-index="${id}"> + </button>
           </div>
           <div class="tab-goods-item__price">${price * count} ₽</div>
         </div>

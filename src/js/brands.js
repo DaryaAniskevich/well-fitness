@@ -1,4 +1,5 @@
 const brands = () => {
+  const active_button = "brands-buttons__item_active";
   const brandsBlock = document.querySelector(".brands-cards");
   const brandsButtons = document.querySelectorAll(".brands-buttons__item");
 
@@ -28,19 +29,19 @@ const brands = () => {
       .then((res) => renderCards(res));
   };
 
-  brandsButtons.forEach((button, index) => {
+  brandsButtons.forEach((button) => {
     button.addEventListener("click", () => {
       brandsButtons.forEach((button) => {
-        button.classList.remove("brands-buttons__item_active");
+        button.classList.remove(active_button);
       });
       brandsBlock.innerHTML = "";
-      button.classList.add("brands-buttons__item_active");
+      button.classList.add(active_button);
       category = button.dataset.brand;
       getData(category);
     });
   });
 
-  getData("all");
+  getData(category);
 };
 
 brands();

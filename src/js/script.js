@@ -1,3 +1,8 @@
+const modal_active = "modal_active";
+const hide = "hide";
+const RED = "#f53b49";
+const GRAY = "rgba(144,156,181,.3)";
+
 @@include("modal.js")
 @@include("city.js")
 @@include("phone.js")
@@ -5,8 +10,6 @@
 @@include("catalogModal.js")
 @@include("search.js")
 @@include("tabs.js")
-@@include("comparison.js")
-@@include("favorite.js")
 @@include("menu.js")
 @@include("sign.js")
 @@include("slider-banner.js")

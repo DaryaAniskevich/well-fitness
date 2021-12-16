@@ -2,6 +2,7 @@ const addToCart = (cartItem) => {
   const positionsArray = localStorage.getItem("cart")
     ? JSON.parse(localStorage.getItem("cart"))
     : [];
+
   if (positionsArray.some((item) => item.id === cartItem.id)) {
     positionsArray.map((item) => {
       if (item.id === cartItem.id) {
@@ -12,6 +13,7 @@ const addToCart = (cartItem) => {
   } else {
     positionsArray.push(cartItem);
   }
+
   localStorage.removeItem("cart");
   localStorage.setItem("cart", JSON.stringify(positionsArray));
 };

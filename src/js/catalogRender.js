@@ -17,17 +17,11 @@ const catalogRender = (data, container) => {
     categoryBlock.classList.add("modal-catalog-category-name");
 
     categories.forEach((category) => {
-      categoryBlock.innerHTML += `<div
-        class="
-          modal-catalog-category-name__item
-        " data-category="${category}"
-      >
-        ${category}
-        <span class="modal-catalog-category-name__item_arrow">
-          &#8594;</span
-        >
-      </div>`;
-
+      categoryBlock.innerHTML += `
+        <div class="modal-catalog-category-name__item" data-category="${category}">
+          ${category}
+          <span class="modal-catalog-category-name__item_arrow">&#8594;</span>
+        </div>`;
       block.append(categoryBlock);
     });
   };
@@ -35,11 +29,7 @@ const catalogRender = (data, container) => {
   const renderSubcategories = (block, subcategory, href, img) => {
     block.innerHTML += `
       <div class="modal-catalog-category-subcategory-item" data-href=${href}>
-        <img
-          src="./images/db/${img}"
-          alt="${subcategory}"
-          class="modal-catalog-category-subcategory-item__img"
-        />
+        <img src="./images/db/${img}" alt="${subcategory}" class="modal-catalog-category-subcategory-item__img"/>
         <div class="modal-catalog-category-subcategory-item__title">
          ${subcategory}
         </div>

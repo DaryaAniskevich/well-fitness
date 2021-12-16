@@ -1,7 +1,4 @@
 const search = () => {
-  const modal_active = "modal_active";
-  const hide = "hide";
-
   const openBtn = document.querySelectorAll(".search-btn");
   const searchModal = document.querySelector(".search");
   const closeBtn = searchModal.querySelector(".search-form-button");
@@ -14,23 +11,19 @@ const search = () => {
     ".search-result-header-buttons__item"
   );
 
+  let placeFilter = "";
+
   modal(searchModal, openBtn, closeBtn);
 
   const clearSearch = () => {
     searchResult.innerHTML = "";
     input.value = "";
     numberOfGoods.innerHTML = "0 товаров";
+    placeFilter = "";
+    categoryButtons.forEach((button) => {
+      button.classList.remove("button_full-white");
+    });
   };
-
-  window.addEventListener("scroll", () => {
-    if (
-      searchModal.classList.contains(modal_active) &&
-      pageYOffset > searchModal.offsetHeight - 50
-    ) {
-      searchModal.classList.remove(modal_active);
-      clearSearch();
-    }
-  });
 
   searchModal.addEventListener("click", (e) => {
     if (
@@ -58,23 +51,21 @@ const search = () => {
       });
 
       div.innerHTML = `
-      <img
-        src="./images/db/${item.img}"
-        alt="${item.name}"
-        class="good-card__image good-card__image_search"
-      />
+      <img src="./images/db/${item.img}" alt="${
+        item.name
+      }" class="good-card__image good-card__image_search"/>
       <div class="good-card-description">
-        <h4 class="good-card__heading good-card__heading_search">
-        ${item.name}
-        </h4>
+        <h4 class="good-card__heading good-card__heading_search">${
+          item.name
+        }</h4>
         <div class="good-card-rating good-card-rating_search">Рейтинг ${'<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 0.5L7.91148 3.86908L11.7063 4.6459L9.09284 7.50492L9.52671 11.3541L6 9.752L2.47329 11.3541L2.90716 7.50492L0.293661 4.6459L4.08852 3.86908L6 0.5Z" fill="#F99808"/></svg>'.repeat(
           Math.round(item.raiting)
         )}</div>
         <div class="good-card-bottom">
           <div class="good-card-price">
-            <div class="good-card-price__item good-card-price__item_search">
-            ${item.discountPrice ? item.discountPrice : item.price} ₽
-            </div>
+            <div class="good-card-price__item good-card-price__item_search">${
+              item.discountPrice ? item.discountPrice : item.price
+            } ₽</div>
           </div>
         </div>
       </div>
@@ -100,7 +91,6 @@ const search = () => {
 
   const searchGoods = (data) => {
     let filteredData = [];
-    let placeFilter = "";
     input.addEventListener("input", () => {
       filteredData = data.filter((item) => {
         return placeFilter

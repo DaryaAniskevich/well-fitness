@@ -1,9 +1,5 @@
 const sign = () => {
-  const RED = "#f53b49";
-  const GRAY = "rgba(144,156,181,.3)";
-  const HIDE = "hide";
-
-  const openBtn = document.querySelectorAll(".sign-block__button");
+  const openBtns = document.querySelectorAll(".sign-block__button");
   const signModal = document.querySelector(".sign");
   const closeBtn = signModal.querySelector(".modal-button");
 
@@ -12,24 +8,21 @@ const sign = () => {
   const showRetoreBlockBtn = signModal.querySelector(
     ".sign-form__button_password"
   );
-  const restorePassworBlock = signModal.querySelector(".restore-password");
+  const restorePassworBlock = signModal.querySelector(".sign-restore-password");
   const restorePasswordBtn = signModal.querySelector(
     ".sign-form__button_restore"
   );
-
   const password = signModal.querySelector(
     ".sign-form__input[type='password']"
   );
   const email = signModal.querySelector(".sign-form__input[type='email']");
   const emailRestore = signModal.querySelector(".sign-form__input_restore");
-
   const showPasswordBtn = signModal.querySelector(
     ".sign-form__button_show-pswd"
   );
-
   const errorMessage = signModal.querySelector(".sign__error");
 
-  modal(signModal, openBtn, closeBtn);
+  modal(signModal, openBtns, closeBtn);
 
   const cleanInputs = (...inputs) => {
     inputs.forEach((input) => {
@@ -37,22 +30,22 @@ const sign = () => {
       input.style.borderColor = GRAY;
     });
   };
-  openBtn.forEach((btn) => {
+  openBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       cleanInputs(email, emailRestore, password);
 
-      errorMessage.classList.add(HIDE);
-      if (signInBlock.classList.contains(HIDE)) {
-        signInBlock.classList.remove(HIDE);
-        restorePassworBlock.classList.add(HIDE);
+      errorMessage.classList.add(hide);
+      if (signInBlock.classList.contains(hide)) {
+        signInBlock.classList.remove(hide);
+        restorePassworBlock.classList.add(hide);
       }
     });
   });
 
   showRetoreBlockBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    restorePassworBlock.classList.remove(HIDE);
-    signInBlock.classList.add(HIDE);
+    restorePassworBlock.classList.remove(hide);
+    signInBlock.classList.add(hide);
   });
 
   const validationMail = (email) => {
@@ -90,7 +83,7 @@ const sign = () => {
     if (!validationPassword(password.value)) {
       password.style.borderColor = RED;
     }
-    errorMessage.classList.remove(HIDE);
+    errorMessage.classList.remove(hide);
   });
 
   restorePasswordBtn.addEventListener("click", (e) => {
@@ -98,7 +91,7 @@ const sign = () => {
     if (!validationMail(emailRestore.value)) {
       emailRestore.style.borderColor = RED;
     }
-    errorMessage.classList.remove(HIDE);
+    errorMessage.classList.remove(hide);
   });
 
   password.addEventListener("click", () => (password.style.borderColor = GRAY));

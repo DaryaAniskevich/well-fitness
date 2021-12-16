@@ -1,7 +1,4 @@
 const renderCartFooter = () => {
-  const hide = "hide";
-  const modal_active = "modal_active";
-
   const modalCart = document.querySelector(".modal-cart");
   const cartFooter = modalCart.querySelector(".modal-cart-footer");
   const message = modalCart.querySelector(".modal-cart__message");
@@ -29,12 +26,8 @@ const renderCartFooter = () => {
     cartFooter.style.display = "flex";
     cartFooter.innerHTML = "";
     cartFooter.innerHTML = `
-      <a class="tab-footer__button button button_full-red" href="#">
-        Оформить заказ
-      </a>
-      <div class="tab-footer-price">
-        Итого <span class="tab-footer-price__sum">${getSum()} ₽</span>
-      </div>
+      <a class="tab-footer__button button button_full-red" href="#">Оформить заказ</a>
+      <div class="tab-footer-price">Итого <span class="tab-footer-price__sum">${getSum()} ₽</span></div>
     `;
 
     const buttonSend = modalCart.querySelector(".tab-footer__button");
@@ -43,5 +36,6 @@ const renderCartFooter = () => {
       resetCart();
     });
   };
+
   renderFooter();
 };

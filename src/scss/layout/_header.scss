@@ -86,6 +86,7 @@
     display: flex;
     align-items: center;
     margin-right: 25px;
+    z-index: 2;
     @include screen-max($medium) {
       display: none;
     }

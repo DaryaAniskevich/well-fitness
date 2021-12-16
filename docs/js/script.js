@@ -1,6 +1,9 @@
-const modal = (modal, openBtn, closeBtn) => {
-  const modal_active = "modal_active";
+const modal_active = "modal_active";
+const hide = "hide";
+const RED = "#f53b49";
+const GRAY = "rgba(144,156,181,.3)";
 
+const modal = (modal, openBtn, closeBtn) => {
   openBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
       modal.classList.add(modal_active);
@@ -22,9 +25,6 @@ const modal = (modal, openBtn, closeBtn) => {
 };
 
 const chooseCity = () => {
-  const modal_active = "modal_active";
-  const hide = "hide";
-
   const cityOpenBtn = document.querySelectorAll(".city-btn");
   const cityModal = document.querySelector(".modal-city");
   const cityCloseBtn = cityModal.querySelector(".modal-city-content-button");
@@ -36,13 +36,24 @@ const chooseCity = () => {
   const message = cityModal.querySelector(".modal-city-content__text_message");
   const cityInMessage = message.querySelector(".modal-city-content__text_city");
   const callButton = cityModal.querySelector(".callBack-btn");
+  const phoneButtonContent = document.querySelector(
+    ".header-phone-choosen__item"
+  );
+  const menuPhone = document.querySelector(".menu-catalog-phone__item");
 
   const clearModal = () => {
     inputCity.value = "";
     message.classList.add(hide);
   };
 
-  constSeacrhCity = (data) => {
+  const upperCaseCity = (item, separator) => {
+    item.textContent = inputCity.value
+      .split(separator)
+      .map((word) => word[0].toUpperCase() + word.substring(1))
+      .join(separator);
+  };
+
+  const seacrhCity = (data) => {
     searchCityBtn.addEventListener("click", (e) => {
       e.preventDefault();
       message.classList.add(hide);
@@ -50,20 +61,22 @@ const chooseCity = () => {
       if (newArray.includes(inputCity.value.toLowerCase())) {
         choosenCityName.forEach((item) => {
           if (inputCity.value.includes(" ")) {
-            item.textContent = inputCity.value
-              .split(" ")
-              .map((word) => word[0].toUpperCase() + word.substring(1))
-              .join(" ");
+            upperCaseCity(item, " ");
           } else if (inputCity.value.includes("-")) {
-            item.textContent = inputCity.value
-              .split("-")
-              .map((word) => word[0].toUpperCase() + word.substring(1))
-              .join("-");
+            upperCaseCity(item, "-");
           } else {
             item.textContent =
               inputCity.value[0].toUpperCase() + inputCity.value.slice(1);
           }
         });
+
+        if (inputCity.value.toLowerCase() !== "москва") {
+          phoneButtonContent.innerHTML = `<span class="header-phone-choosen__item_white">+7 (800) 000-00-00</span> регионы`;
+          menuPhone.textContent = "+7 (800) 000-00-00";
+        } else if (inputCity.value.toLowerCase() === "москва") {
+          phoneButtonContent.innerHTML = `<span class="header-phone-choosen__item_white">+7 (800) 999-00-00</span> МСК`;
+          menuPhone.textContent = "+7 (800) 999-00-00";
+        }
         clearModal();
         cityModal.classList.remove(modal_active);
       } else {
@@ -97,27 +110,27 @@ const chooseCity = () => {
     "https://wellfitness-a4db3-default-rtdb.europe-west1.firebasedatabase.app/db/cities.json"
   )
     .then((res) => res.json())
-    .then((res) => constSeacrhCity(res));
+    .then((res) => seacrhCity(res));
 };
 
 chooseCity();
 
 const phoneModal = () => {
-  const HIDE = "hide";
   const choosePhoneBtn = document.querySelector(".header-phone-choosen");
   const allPhonesBlock = document.querySelector(".header-phone-open");
   const selectedPhone = document.querySelectorAll(".header-phone-open__item");
+  const phoneButtonContent = choosePhoneBtn.querySelector(
+    ".header-phone-choosen__item"
+  );
 
   choosePhoneBtn.addEventListener("click", () => {
-    allPhonesBlock.classList.remove(HIDE);
+    allPhonesBlock.classList.remove(hide);
   });
 
   selectedPhone.forEach((item) => {
     item.addEventListener("click", () => {
-      allPhonesBlock.classList.add(HIDE);
-      choosePhoneBtn.querySelector(
-        ".header-phone-choosen__item"
-      ).innerHTML = `<span class="header-phone-choosen__item_white">${item.children[0].dataset.phone}</span> ${item.children[1].dataset.city}`;
+      allPhonesBlock.classList.add(hide);
+      phoneButtonContent.innerHTML = `<span class="header-phone-choosen__item_white">${item.children[0].dataset.phone}</span> ${item.children[1].dataset.city}`;
     });
   });
 };
@@ -125,11 +138,6 @@ const phoneModal = () => {
 phoneModal();
 
 const callRequest = () => {
-  const RED = "#f53b49";
-  const GRAY = `rgba(144,156,181,.5)`;
-  const HIDE = "hide";
-  const modal_active = "modal_active";
-
   const openBtn = document.querySelectorAll(".callBack-btn");
   const modalCall = document.querySelector(".modal-call");
   const closeBtn = modalCall.querySelector(".modal-call-content-button");
@@ -144,10 +152,26 @@ const callRequest = () => {
     ".modal-call-content-form__error"
   );
 
-  modal(modalCall, openBtn, closeBtn);
-
   let nameIsValid = true;
   let phoneIsValid = true;
+
+  modalCall.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("modal_active") ||
+      e.target.classList.contains("modal-wrapper") ||
+      e.target.classList.contains("modal-call-content-button") ||
+      e.target.classList.contains("modal-button__svg")
+    ) {
+      console.log("chekc");
+      successMessage.classList.add(hide);
+      nameIsValid = true;
+      phoneIsValid = true;
+      inputs.forEach((input) => (input.style.borderColor = GRAY));
+      errorMessage.classList.add(hide);
+    }
+  });
+
+  modal(modalCall, openBtn, closeBtn);
 
   const validText = (input) => {
     if (input.value.trim().length <= 1) {
@@ -161,8 +185,7 @@ const callRequest = () => {
     const valid = value.test(input.value);
     if (!valid) {
       input.style.borderColor = RED;
-
-      errorMessage.classList.remove(HIDE);
+      errorMessage.classList.remove(hide);
       phoneIsValid = false;
     }
   };
@@ -170,7 +193,7 @@ const callRequest = () => {
   const validation = (inputs) => {
     inputs.forEach((input) => {
       input.style.borderColor = GRAY;
-      errorMessage.classList.add(HIDE);
+      errorMessage.classList.add(hide);
       if (input.name === "name") {
         input.addEventListener("click", () => {
           input.style.borderColor = GRAY;
@@ -179,7 +202,7 @@ const callRequest = () => {
       } else if (input.name === "phone") {
         input.addEventListener("click", () => {
           input.style.borderColor = GRAY;
-          errorMessage.classList.add(HIDE);
+          errorMessage.classList.add(hide);
         });
         validPhone(input);
       }
@@ -191,10 +214,10 @@ const callRequest = () => {
     validation(inputs);
     if (nameIsValid && phoneIsValid) {
       inputs.forEach((input) => (input.value = ""));
-      successMessage.classList.remove(HIDE);
+      successMessage.classList.remove(hide);
       setTimeout(() => {
         modalCall.classList.remove(modal_active);
-        successMessage.classList.add(HIDE);
+        successMessage.classList.add(hide);
       }, 5000);
     }
     nameIsValid = true;
@@ -205,8 +228,6 @@ const callRequest = () => {
 callRequest();
 
 const catalogModal = () => {
-  const hide = "hide";
-  const modal_active = "modal_active";
   const active_btn = "modal-catalog-type__item_active";
 
   const openBtn = document.querySelector(".header-navigation-catalog__button");
@@ -286,9 +307,6 @@ const catalogModal = () => {
 catalogModal();
 
 const search = () => {
-  const modal_active = "modal_active";
-  const hide = "hide";
-
   const openBtn = document.querySelectorAll(".search-btn");
   const searchModal = document.querySelector(".search");
   const closeBtn = searchModal.querySelector(".search-form-button");
@@ -301,23 +319,19 @@ const search = () => {
     ".search-result-header-buttons__item"
   );
 
+  let placeFilter = "";
+
   modal(searchModal, openBtn, closeBtn);
 
   const clearSearch = () => {
     searchResult.innerHTML = "";
     input.value = "";
     numberOfGoods.innerHTML = "0 товаров";
+    placeFilter = "";
+    categoryButtons.forEach((button) => {
+      button.classList.remove("button_full-white");
+    });
   };
-
-  window.addEventListener("scroll", () => {
-    if (
-      searchModal.classList.contains(modal_active) &&
-      pageYOffset > searchModal.offsetHeight - 50
-    ) {
-      searchModal.classList.remove(modal_active);
-      clearSearch();
-    }
-  });
 
   searchModal.addEventListener("click", (e) => {
     if (
@@ -345,23 +359,21 @@ const search = () => {
       });
 
       div.innerHTML = `
-      <img
-        src="./images/db/${item.img}"
-        alt="${item.name}"
-        class="good-card__image good-card__image_search"
-      />
+      <img src="./images/db/${item.img}" alt="${
+        item.name
+      }" class="good-card__image good-card__image_search"/>
       <div class="good-card-description">
-        <h4 class="good-card__heading good-card__heading_search">
-        ${item.name}
-        </h4>
+        <h4 class="good-card__heading good-card__heading_search">${
+          item.name
+        }</h4>
         <div class="good-card-rating good-card-rating_search">Рейтинг ${'<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 0.5L7.91148 3.86908L11.7063 4.6459L9.09284 7.50492L9.52671 11.3541L6 9.752L2.47329 11.3541L2.90716 7.50492L0.293661 4.6459L4.08852 3.86908L6 0.5Z" fill="#F99808"/></svg>'.repeat(
           Math.round(item.raiting)
         )}</div>
         <div class="good-card-bottom">
           <div class="good-card-price">
-            <div class="good-card-price__item good-card-price__item_search">
-            ${item.discountPrice ? item.discountPrice : item.price} ₽
-            </div>
+            <div class="good-card-price__item good-card-price__item_search">${
+              item.discountPrice ? item.discountPrice : item.price
+            } ₽</div>
           </div>
         </div>
       </div>
@@ -387,7 +399,6 @@ const search = () => {
 
   const searchGoods = (data) => {
     let filteredData = [];
-    let placeFilter = "";
     input.addEventListener("input", () => {
       filteredData = data.filter((item) => {
         return placeFilter
@@ -434,7 +445,6 @@ const search = () => {
 search();
 
 const tabs = () => {
-  const modal_active = "modal_active";
   const button_active = "header-navigation-buttons-item__img_active";
 
   const openCart = document.querySelector(
@@ -498,17 +508,7 @@ const tabs = () => {
 
 tabs();
 
-const comparison = () => {};
-
-comparison();
-
-const favorite = () => {};
-
-favorite();
-
 const menu = () => {
-  const HIDE = "hide";
-
   const openBtn = document.querySelector(".header-top-menu");
   const menu = document.querySelector(".menu");
   const closeBtn = menu.querySelectorAll(".menu-close");
@@ -524,44 +524,44 @@ const menu = () => {
   const backBtn = menu.querySelectorAll(".button-back");
 
   openBtn.addEventListener("click", () => {
-    if (!search.classList.contains(HIDE)) {
-      search.classList.add(HIDE);
+    if (!search.classList.contains(hide)) {
+      search.classList.add(hide);
     }
-    mainWIndow.classList.remove(HIDE);
-    menu.classList.remove(HIDE);
+    mainWIndow.classList.remove(hide);
+    menu.classList.remove(hide);
   });
 
   closeBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
-      if (!homeWindow.classList.contains(HIDE)) {
-        homeWindow.classList.add(HIDE);
+      if (!homeWindow.classList.contains(hide)) {
+        homeWindow.classList.add(hide);
       }
-      if (!clubsWindow.classList.contains(HIDE)) {
-        clubsWindow.classList.add(HIDE);
+      if (!clubsWindow.classList.contains(hide)) {
+        clubsWindow.classList.add(hide);
       }
-      menu.classList.add(HIDE);
+      menu.classList.add(hide);
     });
   });
 
   homeCatalogBtn.addEventListener("click", () => {
-    mainWIndow.classList.add(HIDE);
-    homeWindow.classList.remove(HIDE);
+    mainWIndow.classList.add(hide);
+    homeWindow.classList.remove(hide);
   });
 
   clubsCatalogBtn.addEventListener("click", () => {
-    mainWIndow.classList.add(HIDE);
-    clubsWindow.classList.remove(HIDE);
+    mainWIndow.classList.add(hide);
+    clubsWindow.classList.remove(hide);
   });
 
   backBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
       if (btn.dataset.back === "home") {
-        homeWindow.classList.add(HIDE);
+        homeWindow.classList.add(hide);
       }
       if (btn.dataset.back === "clubs") {
-        clubsWindow.classList.add(HIDE);
+        clubsWindow.classList.add(hide);
       }
-      mainWIndow.classList.remove(HIDE);
+      mainWIndow.classList.remove(hide);
     });
   });
 };
@@ -569,11 +569,7 @@ const menu = () => {
 menu();
 
 const sign = () => {
-  const RED = "#f53b49";
-  const GRAY = "rgba(144,156,181,.3)";
-  const HIDE = "hide";
-
-  const openBtn = document.querySelectorAll(".sign-block__button");
+  const openBtns = document.querySelectorAll(".sign-block__button");
   const signModal = document.querySelector(".sign");
   const closeBtn = signModal.querySelector(".modal-button");
 
@@ -582,24 +578,21 @@ const sign = () => {
   const showRetoreBlockBtn = signModal.querySelector(
     ".sign-form__button_password"
   );
-  const restorePassworBlock = signModal.querySelector(".restore-password");
+  const restorePassworBlock = signModal.querySelector(".sign-restore-password");
   const restorePasswordBtn = signModal.querySelector(
     ".sign-form__button_restore"
   );
-
   const password = signModal.querySelector(
     ".sign-form__input[type='password']"
   );
   const email = signModal.querySelector(".sign-form__input[type='email']");
   const emailRestore = signModal.querySelector(".sign-form__input_restore");
-
   const showPasswordBtn = signModal.querySelector(
     ".sign-form__button_show-pswd"
   );
-
   const errorMessage = signModal.querySelector(".sign__error");
 
-  modal(signModal, openBtn, closeBtn);
+  modal(signModal, openBtns, closeBtn);
 
   const cleanInputs = (...inputs) => {
     inputs.forEach((input) => {
@@ -607,22 +600,22 @@ const sign = () => {
       input.style.borderColor = GRAY;
     });
   };
-  openBtn.forEach((btn) => {
+  openBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       cleanInputs(email, emailRestore, password);
 
-      errorMessage.classList.add(HIDE);
-      if (signInBlock.classList.contains(HIDE)) {
-        signInBlock.classList.remove(HIDE);
-        restorePassworBlock.classList.add(HIDE);
+      errorMessage.classList.add(hide);
+      if (signInBlock.classList.contains(hide)) {
+        signInBlock.classList.remove(hide);
+        restorePassworBlock.classList.add(hide);
       }
     });
   });
 
   showRetoreBlockBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    restorePassworBlock.classList.remove(HIDE);
-    signInBlock.classList.add(HIDE);
+    restorePassworBlock.classList.remove(hide);
+    signInBlock.classList.add(hide);
   });
 
   const validationMail = (email) => {
@@ -660,7 +653,7 @@ const sign = () => {
     if (!validationPassword(password.value)) {
       password.style.borderColor = RED;
     }
-    errorMessage.classList.remove(HIDE);
+    errorMessage.classList.remove(hide);
   });
 
   restorePasswordBtn.addEventListener("click", (e) => {
@@ -668,7 +661,7 @@ const sign = () => {
     if (!validationMail(emailRestore.value)) {
       emailRestore.style.borderColor = RED;
     }
-    errorMessage.classList.remove(HIDE);
+    errorMessage.classList.remove(hide);
   });
 
   password.addEventListener("click", () => (password.style.borderColor = GRAY));
@@ -929,6 +922,7 @@ const clubs = () => {
 clubs();
 
 const brands = () => {
+  const active_button = "brands-buttons__item_active";
   const brandsBlock = document.querySelector(".brands-cards");
   const brandsButtons = document.querySelectorAll(".brands-buttons__item");
 
@@ -958,19 +952,19 @@ const brands = () => {
       .then((res) => renderCards(res));
   };
 
-  brandsButtons.forEach((button, index) => {
+  brandsButtons.forEach((button) => {
     button.addEventListener("click", () => {
       brandsButtons.forEach((button) => {
-        button.classList.remove("brands-buttons__item_active");
+        button.classList.remove(active_button);
       });
       brandsBlock.innerHTML = "";
-      button.classList.add("brands-buttons__item_active");
+      button.classList.add(active_button);
       category = button.dataset.brand;
       getData(category);
     });
   });
 
-  getData("all");
+  getData(category);
 };
 
 brands();
@@ -986,18 +980,13 @@ const news = () => {
         div.classList.add("news-cards__item", "news-card");
         div.setAttribute("data-href", href);
 
-        div.innerHTML = `<img src="./images/db/${img}" alt="${title}" class="news-card__img" />
-    <div class="news-card-content">
-      <h4 class="news-card__heading">
-        ${title}
-      </h4>
-      <p class="news-card__paragraf">
-        ${description}
-      </p>
-      <p class="news-card__paragraf news-card__paragraf_light">
-        ${date}
-      </p>
-      </div>`;
+        div.innerHTML = `
+        <img src="./images/db/${img}" alt="${title}" class="news-card__img" />
+        <div class="news-card-content">
+          <h4 class="news-card__heading">${title}</h4>
+          <p class="news-card__paragraf">${description}</p>
+          <p class="news-card__paragraf news-card__paragraf_light">${date}</p>
+        </div>`;
 
         div.addEventListener("click", () => {
           window.location.href = div.dataset.href;
@@ -1036,17 +1025,11 @@ const catalogRender = (data, container) => {
     categoryBlock.classList.add("modal-catalog-category-name");
 
     categories.forEach((category) => {
-      categoryBlock.innerHTML += `<div
-        class="
-          modal-catalog-category-name__item
-        " data-category="${category}"
-      >
-        ${category}
-        <span class="modal-catalog-category-name__item_arrow">
-          &#8594;</span
-        >
-      </div>`;
-
+      categoryBlock.innerHTML += `
+        <div class="modal-catalog-category-name__item" data-category="${category}">
+          ${category}
+          <span class="modal-catalog-category-name__item_arrow">&#8594;</span>
+        </div>`;
       block.append(categoryBlock);
     });
   };
@@ -1054,11 +1037,7 @@ const catalogRender = (data, container) => {
   const renderSubcategories = (block, subcategory, href, img) => {
     block.innerHTML += `
       <div class="modal-catalog-category-subcategory-item" data-href=${href}>
-        <img
-          src="./images/db/${img}"
-          alt="${subcategory}"
-          class="modal-catalog-category-subcategory-item__img"
-        />
+        <img src="./images/db/${img}" alt="${subcategory}" class="modal-catalog-category-subcategory-item__img"/>
         <div class="modal-catalog-category-subcategory-item__title">
          ${subcategory}
         </div>
@@ -1174,27 +1153,13 @@ const renderCartItems = (data) => {
     const cartElem = document.createElement("div");
     cartElem.classList.add("tab-goods-item");
     cartElem.innerHTML = `
-    <img src="./images/db/${img}" class="tab-goods-item__img" alt="${name}" />
-        <div class="tab-goods-item__name">
-          ${name}
-        </div>
+        <img src="./images/db/${img}" class="tab-goods-item__img" alt="${name}" />
+        <div class="tab-goods-item__name">${name}</div>
         <div class="tab-goods-item-count">
           <div class="tab-goods-item-count-buttons">
-            <button
-              class="
-                tab-goods-item-count-buttons__item
-                tab-goods-item-count-buttons__item_dec
-                button button_round button_red
-              " data-index="${id}"
-            > - </button>
+            <button class="tab-goods-item-count-buttons__item tab-goods-item-count-buttons__item_dec button button_round button_red" data-index="${id}"> - </button>
             <span class="tab-goods-item-count__number">${count}</span>
-            <button
-              class="
-                tab-goods-item-count-buttons__item
-                tab-goods-item-count-buttons__item_inc
-                button button_round button_red
-              " data-index="${id}"
-            > + </button>
+            <button class="tab-goods-item-count-buttons__item tab-goods-item-count-buttons__item_inc button button_round button_red" data-index="${id}"> + </button>
           </div>
           <div class="tab-goods-item__price">${price * count} ₽</div>
         </div>
@@ -1220,9 +1185,6 @@ const renderCartItems = (data) => {
 };
 
 const renderCartFooter = () => {
-  const hide = "hide";
-  const modal_active = "modal_active";
-
   const modalCart = document.querySelector(".modal-cart");
   const cartFooter = modalCart.querySelector(".modal-cart-footer");
   const message = modalCart.querySelector(".modal-cart__message");
@@ -1250,12 +1212,8 @@ const renderCartFooter = () => {
     cartFooter.style.display = "flex";
     cartFooter.innerHTML = "";
     cartFooter.innerHTML = `
-      <a class="tab-footer__button button button_full-red" href="#">
-        Оформить заказ
-      </a>
-      <div class="tab-footer-price">
-        Итого <span class="tab-footer-price__sum">${getSum()} ₽</span>
-      </div>
+      <a class="tab-footer__button button button_full-red" href="#">Оформить заказ</a>
+      <div class="tab-footer-price">Итого <span class="tab-footer-price__sum">${getSum()} ₽</span></div>
     `;
 
     const buttonSend = modalCart.querySelector(".tab-footer__button");
@@ -1264,6 +1222,7 @@ const renderCartFooter = () => {
       resetCart();
     });
   };
+
   renderFooter();
 };
 
@@ -1271,6 +1230,7 @@ const addToCart = (cartItem) => {
   const positionsArray = localStorage.getItem("cart")
     ? JSON.parse(localStorage.getItem("cart"))
     : [];
+
   if (positionsArray.some((item) => item.id === cartItem.id)) {
     positionsArray.map((item) => {
       if (item.id === cartItem.id) {
@@ -1281,6 +1241,7 @@ const addToCart = (cartItem) => {
   } else {
     positionsArray.push(cartItem);
   }
+
   localStorage.removeItem("cart");
   localStorage.setItem("cart", JSON.stringify(positionsArray));
 };
@@ -1289,9 +1250,11 @@ const addToTabs = (tabItem, localStorageItem) => {
   const positionsArray = localStorage.getItem(localStorageItem)
     ? JSON.parse(localStorage.getItem(localStorageItem))
     : [];
+
   if (!positionsArray.some((item) => item.id === tabItem.id)) {
     positionsArray.push(tabItem);
   }
+
   localStorage.removeItem(localStorageItem);
   localStorage.setItem(localStorageItem, JSON.stringify(positionsArray));
 };
@@ -1310,9 +1273,7 @@ const renderTabsItems = (data, block) => {
     element.classList.add("tab-goods-item");
     element.innerHTML = `
     <img src="./images/db/${img}" class="tab-goods-item__img" alt="${name}" />
-    <div class="tab-goods-item__name">
-    ${name}
-    </div>
+    <div class="tab-goods-item__name">${name}</div>
     <div class="tab-goods-item__price">${price} ₽</div>
     <button class="tab-goods-item-button button button_unbordered data-index="${id}">
       <svg
@@ -1957,8 +1918,9 @@ const fillCart = () => {
 
   if (JSON.parse(localStorage.getItem("cart"))) {
     renderCartItems(JSON.parse(localStorage.getItem("cart")));
-
-    renderCartFooter();
+    if (JSON.parse(localStorage.getItem("cart")).length > 0) {
+      renderCartFooter();
+    }
   }
 
   numberInCart.innerHTML = JSON.parse(localStorage.getItem("cart"))

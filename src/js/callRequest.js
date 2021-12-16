@@ -1,9 +1,4 @@
 const callRequest = () => {
-  const RED = "#f53b49";
-  const GRAY = `rgba(144,156,181,.5)`;
-  const HIDE = "hide";
-  const modal_active = "modal_active";
-
   const openBtn = document.querySelectorAll(".callBack-btn");
   const modalCall = document.querySelector(".modal-call");
   const closeBtn = modalCall.querySelector(".modal-call-content-button");
@@ -18,10 +13,26 @@ const callRequest = () => {
     ".modal-call-content-form__error"
   );
 
-  modal(modalCall, openBtn, closeBtn);
-
   let nameIsValid = true;
   let phoneIsValid = true;
+
+  modalCall.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("modal_active") ||
+      e.target.classList.contains("modal-wrapper") ||
+      e.target.classList.contains("modal-call-content-button") ||
+      e.target.classList.contains("modal-button__svg")
+    ) {
+      console.log("chekc");
+      successMessage.classList.add(hide);
+      nameIsValid = true;
+      phoneIsValid = true;
+      inputs.forEach((input) => (input.style.borderColor = GRAY));
+      errorMessage.classList.add(hide);
+    }
+  });
+
+  modal(modalCall, openBtn, closeBtn);
 
   const validText = (input) => {
     if (input.value.trim().length <= 1) {
@@ -35,8 +46,7 @@ const callRequest = () => {
     const valid = value.test(input.value);
     if (!valid) {
       input.style.borderColor = RED;
-
-      errorMessage.classList.remove(HIDE);
+      errorMessage.classList.remove(hide);
       phoneIsValid = false;
     }
   };
@@ -44,7 +54,7 @@ const callRequest = () => {
   const validation = (inputs) => {
     inputs.forEach((input) => {
       input.style.borderColor = GRAY;
-      errorMessage.classList.add(HIDE);
+      errorMessage.classList.add(hide);
       if (input.name === "name") {
         input.addEventListener("click", () => {
           input.style.borderColor = GRAY;
@@ -53,7 +63,7 @@ const callRequest = () => {
       } else if (input.name === "phone") {
         input.addEventListener("click", () => {
           input.style.borderColor = GRAY;
-          errorMessage.classList.add(HIDE);
+          errorMessage.classList.add(hide);
         });
         validPhone(input);
       }
@@ -65,10 +75,10 @@ const callRequest = () => {
     validation(inputs);
     if (nameIsValid && phoneIsValid) {
       inputs.forEach((input) => (input.value = ""));
-      successMessage.classList.remove(HIDE);
+      successMessage.classList.remove(hide);
       setTimeout(() => {
         modalCall.classList.remove(modal_active);
-        successMessage.classList.add(HIDE);
+        successMessage.classList.add(hide);
       }, 5000);
     }
     nameIsValid = true;

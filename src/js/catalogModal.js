@@ -1,6 +1,4 @@
 const catalogModal = () => {
-  const hide = "hide";
-  const modal_active = "modal_active";
   const active_btn = "modal-catalog-type__item_active";
 
   const openBtn = document.querySelector(".header-navigation-catalog__button");

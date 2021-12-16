@@ -102,6 +102,7 @@
     align-items: center;
     width: 460px;
     position: relative;
+    margin: 0 auto;
     @include screen-max($medium) {
       width: 400px;
     }
@@ -122,7 +123,6 @@
     }
     &__button {
       margin-bottom: 12px;
-      width: 180px;
       @include screen-max($small) {
         margin-bottom: 10px;
       }

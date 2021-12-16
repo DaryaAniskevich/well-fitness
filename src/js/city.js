@@ -1,7 +1,4 @@
 const chooseCity = () => {
-  const modal_active = "modal_active";
-  const hide = "hide";
-
   const cityOpenBtn = document.querySelectorAll(".city-btn");
   const cityModal = document.querySelector(".modal-city");
   const cityCloseBtn = cityModal.querySelector(".modal-city-content-button");
@@ -13,13 +10,24 @@ const chooseCity = () => {
   const message = cityModal.querySelector(".modal-city-content__text_message");
   const cityInMessage = message.querySelector(".modal-city-content__text_city");
   const callButton = cityModal.querySelector(".callBack-btn");
+  const phoneButtonContent = document.querySelector(
+    ".header-phone-choosen__item"
+  );
+  const menuPhone = document.querySelector(".menu-catalog-phone__item");
 
   const clearModal = () => {
     inputCity.value = "";
     message.classList.add(hide);
   };
 
-  constSeacrhCity = (data) => {
+  const upperCaseCity = (item, separator) => {
+    item.textContent = inputCity.value
+      .split(separator)
+      .map((word) => word[0].toUpperCase() + word.substring(1))
+      .join(separator);
+  };
+
+  const seacrhCity = (data) => {
     searchCityBtn.addEventListener("click", (e) => {
       e.preventDefault();
       message.classList.add(hide);
@@ -27,20 +35,22 @@ const chooseCity = () => {
       if (newArray.includes(inputCity.value.toLowerCase())) {
         choosenCityName.forEach((item) => {
           if (inputCity.value.includes(" ")) {
-            item.textContent = inputCity.value
-              .split(" ")
-              .map((word) => word[0].toUpperCase() + word.substring(1))
-              .join(" ");
+            upperCaseCity(item, " ");
           } else if (inputCity.value.includes("-")) {
-            item.textContent = inputCity.value
-              .split("-")
-              .map((word) => word[0].toUpperCase() + word.substring(1))
-              .join("-");
+            upperCaseCity(item, "-");
           } else {
             item.textContent =
               inputCity.value[0].toUpperCase() + inputCity.value.slice(1);
           }
         });
+
+        if (inputCity.value.toLowerCase() !== "москва") {
+          phoneButtonContent.innerHTML = `<span class="header-phone-choosen__item_white">+7 (800) 000-00-00</span> регионы`;
+          menuPhone.textContent = "+7 (800) 000-00-00";
+        } else if (inputCity.value.toLowerCase() === "москва") {
+          phoneButtonContent.innerHTML = `<span class="header-phone-choosen__item_white">+7 (800) 999-00-00</span> МСК`;
+          menuPhone.textContent = "+7 (800) 999-00-00";
+        }
         clearModal();
         cityModal.classList.remove(modal_active);
       } else {
@@ -74,7 +84,7 @@ const chooseCity = () => {
     "https://wellfitness-a4db3-default-rtdb.europe-west1.firebasedatabase.app/db/cities.json"
   )
     .then((res) => res.json())
-    .then((res) => constSeacrhCity(res));
+    .then((res) => seacrhCity(res));
 };
 
 chooseCity();
