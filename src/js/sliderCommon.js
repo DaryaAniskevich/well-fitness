@@ -41,20 +41,14 @@ const sliderCommon = (slidesWrapper, prevBtn, nextBtn, elNumber) => {
     } else if (elNumber === 10) {
       if (
         (screen.width > 1300 && count === 5) ||
-        (screen.width > 970 && screen.width < 1300 && count === 7) ||
-        (screen.width > 559 && screen.width < 970 && count === 5) ||
-        (screen.width <= 559 && count === 10) ||
-        (screen.width === 320 && count === 11)
+        (screen.width > 970 && screen.width < 1300 && count === 7)
       ) {
         nextBtn.classList.add(hide);
       }
 
       if (
         (screen.width > 1300 && count === 6) ||
-        (screen.width > 970 && screen.width < 1300 && count === 8) ||
-        (screen.width > 559 && screen.width < 970 && count === 6) ||
-        (screen.width <= 559 && count === 11) ||
-        (screen.width === 320 && count === 12)
+        (screen.width > 970 && screen.width < 1300 && count === 8)
       ) {
         count = 0;
       }
@@ -75,20 +69,13 @@ const sliderCommon = (slidesWrapper, prevBtn, nextBtn, elNumber) => {
     }
 
     if (elNumber === 6) {
-      if (
-        (screen.width > 970 && count < 2) ||
-        (screen.width > 559 && screen.width < 970 && count < 3) ||
-        (screen.width <= 559 && count < 7)
-      ) {
+      if (screen.width > 970 && count < 2) {
         nextBtn.classList.remove(hide);
       }
     } else if (elNumber === 10) {
       if (
-        (screen.width > 1300 && count === 6) ||
-        (screen.width > 970 && screen.width < 1300 && count < 7) ||
-        (screen.width > 559 && screen.width < 970 && count < 6) ||
-        (screen.width <= 559 && count < 11) ||
-        (screen.width === 320 && count === 12)
+        (screen.width > 1300 && count < 5) ||
+        (screen.width > 970 && screen.width < 1300 && count < 7)
       ) {
         nextBtn.classList.remove(hide);
       }

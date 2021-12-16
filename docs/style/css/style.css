@@ -1726,10 +1726,17 @@ a:hover {
 
 .modal-city-content__text {
   color: #858fa4;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 .modal-city-content__text_red {
   color: #f53b49;
+}
+
+.modal-city-content__text_message {
+  margin-top: 10px;
+  text-align: center;
 }
 
 .search {
@@ -3937,10 +3944,13 @@ a:hover {
     padding: 27px 16px 27px 20px;
     border-radius: 0;
     height: 100vh;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .modal-city-content-form {
-    width: 280px;
+    width: 100%;
   }
 
   .modal-city-content-form__input {

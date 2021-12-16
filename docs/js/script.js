@@ -22,6 +22,7 @@ const modal = (modal, openBtn, closeBtn) => {
 
 const chooseCity = () => {
   const modal_active = "modal_active";
+  const hide = "hide";
 
   const cityOpenBtn = document.querySelectorAll(".city-btn");
   const cityModal = document.querySelector(".modal-city");
@@ -31,16 +32,56 @@ const chooseCity = () => {
   );
   const inputCity = cityModal.querySelector(".modal-city-content-form__input");
   const choosenCityName = document.querySelector(".header-city__item");
+  const message = cityModal.querySelector(".modal-city-content__text_message");
+  const cityInMessage = message.querySelector(".modal-city-content__text_city");
+  const callButton = cityModal.querySelector(".callBack-btn");
+
+  const clearModal = () => {
+    inputCity.value = "";
+    message.classList.add(hide);
+  };
+
+  constSeacrhCity = (data) => {
+    searchCityBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      message.classList.add(hide);
+      const newArray = data.map((item) => item.toLowerCase());
+      if (newArray.includes(inputCity.value.toLowerCase())) {
+        choosenCityName.textContent = inputCity.value;
+        clearModal();
+        cityModal.classList.remove(modal_active);
+      } else {
+        cityInMessage.innerHTML = inputCity.value;
+        message.classList.remove(hide);
+      }
+    });
+  };
 
   modal(cityModal, cityOpenBtn, cityCloseBtn);
-  searchCityBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (inputCity.value.trim()) {
-      choosenCityName.textContent = inputCity.value;
-      cityModal.classList.remove(modal_active);
-      inputCity.value = "";
+
+  cityCloseBtn.addEventListener("click", () => {
+    clearModal();
+  });
+
+  callButton.addEventListener("click", () => {
+    cityModal.classList.remove(modal_active);
+    clearModal();
+  });
+
+  cityModal.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains(modal_active) ||
+      e.target.classList.contains("modal-wrapper")
+    ) {
+      clearModal();
     }
   });
+
+  fetch(
+    "https://wellfitness-a4db3-default-rtdb.europe-west1.firebasedatabase.app/db/cities.json"
+  )
+    .then((res) => res.json())
+    .then((res) => constSeacrhCity(res));
 };
 
 chooseCity();
@@ -172,6 +213,7 @@ const catalogModal = () => {
     searchBlock.classList.add(hide);
     categoryClubs.classList.add(hide);
     categoryHome.classList.remove(hide);
+    homeCategoryBtn.classList.add("modal-catalog-type__item_active");
     catalogBlock.classList.toggle(modal_active);
   });
 
@@ -1416,7 +1458,7 @@ const discount = () => {
         id,
         img,
         name,
-        label,
+        keywords,
         description,
         price,
         discountPrice,
@@ -1431,86 +1473,84 @@ const discount = () => {
         raiting,
       } = item;
 
-      if (discountBlock.childNodes.length < 10) {
-        if (discount) {
-          renderCard(
-            discountBlock,
-            id,
-            discount,
-            choice,
-            neww,
-            img,
-            availibility,
-            name,
-            raiting,
-            price,
-            discountPrice,
-            href
-          );
+      if (discount) {
+        renderCard(
+          discountBlock,
+          id,
+          discount,
+          choice,
+          neww,
+          img,
+          availibility,
+          name,
+          raiting,
+          price,
+          discountPrice,
+          href
+        );
 
-          filterBtns.forEach((btn) => {
-            btn.addEventListener("click", () => {
-              filterBtns.forEach((btn) => btn.classList.remove(active_btn));
-              if (btn.dataset.filter === "new") {
-                btn.classList.add(active_btn);
-                if (discount && neww) {
-                  renderCard(
-                    discountBlock,
-                    id,
-                    discount,
-                    choice,
-                    neww,
-                    img,
-                    availibility,
-                    name,
-                    raiting,
-                    price,
-                    discountPrice,
-                    href
-                  );
-                }
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            filterBtns.forEach((btn) => btn.classList.remove(active_btn));
+            if (btn.dataset.filter === "new") {
+              btn.classList.add(active_btn);
+              if (discount && neww) {
+                renderCard(
+                  discountBlock,
+                  id,
+                  discount,
+                  choice,
+                  neww,
+                  img,
+                  availibility,
+                  name,
+                  raiting,
+                  price,
+                  discountPrice,
+                  href
+                );
               }
-              if (btn.dataset.filter === "recommendation") {
-                btn.classList.add(active_btn);
-                if (discount && choice) {
-                  renderCard(
-                    discountBlock,
-                    id,
-                    discount,
-                    choice,
-                    neww,
-                    img,
-                    availibility,
-                    name,
-                    raiting,
-                    price,
-                    discountPrice,
-                    href
-                  );
-                }
+            }
+            if (btn.dataset.filter === "recommendation") {
+              btn.classList.add(active_btn);
+              if (discount && choice) {
+                renderCard(
+                  discountBlock,
+                  id,
+                  discount,
+                  choice,
+                  neww,
+                  img,
+                  availibility,
+                  name,
+                  raiting,
+                  price,
+                  discountPrice,
+                  href
+                );
               }
-              if (btn.dataset.filter === "all") {
-                btn.classList.add(active_btn);
-                if (discount) {
-                  renderCard(
-                    discountBlock,
-                    id,
-                    discount,
-                    choice,
-                    neww,
-                    img,
-                    availibility,
-                    name,
-                    raiting,
-                    price,
-                    discountPrice,
-                    href
-                  );
-                }
+            }
+            if (btn.dataset.filter === "all") {
+              btn.classList.add(active_btn);
+              if (discount) {
+                renderCard(
+                  discountBlock,
+                  id,
+                  discount,
+                  choice,
+                  neww,
+                  img,
+                  availibility,
+                  name,
+                  raiting,
+                  price,
+                  discountPrice,
+                  href
+                );
               }
-            });
+            }
           });
-        }
+        });
       }
     });
   };
@@ -1567,20 +1607,14 @@ const sliderCommon = (slidesWrapper, prevBtn, nextBtn, elNumber) => {
     } else if (elNumber === 10) {
       if (
         (screen.width > 1300 && count === 5) ||
-        (screen.width > 970 && screen.width < 1300 && count === 7) ||
-        (screen.width > 559 && screen.width < 970 && count === 5) ||
-        (screen.width <= 559 && count === 10) ||
-        (screen.width === 320 && count === 11)
+        (screen.width > 970 && screen.width < 1300 && count === 7)
       ) {
         nextBtn.classList.add(hide);
       }
 
       if (
         (screen.width > 1300 && count === 6) ||
-        (screen.width > 970 && screen.width < 1300 && count === 8) ||
-        (screen.width > 559 && screen.width < 970 && count === 6) ||
-        (screen.width <= 559 && count === 11) ||
-        (screen.width === 320 && count === 12)
+        (screen.width > 970 && screen.width < 1300 && count === 8)
       ) {
         count = 0;
       }
@@ -1601,20 +1635,13 @@ const sliderCommon = (slidesWrapper, prevBtn, nextBtn, elNumber) => {
     }
 
     if (elNumber === 6) {
-      if (
-        (screen.width > 970 && count < 2) ||
-        (screen.width > 559 && screen.width < 970 && count < 3) ||
-        (screen.width <= 559 && count < 7)
-      ) {
+      if (screen.width > 970 && count < 2) {
         nextBtn.classList.remove(hide);
       }
     } else if (elNumber === 10) {
       if (
-        (screen.width > 1300 && count === 6) ||
-        (screen.width > 970 && screen.width < 1300 && count < 7) ||
-        (screen.width > 559 && screen.width < 970 && count < 6) ||
-        (screen.width <= 559 && count < 11) ||
-        (screen.width === 320 && count === 12)
+        (screen.width > 1300 && count < 5) ||
+        (screen.width > 970 && screen.width < 1300 && count < 7)
       ) {
         nextBtn.classList.remove(hide);
       }
@@ -1907,3 +1934,4 @@ fillTabs(
   "comparison",
   "Для сравнения пока ничего нет..."
 );
+

@@ -250,7 +250,7 @@ const discount = () => {
         id,
         img,
         name,
-        label,
+        keywords,
         description,
         price,
         discountPrice,
@@ -265,86 +265,84 @@ const discount = () => {
         raiting,
       } = item;
 
-      if (discountBlock.childNodes.length < 10) {
-        if (discount) {
-          renderCard(
-            discountBlock,
-            id,
-            discount,
-            choice,
-            neww,
-            img,
-            availibility,
-            name,
-            raiting,
-            price,
-            discountPrice,
-            href
-          );
+      if (discount) {
+        renderCard(
+          discountBlock,
+          id,
+          discount,
+          choice,
+          neww,
+          img,
+          availibility,
+          name,
+          raiting,
+          price,
+          discountPrice,
+          href
+        );
 
-          filterBtns.forEach((btn) => {
-            btn.addEventListener("click", () => {
-              filterBtns.forEach((btn) => btn.classList.remove(active_btn));
-              if (btn.dataset.filter === "new") {
-                btn.classList.add(active_btn);
-                if (discount && neww) {
-                  renderCard(
-                    discountBlock,
-                    id,
-                    discount,
-                    choice,
-                    neww,
-                    img,
-                    availibility,
-                    name,
-                    raiting,
-                    price,
-                    discountPrice,
-                    href
-                  );
-                }
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            filterBtns.forEach((btn) => btn.classList.remove(active_btn));
+            if (btn.dataset.filter === "new") {
+              btn.classList.add(active_btn);
+              if (discount && neww) {
+                renderCard(
+                  discountBlock,
+                  id,
+                  discount,
+                  choice,
+                  neww,
+                  img,
+                  availibility,
+                  name,
+                  raiting,
+                  price,
+                  discountPrice,
+                  href
+                );
               }
-              if (btn.dataset.filter === "recommendation") {
-                btn.classList.add(active_btn);
-                if (discount && choice) {
-                  renderCard(
-                    discountBlock,
-                    id,
-                    discount,
-                    choice,
-                    neww,
-                    img,
-                    availibility,
-                    name,
-                    raiting,
-                    price,
-                    discountPrice,
-                    href
-                  );
-                }
+            }
+            if (btn.dataset.filter === "recommendation") {
+              btn.classList.add(active_btn);
+              if (discount && choice) {
+                renderCard(
+                  discountBlock,
+                  id,
+                  discount,
+                  choice,
+                  neww,
+                  img,
+                  availibility,
+                  name,
+                  raiting,
+                  price,
+                  discountPrice,
+                  href
+                );
               }
-              if (btn.dataset.filter === "all") {
-                btn.classList.add(active_btn);
-                if (discount) {
-                  renderCard(
-                    discountBlock,
-                    id,
-                    discount,
-                    choice,
-                    neww,
-                    img,
-                    availibility,
-                    name,
-                    raiting,
-                    price,
-                    discountPrice,
-                    href
-                  );
-                }
+            }
+            if (btn.dataset.filter === "all") {
+              btn.classList.add(active_btn);
+              if (discount) {
+                renderCard(
+                  discountBlock,
+                  id,
+                  discount,
+                  choice,
+                  neww,
+                  img,
+                  availibility,
+                  name,
+                  raiting,
+                  price,
+                  discountPrice,
+                  href
+                );
               }
-            });
+            }
           });
-        }
+        });
       }
     });
   };

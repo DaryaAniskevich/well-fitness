@@ -23,6 +23,7 @@ const catalogModal = () => {
     searchBlock.classList.add(hide);
     categoryClubs.classList.add(hide);
     categoryHome.classList.remove(hide);
+    homeCategoryBtn.classList.add("modal-catalog-type__item_active");
     catalogBlock.classList.toggle(modal_active);
   });
 
