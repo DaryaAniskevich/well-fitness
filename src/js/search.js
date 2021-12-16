@@ -1,5 +1,7 @@
 const search = () => {
   const modal_active = "modal_active";
+  const hide = "hide";
+
   const openBtn = document.querySelectorAll(".search-btn");
   const searchModal = document.querySelector(".search");
   const closeBtn = searchModal.querySelector(".search-form-button");
@@ -8,15 +10,36 @@ const search = () => {
     ".search-result-header__number"
   );
   const searchResult = searchModal.querySelector(".search-result-main");
+  const categoryButtons = searchModal.querySelectorAll(
+    ".search-result-header-buttons__item"
+  );
 
   modal(searchModal, openBtn, closeBtn);
 
+  const clearSearch = () => {
+    searchResult.innerHTML = "";
+    input.value = "";
+    numberOfGoods.innerHTML = "0 товаров";
+  };
+
   window.addEventListener("scroll", () => {
     if (
-      searchBlock.classList.contains(modal_active) &&
-      pageYOffset > searchBlock.offsetHeight - 50
+      searchModal.classList.contains(modal_active) &&
+      pageYOffset > searchModal.offsetHeight - 50
     ) {
-      searchBlock.classList.remove(modal_active);
+      searchModal.classList.remove(modal_active);
+      clearSearch();
+    }
+  });
+
+  searchModal.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("search-form-button") ||
+      e.target.classList.contains("search-form-button__svg") ||
+      e.target.classList.contains(modal_active) ||
+      e.target.classList.contains("modal-wrapper")
+    ) {
+      clearSearch();
     }
   });
 
@@ -56,7 +79,6 @@ const search = () => {
         </div>
       </div>
     `;
-
       searchResult.append(div);
     });
   };
@@ -77,18 +99,41 @@ const search = () => {
   };
 
   const searchGoods = (data) => {
+    let filteredData = [];
+    let placeFilter = "";
     input.addEventListener("input", () => {
-      const filteredData = data.filter((item) => {
-        return (
-          item.keywords.includes(input.value.toLowerCase()) ||
-          item.name.toLowerCase().includes(input.value.toLowerCase())
-        );
+      filteredData = data.filter((item) => {
+        return placeFilter
+          ? (item.keywords.toLowerCase().includes(input.value.toLowerCase()) ||
+              item.name.toLowerCase().includes(input.value.toLowerCase())) &&
+              item.place.toLowerCase().includes(placeFilter)
+          : item.keywords.toLowerCase().includes(input.value.toLowerCase()) ||
+              item.name.toLowerCase().includes(input.value.toLowerCase());
       });
       numberOfGoods.innerHTML = `${filteredData.length} ${declOfNum(
         filteredData.length,
         ["товар", "товара", "товаров"]
       )}`;
-      renderCards(filteredData);
+      renderCards(filteredData.slice(0, 10));
+    });
+
+    categoryButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        categoryButtons.forEach((btn) => {
+          btn.classList.remove("button_full-white");
+        });
+        placeFilter = e.target.dataset.category;
+        let doubleFilteredData = [];
+        doubleFilteredData = filteredData.filter((item) => {
+          return item.place.toLowerCase().includes(e.target.dataset.category);
+        });
+        numberOfGoods.innerHTML = `${doubleFilteredData.length} ${declOfNum(
+          doubleFilteredData.length,
+          ["товар", "товара", "товаров"]
+        )}`;
+        renderCards(doubleFilteredData.slice(0, 10));
+        e.target.classList.add("button_full-white");
+      });
     });
   };
 

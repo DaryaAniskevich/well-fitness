@@ -4,6 +4,7 @@ const modal = (modal, openBtn, closeBtn) => {
   openBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
       modal.classList.add(modal_active);
+      modal.querySelector("input").focus();
     });
   });
   closeBtn.addEventListener("click", () => {

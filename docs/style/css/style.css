@@ -620,6 +620,7 @@ a:hover {
   font-weight: 500;
   font-size: 12px;
   line-height: 15px;
+  cursor: pointer;
 }
 
 .good-card:hover {
@@ -1803,11 +1804,17 @@ a:hover {
   margin-right: 12px;
 }
 
+.search-result-header-buttons__item:hover {
+  background-color: #f7f7f7;
+}
+
 .search-result-main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow: hidden;
+  grid-gap: 10px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   padding: 5px;
   border-bottom: 1px solid rgba(133, 143, 164, 0.15);
   margin-bottom: 20px;
@@ -2955,8 +2962,17 @@ a:hover {
     width: 270px;
   }
 
+  .good-card_search {
+    width: 180px;
+  }
+
   .good-card__image {
     width: 270px;
+  }
+
+  .good-card__image_search {
+    width: 180px;
+    height: 180px;
   }
 
   .news-card {
@@ -3959,7 +3975,6 @@ a:hover {
 
   .search-container {
     min-height: 100vh;
-    height: 100%;
     margin-top: 0;
     padding: 11px 10px 39px;
   }
