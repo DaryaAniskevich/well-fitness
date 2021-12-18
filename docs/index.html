@@ -1056,7 +1056,7 @@
     <div class="search modal">
   <div class="modal-wrapper">
     <div class="modal-content search-container">
-      <div class="search-form">
+      <div class="search-form container">
         <form>
           <input class="search-form__input" />
         </form>
@@ -1077,7 +1077,7 @@
           </svg>
         </button>
       </div>
-      <div class="search-result">
+      <div class="search-result container">
         <div class="search-result-header">
           <div class="search-result-header__text">
             Найдено <span class="search-result-header__number">0 товаров</span>
@@ -1098,10 +1098,12 @@
           </div>
         </div>
       </div>
-      <div class="search-result-main"></div>
-      <button class="search-result__button button button_full-red">
-        Показать все результаты
-      </button>
+      <div class="search-result-main container"></div>
+      <div class="container">
+        <button class="search-result__button button button_full-red">
+          Показать все результаты
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -1109,7 +1111,7 @@
     <div class="modal modal-catalog catalog">
   <div class="modal-wrapper">
     <div class="modal-catalog-content">
-      <div class="modal-catalog-type">
+      <div class="modal-catalog-type container">
         <button
           class="
             modal-catalog-type__item modal-catalog-type__item_home
@@ -1130,10 +1132,18 @@
         </button>
       </div>
       <div
-        class="modal-catalog-category modal-catalog-category-home hide"
+        class="
+          modal-catalog-category modal-catalog-category-home
+          container
+          hide
+        "
       ></div>
       <div
-        class="modal-catalog-category modal-catalog-category-clubs hide"
+        class="
+          modal-catalog-category modal-catalog-category-clubs
+          container
+          hide
+        "
       ></div>
     </div>
   </div>

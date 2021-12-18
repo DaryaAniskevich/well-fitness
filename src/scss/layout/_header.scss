@@ -205,7 +205,7 @@
     }
 
     &-nav {
-      margin-right: 30px;
+      margin-right: auto;
       @include screen-max($medium) {
         display: none;
       }

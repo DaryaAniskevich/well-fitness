@@ -2,13 +2,13 @@
   position: absolute;
   background-color: transparent;
   &-container {
-    padding: 0 10px 57px;
+    overflow-x: hidden;
+    padding: 0 30px 57px 20px;
     background-color: $white;
     width: 100vw;
     margin-top: 89px;
     @include screen-max($medium) {
       margin-top: 65px;
-      padding-left: 20px;
       padding-right: 20px;
     }
     @include screen-max($small) {

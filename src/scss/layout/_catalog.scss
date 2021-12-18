@@ -1,20 +1,6 @@
 .modal-catalog {
   position: absolute;
   background-color: transparent;
-  &:before {
-    content: "";
-    display: block;
-    width: 14px;
-    height: 14px;
-    transform: rotate(45deg);
-    background-color: $white;
-    position: absolute;
-    top: 165px;
-    left: 80px;
-    @include screen-max($medium) {
-      display: none;
-    }
-  }
   &-content {
     width: 100vw;
     background-color: $white;
@@ -24,11 +10,24 @@
       margin-top: 75px;
     }
   }
-
   &-type {
     display: flex;
     position: relative;
     padding: 0 10px;
+    &:before {
+      content: "";
+      display: block;
+      width: 14px;
+      height: 14px;
+      transform: translateX(20%) rotate(45deg);
+      background-color: $white;
+      position: absolute;
+      top: -23px;
+      left: 40px;
+      @include screen-max($medium) {
+        display: none;
+      }
+    }
     &:after {
       display: block;
       content: "";

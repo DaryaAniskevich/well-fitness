@@ -23,7 +23,6 @@ const callRequest = () => {
       e.target.classList.contains("modal-call-content-button") ||
       e.target.classList.contains("modal-button__svg")
     ) {
-      console.log("chekc");
       successMessage.classList.add(hide);
       nameIsValid = true;
       phoneIsValid = true;
