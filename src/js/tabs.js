@@ -25,39 +25,45 @@ const tabs = () => {
   );
   const favorite = document.querySelector(".modal-favorite");
 
+  const openModal = (modal, btn) => {
+    btn.classList.toggle(button_active);
+    modal.classList.toggle(hide);
+  };
+
+  const closeModal = (modal, btn) => {
+    modal.classList.add(hide);
+    btn.classList.remove(button_active);
+  };
+
   openCart.addEventListener("click", () => {
-    openCartSvg.classList.toggle(button_active);
-    cart.classList.toggle(modal_active);
+    if (!favorite.classList.contains(hide)) {
+      closeModal(favorite, openFavoriteSvg);
+    }
+    if (!comparison.classList.contains(hide)) {
+      closeModal(comparison, openComparisonSvg);
+    }
+    openModal(cart, openCartSvg);
   });
 
   openComparison.addEventListener("click", () => {
-    openComparisonSvg.classList.toggle(button_active);
-    comparison.classList.toggle(modal_active);
+    if (!favorite.classList.contains(hide)) {
+      closeModal(favorite, openFavoriteSvg);
+    }
+    if (!cart.classList.contains(hide)) {
+      closeModal(cart, openCartSvg);
+    }
+    openModal(comparison, openComparisonSvg);
   });
 
   openFavorite.addEventListener("click", () => {
-    openFavoriteSvg.classList.toggle(button_active);
-    favorite.classList.toggle(modal_active);
+    if (!comparison.classList.contains(hide)) {
+      closeModal(comparison, openComparisonSvg);
+    }
+    if (!cart.classList.contains(hide)) {
+      closeModal(cart, openCartSvg);
+    }
+    openModal(favorite, openFavoriteSvg);
   });
-
-  const closeModal = (...args) => {
-    args.forEach((modal) => {
-      modal.addEventListener("click", (e) => {
-        if (
-          e.target.classList.contains(modal_active) ||
-          e.target.classList.contains("modal-wrapper")
-        ) {
-          modal.classList.remove(modal_active);
-          document
-            .querySelectorAll(".header-navigation-buttons-item__img_active")
-            .forEach((button) => {
-              button.classList.remove(button_active);
-            });
-        }
-      });
-    });
-  };
-  closeModal(favorite, cart, comparison);
 };
 
 tabs();

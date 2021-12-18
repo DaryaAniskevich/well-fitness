@@ -1,20 +1,15 @@
 .tab {
-  justify-content: flex-end;
   background-color: transparent;
   position: absolute;
+  z-index: 1;
   &-content {
     width: 500px;
     background-color: $white;
     box-shadow: 0px 10px 30px rgba(133, 143, 164, 0.1);
     border-radius: 5px;
     padding: 17px 18px 22px;
-    margin-top: 150px;
-    @include screen-max($medium) {
-      margin-top: 60px;
-    }
     @include screen-max($small) {
       width: 300px;
-      margin-top: 50px;
     }
   }
   &__message {

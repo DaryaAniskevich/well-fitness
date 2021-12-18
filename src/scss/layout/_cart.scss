@@ -1,8 +1,0 @@
-.modal-cart {
-  &-content {
-    margin-right: 20px;
-    @include screen-max($small) {
-      margin-right: 10px;
-    }
-  }
-}

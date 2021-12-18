@@ -146,6 +146,7 @@
     padding: 16px 0;
     display: flex;
     align-items: center;
+    position: relative;
     @include screen-max($medium) {
       justify-content: flex-end;
     }
@@ -159,7 +160,7 @@
         margin-left: auto;
       }
       @include screen-max($small) {
-        margin-right: 18px;
+        margin-right: auto;
       }
       &:after {
         content: "";
@@ -203,7 +204,6 @@
         }
       }
     }
-
     &-nav {
       margin-right: auto;
       @include screen-max($medium) {
@@ -213,12 +213,12 @@
     &-buttons {
       display: flex;
       justify-content: space-between;
-      position: relative;
       margin-left: 35px;
       max-width: 170px;
       width: 100%;
       @include screen-max($small) {
-        margin-left: 0px;
+        margin-left: 20px;
+        justify-content: flex-end;
       }
       &-item {
         position: relative;
@@ -292,6 +292,27 @@
             height: 14px;
             right: -8px;
             font-size: 9px;
+          }
+        }
+      }
+    }
+    &-modals {
+      position: absolute;
+      top: 60px;
+      &__item {
+        &_cart {
+          right: -20px;
+          @include screen-max($medium) {
+            right: 20px;
+          }
+        }
+        &_comparison {
+          right: 120px;
+        }
+        &_favorite {
+          right: 50px;
+          @include screen-max($medium) {
+            right: 80px;
           }
         }
       }

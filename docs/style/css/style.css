@@ -896,11 +896,9 @@ a:hover {
 }
 
 .tab {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
   background-color: transparent;
   position: absolute;
+  z-index: 1;
 }
 
 .tab-content {
@@ -910,7 +908,6 @@ a:hover {
           box-shadow: 0px 10px 30px rgba(133, 143, 164, 0.1);
   border-radius: 5px;
   padding: 17px 18px 22px;
-  margin-top: 150px;
 }
 
 .tab__message {
@@ -1193,6 +1190,7 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .header-navigation-catalog {
@@ -1247,7 +1245,6 @@ a:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  position: relative;
   margin-left: 35px;
   max-width: 170px;
   width: 100%;
@@ -1314,6 +1311,23 @@ a:hover {
   font-size: 10px;
   line-height: 12px;
   border: 2px solid #1a1a25;
+}
+
+.header-navigation-modals {
+  position: absolute;
+  top: 60px;
+}
+
+.header-navigation-modals__item_cart {
+  right: -20px;
+}
+
+.header-navigation-modals__item_comparison {
+  right: 120px;
+}
+
+.header-navigation-modals__item_favorite {
+  right: 50px;
 }
 
 .header-menu {
@@ -1667,18 +1681,6 @@ a:hover {
 
 .modal-call-content-form__button {
   margin-top: 20px;
-}
-
-.modal-cart-content {
-  margin-right: 20px;
-}
-
-.modal-comparison-content {
-  margin-right: 100px;
-}
-
-.modal-favorite-content {
-  margin-right: 70px;
 }
 
 .modal-city-content {
@@ -3001,10 +3003,6 @@ a:hover {
     margin-right: 0;
   }
 
-  .tab-content {
-    margin-top: 60px;
-  }
-
   .header-top {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -3087,6 +3085,14 @@ a:hover {
 
   .header-navigation-buttons-item:not(:last-child) {
     margin-right: 15px;
+  }
+
+  .header-navigation-modals__item_cart {
+    right: 20px;
+  }
+
+  .header-navigation-modals__item_favorite {
+    right: 80px;
   }
 
   .header-menu-container {
@@ -3695,7 +3701,6 @@ a:hover {
 
   .tab-content {
     width: 300px;
-    margin-top: 50px;
   }
 
   .tab-goods-item {
@@ -3780,7 +3785,7 @@ a:hover {
   }
 
   .header-navigation-catalog {
-    margin-right: 18px;
+    margin-right: auto;
   }
 
   .header-navigation-catalog:after {
@@ -3798,7 +3803,10 @@ a:hover {
   }
 
   .header-navigation-buttons {
-    margin-left: 0px;
+    margin-left: 20px;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
 
   .header-navigation-buttons-item {
@@ -3957,10 +3965,6 @@ a:hover {
 
   .modal-call-content__title {
     text-align: center;
-  }
-
-  .modal-cart-content {
-    margin-right: 10px;
   }
 
   .modal-city-content {
