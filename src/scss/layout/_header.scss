@@ -160,7 +160,7 @@
         margin-left: auto;
       }
       @include screen-max($small) {
-        margin-right: auto;
+        margin-right: 18px;
       }
       &:after {
         content: "";
@@ -217,7 +217,7 @@
       max-width: 170px;
       width: 100%;
       @include screen-max($small) {
-        margin-left: 20px;
+        margin-left: 0px;
         justify-content: flex-end;
       }
       &-item {

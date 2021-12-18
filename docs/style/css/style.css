@@ -3785,7 +3785,7 @@ a:hover {
   }
 
   .header-navigation-catalog {
-    margin-right: auto;
+    margin-right: 18px;
   }
 
   .header-navigation-catalog:after {
@@ -3803,7 +3803,7 @@ a:hover {
   }
 
   .header-navigation-buttons {
-    margin-left: 20px;
+    margin-left: 0px;
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
